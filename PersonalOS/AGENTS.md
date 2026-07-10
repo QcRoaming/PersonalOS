@@ -53,5 +53,5 @@ If the lane version changed after it was read, do not overwrite it. Write `pendi
 
 - Recommend within the active lane by default.
 - Compare all lanes only when the user requests global prioritization.
-- Respect `priority`, `role`, blockers, prerequisites, and explicit user intent.
+- Respect `priority`, `role`, blockers, prerequisites, and explicit user intent.  
 
