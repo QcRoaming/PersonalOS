@@ -1,10 +1,11 @@
 ---
 id: personal.routes
-version: 3
+version: 5
 updated_at: 2026-07-10
 main_lane: research.kernel_aware_gemm
-canonical_store: persistent_files
-git_repository: QcRoaming/personal-os
+canonical_store: private_git
+git_repository: QcRoaming/PersonalOS-v1
+repository_subdir: PersonalOS
 sync_method: local_git
 ---
 
@@ -55,7 +56,8 @@ sync_method: local_git
 4. 远程仓库绑定后：没有本地工作副本时，可读取已授权的私人仓库。
 5. 不同存储同时存在时，以本文件 `canonical_store` 和最新版本为准；不得静默双向覆盖。
 
-## Pending Configuration
+## Active Sync Configuration
 
-- 从本地 WSL 将当前 PersonalOS 首次推送到 `QcRoaming/personal-os`。
-- 完成首次上传后，将 `canonical_store` 改为 `private_git`，持久文件区作为跨窗口镜像。
+- 权威仓库：`QcRoaming/PersonalOS-v1`。
+- PersonalOS 根目录：仓库内 `PersonalOS/`。
+- 本地同步方式：Git；跨窗口持久文件作为镜像。
