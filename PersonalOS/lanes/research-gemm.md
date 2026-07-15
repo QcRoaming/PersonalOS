@@ -4,7 +4,7 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 8
+version: 10
 updated_at: 2026-07-15
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
@@ -24,7 +24,7 @@ imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
 
 # Current Checkpoint
 
-第三章事实与规则、第四章空间生成、第五章真实 BLIS direct/fringe/dynamic 以及 Chapter 4-5 集成均已有独立证据包。第六章 36-shape、B1-B4、五种子、25 回调预算的正式评估现已完成，包含优化动态 MLIR、完整 `bli_sgemm`、消融、探索壳、holdout、开销、置信区间和 11 幅论文图。Chapter 3 的 16 条源码核验记录已完成论文作者签核，当前主线转为按实测结果撰写第四至六章。
+第三章事实与规则、BLIS/OpenBLAS 多源冲突、第四章空间生成、第五章真实 BLIS direct/fringe/dynamic、Chapter 4-5 集成及第六章正式 B1-B4 均已有独立证据包。新增 CGO 扩展已完成 f64 6x8 Contract、真实在线反馈、Optuna TPE 同预算对照和多来源软先验消融；14900K/KF 固定 revision 离线包已生成。K230 与第二 x86 主机都等待外部硬件执行，在结果导入前不形成跨主机或跨架构性能结论。
 
 # Verified Milestones
 
@@ -55,22 +55,32 @@ imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
 - BaCO 3.0 离线重放记录到 370 次重复回调；GPy 原生 Cholesky 抖动耗尽后的确定性兼容兜底触发 1,292 次。候选域、种子和目标值保持不变，兼容介入单独披露，不作为算法贡献。
 - 第六章已生成 4 张 LaTeX/CSV 表和 11 幅 SVG/PDF/600-dpi TIFF/PNG 图，机器 QA、人工预览和 13 项 artifact/space 测试全部通过；PersonalOS 注册表现为 11/11 全部可用。
 - Chapter 3 的 16/16 条源码核验记录已由论文作者明确签核，机器检查和人工状态分别保持为 `pass` 与 `verified`；重跑提取器后验证器报告 0 条待签，图 6-1 和 RQ1 汇总同步为 100%。
+- 已固定 OpenBLAS `b338322e9afc063d95e2c117e85bedf28213295a`，抽取 BLIS Haswell、OpenBLAS Haswell、BLIS RVV VLEN128 和 OpenBLAS ZVL128B 的事实/Contract，并显式记录 4 组跨源冲突；OpenBLAS Haswell 的 4 shape、28 条 CBLAS 实测全部正确。
+- 已完成 36 shape x 28 candidate 的 1008-case 真实测量语料及 13,125 条在线轨迹。静态 BLIS 排序的 design/validation/holdout Spearman 为 0.080/0.034/0.167，校准后为 0.635/0.633/0.685；budget 5 下离线校准为 0.568 x pool-best、在线校准为 0.563，说明同主机已有充分离线训练时在线更新未额外获益，误导先验则可随反馈恢复。
+- 已固定 K230 SDK `7e302f733311d284be255f0d81d3463b6ae6ee6d` 和官方 RT-Smart GCC 12.0.1 工具链，完成 OpenBLAS `RISCV64_ZVL128B` 8x8 microkernel/packing 的静态交叉构建。scalar、显式 RVV、完整 OpenBLAS 三个 ELF 均为静态 ELF64 RISC-V，反汇编 RVV opcode 命中分别为 3/53/372；部署包已生成，状态为 `elf_ready_awaiting_board_results`。
+- Buddy packing pass 已从硬编码 f32 泛化到匹配的 f32/f64 memref；f64 Haswell `bli_dgemm_haswell_asm_6x8` 在 36 个冻结 shape 上完成 128 个唯一二进制、3132 条 trial，3024 条候选观测的 direct/adapt 预测与 runtime fringe 路径 100% 一致。每 shape 28 点池内最优相对完整 `bli_dgemm` 的几何比为 1.064。
+- 已完成真实 `select -> fresh subprocess -> update` 闭环：12 个 holdout、4 种策略、5 个 seed、25 预算共 6000 次新进程目标测量，objective cache hit 为 0。预算 5 时离线/在线校准相对随机分别为 1.192 倍 [1.055, 1.343] 和 1.155 倍 [1.042, 1.277]。
+- 已固定 Optuna 4.9.0 TPE，在同一有限候选池和 25 个唯一测量预算下完成 1500 次新进程目标测量；2035 个 callback 中 535 个重复建议被剪枝且不消耗有效预算。在线校准相对 TPE 在预算 5/25 的区间均跨 1，不宣称显著优于现有 tuner。
+- 多来源消融保持 BLIS/OpenBLAS 不兼容硬 ABI 分离，仅比较同一 BLIS-hard-valid 池上的软排序。预算 5 时 BLIS-only 和校准先验相对 naive merge 分别为 1.063 倍 [1.029, 1.103] 和 1.067 倍 [1.018, 1.125]；校准与 BLIS-only 为 1.003 倍且区间跨 1，说明盲目增加来源会伤害排序，校准主要恢复而非必然超越可靠单源。
+- 已生成 14900K/KF source-only 包，固定 Buddy `d7bb40c`、LLVM `09b849a`、BLIS `36df51a`，自动构建工具链、选择 P-core、运行正式协议并回传带 SHA-256 清单的归档；本机 importer 会拒绝 CPU/revision/hash/status 不匹配。当前状态为 `ready_pending_external_run`。
 
 # Doing
 
-- 根据筛选后的 Chapter 3-6 正式证据撰写第四、五、六章正文。
+- 等待 K230 与 14900K/KF 两个外部硬件结果，同时用已筛选的 Chapter 3-6 和 CGO 扩展正式证据撰写正文。
 
 # Next
 
-1. 用 Chapter 6 报告、表 6-1 至表 6-4 和图 6-1 至图 6-11 撰写第六章正文，明确 B2 优于当前 B3/B4 的反直觉结果。
-2. 用正式 evaluator 结果回写第四章空间设计讨论和第五章实现边界，避免继续引用 scalar-only 性能结论作为最终证据。
-3. 仅在论文时间允许时补充第二 dtype 或第二主机；二者属于增强证据，不是当前单主机 f32 闭环的缺失行。
+1. 在 14900K/KF 上运行 `x86_cross_host` 包并导入归档，检验低预算排序、f64 Contract 和相对 BLIS 性能的跨主机稳定性。
+2. 在 K230 C908 大核上运行 `board/run_k230_suite.sh` 并导入 CSV，形成跨架构正确性与性能结果。
+3. 用 Chapter 6 与 CGO 扩展报告撰写第六章，明确低预算校准优于随机、与 Optuna 无显著差异、naive 多源合并有害，以及 B2 仍是原正式评估最佳空间。
 
 # Current Blockers
 
-- 当前只覆盖单线程、行主序 f32 与一个 Haswell 6x16 Contract；任意 stride、其他 dtype/微内核和跨主机泛化尚未验证。
+- 当前本机覆盖单线程、行主序 f32 6x16 与 f64 6x8 两个 Haswell Contract；任意 stride、更多后端 Contract 和跨主机泛化尚未验证。
 - 当前软专家先验没有优于硬 Contract-only B2；论文必须把它表述为本次实现的经验限制和后续规则校准方向，而不是宣称完整专家空间全面获胜。
 - BaCO 3.0 分类参数存在重复回调与 GPy 数值稳定性问题；固定预算以回调计，唯一候选数和兼容兜底触发数必须同时披露。
+- K230 目前只有官方工具链静态 ELF、OpenBLAS 链接和反汇编证据，尚无物理板正确性/性能 CSV；在导入前不能声称 RVV 加速、专家排序迁移或跨架构泛化。
+- 14900K/KF 目前只有通过本机校验的 source bundle，尚无外部主机归档；在 importer 通过前不能声称 x86 跨主机排名稳定或性能泛化。
 
 # Decisions
 
@@ -87,6 +97,10 @@ imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
 - 论文实验按 `primary_main_text`、`supporting_main_text`、`appendix_only` 和 `reference_only` 分级；只有前两类进入正文，且必须遵守各自 claim boundary。
 - 第六章以真实结果为准：B2 是当前固定预算最佳方法，B3/B4 的价值主要体现在更快达到各自池内高质量点和 packing/路径约束，而不宣称其最终性能必然优于 B2。
 - BaCO 保持固定版本和原候选域/目标值；`warnings`、scikit-learn 参数映射及 GPy 抖动兜底属于公开记录的运行时兼容层，不归入方法贡献。
+- 将 ISA、microkernel shape、packing、layout 与 ABI 作为可条件迁移的硬兼容知识；把 MC/KC/NC、候选排序和库内经验参数作为必须由目标反馈校准的软性能先验。
+- 同预算 tuner 对照以唯一实测候选数计预算；重复建议保留 callback 证据但不执行、不复用目标值，也不消耗唯一测量预算。
+- 多来源知识不合并 backend-specific 的 microkernel/packing ABI；只有 source-labelled 性能特征可进入 naive 或 calibrated 软排序消融。
+- K230 官方 GCC 的旧 RVV intrinsic API 通过生成式兼容头接入，不修改 OpenBLAS 上游 worktree、不替换 `RISCV64_ZVL128B` microkernel/packing；兼容映射和哈希属于构建 provenance，不作为算法贡献。
 
 # Knowledge State
 
@@ -95,9 +109,9 @@ imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
 | Transform Dialect 调度链路 | applied | 已跑通基础 lowering 与执行链路 | 在 §4.5 artifact 上复现完整 tuning loop |
 | GEMM blocking 层次 | understood | 已讨论 MC/KC/NC 与 MR/NR 的职责 | 对照 BLIS 配置与源码符号记录证据 |
 | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
-| microkernel contract | applied | 6x16 contract 已驱动 direct/adapt 动态替换与运行时路径计数 | 扩展多 contract 选择与额外 dtype |
+| microkernel contract | applied | f32 6x16 与 f64 6x8 contract 已驱动 36-shape direct/adapt 动态替换与运行时路径计数 | 扩展任意 stride、更多后端和跨主机验证 |
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
-| RVV 后端 | exposed | 长期方向已确定 | 最小 x86 闭环完成后再建立 RVV 实验线 |
+| RVV 后端 | applied-build | K230 官方工具链已生成 scalar/RVV/OpenBLAS 三个静态 ELF 和部署包 | 物理板执行、正确性检查与 CSV 导入 |
 
 # Completion Criteria
 

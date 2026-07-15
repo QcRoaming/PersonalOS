@@ -4,10 +4,11 @@ title: Skills, MCP, and Agent Tooling
 role: supporting
 priority: P2
 status: active
-version: 5
-updated_at: 2026-07-10
+version: 9
+updated_at: 2026-07-15
 keywords: Skill|Skills|MCP|Codex|Agent|Plugin|nature-skills|CDP|slock|IDEA|VSCode|personal-os
 imports: none
+last_activity_at: 2026-07-15T17:26:55Z
 ---
 
 # Goal
@@ -16,7 +17,7 @@ imports: none
 
 # Current Checkpoint
 
-PersonalOS v1 文件系统和 `personal-os` Skill 已完成并通过校验；已选择本地 Git 路线，下一步是首次推送并切换多机器权威源。
+PersonalOS v2 已在认证的本地 clone 中完成部署并推送到 `agent/personal-os-cross-account-v2`，PR `QcRoaming/PersonalOS-v1#1` 已创建且等待合并。部署保留并刷新了晚于升级包的 16 条实验注册表，结构检查、注册表检查和 10 项测试全部通过；合并后需执行 install、doctor，并完成真实第二账号/第二设备端到端验收。
 
 # Verified Milestones
 
@@ -29,32 +30,38 @@ PersonalOS v1 文件系统和 `personal-os` Skill 已完成并通过校验；已
 - 已创建并安装 `personal-os` Skill，覆盖 ChatGPT 与 Codex 的支线路由、更新边界和冲突处理。
 - 已将 PersonalOS v1 保存为跨窗口持久文件集。
 - 已确定本地 Git 为首次发布方式，绕过第三方 GitHub App 缺少 Contents 写权限的问题。
+- 已完成 PersonalOS v2：新增 START_HERE、HANDOFF、KNOWLEDGE，以及 start/checkpoint/views/sync/doctor/install 命令。
+- 已在最新的 16 条实验注册表、CGO 扩展和跨平台待运行状态上完成兼容验证，没有回退研究主线。
+- 已按 Codex 当前发现规则将全局协议安装到 ~/.codex/AGENTS.md，并将用户级 Skill 安装到 ~/.agents/skills/personal-os/。
+- 已通过认证的本地 Git 将 v2 分支推送到远端，并创建到 `main` 的 PR `#1`。
 
 # Doing
 
-- 准备在两个新窗口中分别验证主线和推理支线隔离。
-- 将下载包从 WSL 首次推送到 `QcRoaming/personal-os`，验证后切换多机器权威源。
+- 等待 PR `#1` 合并；合并后安装 v2，并在真实新账号、新设备上验证恢复流程。
 
 # Next
 
-1. 在新窗口使用 `继续主线` 验证 Skill 是否只加载 GEMM 支线。
-2. 在另一窗口使用 `切换到推理框架支线` 验证上下文隔离。
-3. 创建或授权私人 PersonalOS 仓库，并完成首次多机器同步。
-4. 在本地 Codex CLI 和 IDE 中设置 `PERSONAL_OS_ROOT`。
-5. 为 nature-skills 完成一个不依赖 CDP 的最小 Skill 验证，再处理自动下载链路。
+1. 审查并合并 PR `QcRoaming/PersonalOS-v1#1`。
+2. 切回 `main`、快进拉取后执行 install 和 doctor，并重启 Codex CLI 或 VS Code Codex 扩展。
+3. 用另一个 ChatGPT 账号授权同一私有仓库并发送 START_HERE.md 中的固定启动消息。
+4. 在第二台设备执行 clone、install、doctor，并完成一次 checkpoint/push/pull 往返。
+5. 完成一次 VS Code 实验 refresh --sync-push，再验证网页 HANDOFF.md 能看到相同检查点。
 
 # Current Blockers
 
-- 已确定私人仓库为 `QcRoaming/personal-os`。GitHub App 已选择该仓库，但授权页只包含 metadata 读取和 issues/pull requests 读写，不包含 repository Contents 写入；因此首次创建 `README.md` 返回 `Resource not accessible by integration`，仓库仍为空。
-- nature-skills 的 Chrome CDP 代理未启动，涉及浏览器自动下载的端到端功能未验证。
-- 不同 Codex 表面对全局 Skill 和持久文件的可见性需要通过真实新窗口测试。
+- PR `#1` 尚未合并，因此当前 `main` 和已安装的全局协议仍是 v1 状态。
+- 跨账号恢复仍需在第二个真实 ChatGPT 账号完成 GitHub 私有仓库授权和固定启动消息验收。
+- 多设备恢复仍需在第二台真实设备执行 clone、install、doctor 和一次 checkpoint/push/pull 往返。
+- 网页端不能读取 VS Code 容器中未提交的原始实验文件；必须先同步 PersonalOS 元数据，原始证据还需单独授权其项目仓库或存储。
+- nature-skills 的 Chrome CDP 代理未启动，涉及浏览器自动下载的端到端功能未验证；该问题与 PersonalOS v2 同步闭环独立。
 
 # Decisions
 
-- PersonalOS 动态个人数据不打包进 Skill；Skill 只保存读取、路由和更新协议。
-- 本地和多机器最终使用私人 Git 仓库作为唯一权威源，持久文件区作为 ChatGPT 跨窗口镜像。
+- PersonalOS 动态个人数据不打包进 Skill；Skill 只保存定位、读取、路由、更新和同步协议。
+- 本地、多机器和多账号统一使用私人 Git 仓库作为唯一权威源；聊天记忆、Library 和持久文件只可作为非权威缓存。
 - 不保存所有对话；只保存语义状态增量。
-- 首次发布采用用户本地 Git 凭据；第三方 GitHub App 继续只用于其已授权的 issues/PRs 能力。
+- 新账号不依赖旧账号安装的 Skill：GitHub 授权加 START_HERE.md 是最小恢复路径。
+- 自动 Git push 必须显式启用；默认实验刷新只更新本地元数据和生成视图。
 
 # Knowledge State
 
@@ -62,5 +69,17 @@ PersonalOS v1 文件系统和 `personal-os` Skill 已完成并通过校验；已
 |---|---|---|---|
 | Skill 结构与触发 | understood | 已分析 nature-skills 与安装目录 | 创建并安装 personal-os Skill |
 | MCP 注册与运行 | understood | 已明确 config 注册和独立进程关系 | 运行一个 MCP server 并调用工具 |
-| 跨窗口状态协议 | applied | 已建立文件、路由、Skill 与更新协议 | 新窗口读写验证 |
-| 多机器同步 | exposed | 已确定私人 Git 单一真源方案 | 绑定仓库并在第二台环境验证 |
+| 跨窗口状态协议 | applied | 已实现确定性 Handoff、单 Lane 启动和结构化检查点并通过测试 | 真实网页新窗口验收 |
+| 多机器同步 | applied | 已实现 Git commit-rebase-push 闭环并用本地远程仓库验证 | 第二台真实设备验收 |
+| 跨账号恢复 | applied | 已实现 GitHub 授权加 START_HERE 固定启动协议 | 第二个 ChatGPT 账号端到端验收 |
+
+# Recent Evidence
+
+- 2026-07-15T16:08:39Z — 远程最新第六章实验注册表得到保留；11 个实验条目结构检查通过。
+- 2026-07-15T16:08:39Z — personal_os.py 的 start、checkpoint、install、views、doctor 与 Git sync 闭环已验证。
+- 2026-07-15T16:08:39Z — 10 项单元测试全部通过，另以本地 bare remote 验证 commit、rebase、push。
+- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/START_HERE.md
+- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/HANDOFF.md
+- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/KNOWLEDGE.md
+- 2026-07-15T16:11:37Z — GitHub App 读取远程最新提交成功，但创建 agent/personal-os-cross-account-v2 分支返回 403；已确定改用本地认证 Git 发布。
+- 2026-07-15T17:26:55Z — 本地认证 Git 已推送 v2 分支并创建 PR `QcRoaming/PersonalOS-v1#1`；16 条实验全部可用，10 项测试通过。

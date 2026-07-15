@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import tempfile
 from datetime import datetime, timezone
@@ -26,6 +27,7 @@ ALLOWED_STATUSES = {
     "archived",
     "complete_method_evidence",
     "complete_pending_human_signoff",
+    "ready_pending_external_run",
     "reference_extraction_only",
 }
 ALLOWED_PAPER_TIERS = {
@@ -456,6 +458,11 @@ def build_parser() -> argparse.ArgumentParser:
         default=Path(os.environ.get("BUDDY_MLIR_ROOT", "/buddy-mlir")),
     )
     refresh.add_argument("--completed-id", action="append", default=[])
+    refresh.add_argument(
+        "--sync-push",
+        action="store_true",
+        help="after refresh, commit/rebase/push PersonalOS to the canonical Git repository",
+    )
     check = subparsers.add_parser("check", help="validate schema and generated view")
     check.add_argument("--root", type=Path, default=default_root)
     return parser
@@ -483,6 +490,31 @@ def main() -> int:
         print(f"updated {root / REGISTRY_RELATIVE_PATH}")
         print(f"updated {root / VIEW_RELATIVE_PATH}")
         print(f"registered={len(data['entries'])} fully_available={available}")
+        personal_os = root / "scripts" / "personal_os.py"
+        views = subprocess.run(
+            [sys.executable, str(personal_os), "views", str(root)],
+            check=False,
+        )
+        if views.returncode:
+            print("ERROR: failed to refresh PersonalOS handoff views", file=sys.stderr)
+            return views.returncode
+        if args.sync_push:
+            completed = ",".join(args.completed_id) or "experiment registry"
+            sync = subprocess.run(
+                [
+                    sys.executable,
+                    str(personal_os),
+                    "sync",
+                    str(root),
+                    "--push",
+                    "--message",
+                    f"Sync experiment checkpoint: {completed}",
+                ],
+                check=False,
+            )
+            if sync.returncode:
+                print("ERROR: registry updated locally but Git sync failed", file=sys.stderr)
+                return sync.returncode
         return 0
     return 2
 

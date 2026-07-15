@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -73,9 +73,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 4350,
-            "modified_at_utc": "2026-07-14T11:04:11Z",
-            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+            "size_bytes": 4967,
+            "modified_at_utc": "2026-07-15T16:54:04Z",
+            "sha256": "262fbb83b1efba40ee11485005bac69609f855317263cc2cb5ff90978e73d840"
           },
           "jlq/thesis/experiments/results/mlir_aot_benchmark.csv": {
             "exists": true,
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -163,9 +163,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 4350,
-            "modified_at_utc": "2026-07-14T11:04:11Z",
-            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+            "size_bytes": 4967,
+            "modified_at_utc": "2026-07-15T16:54:04Z",
+            "sha256": "262fbb83b1efba40ee11485005bac69609f855317263cc2cb5ff90978e73d840"
           },
           "jlq/thesis/experiments/results/cpu_benchmark_summary.md": {
             "exists": true,
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -287,9 +287,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 4350,
-            "modified_at_utc": "2026-07-14T11:04:11Z",
-            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+            "size_bytes": 4967,
+            "modified_at_utc": "2026-07-15T16:54:04Z",
+            "sha256": "262fbb83b1efba40ee11485005bac69609f855317263cc2cb5ff90978e73d840"
           },
           "jlq/thesis/experiments/results/qemu_correctness_check.md": {
             "exists": true,
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -378,9 +378,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 4350,
-            "modified_at_utc": "2026-07-14T11:04:11Z",
-            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+            "size_bytes": 4967,
+            "modified_at_utc": "2026-07-15T16:54:04Z",
+            "sha256": "262fbb83b1efba40ee11485005bac69609f855317263cc2cb5ff90978e73d840"
           },
           "jlq/thesis/experiments/results/rvv_toolchain_check.md": {
             "exists": true,
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -461,9 +461,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 4350,
-            "modified_at_utc": "2026-07-14T11:04:11Z",
-            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+            "size_bytes": 4967,
+            "modified_at_utc": "2026-07-15T16:54:04Z",
+            "sha256": "262fbb83b1efba40ee11485005bac69609f855317263cc2cb5ff90978e73d840"
           },
           "jlq/thesis/experiments/results/transform_demo_check.md": {
             "exists": true,
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -566,6 +566,232 @@
       }
     },
     {
+      "id": "thesis.cgo_local_extension",
+      "title": "CGO-strengthening f64, True-online, Optuna and Multi-source Evaluation",
+      "chapter": "6 extension",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/cgo_extension"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/cgo_extension/cgo_extension_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/cgo_extension/processed/cgo_extension_summary.json",
+        "jlq/thesis/experiments/cgo_extension/processed/f64_contract_summary.json",
+        "jlq/thesis/experiments/cgo_extension/raw/true_online_traces.csv",
+        "jlq/thesis/experiments/cgo_extension/raw/optuna_traces.csv",
+        "jlq/thesis/experiments/cgo_extension/processed/multisource_fixed_budget.csv",
+        "jlq/thesis/experiments/cgo_extension/processed/paired_bootstrap_comparisons.csv",
+        "jlq/thesis/experiments/cgo_extension/reports/cgo_extension_results.md",
+        "jlq/thesis/experiments/cgo_extension/provenance/cgo_extension_manifest.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py",
+      "claim_boundary": "Single-thread local x86 evidence for f32/f64 BLIS Haswell Contracts, fresh-process online tuning, Optuna TPE and source-labelled soft-prior ranking. It does not establish cross-host or cross-architecture generalization.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 additional dtype and live tuning evaluation",
+          "Chapter 7 conclusions and limitations"
+        ],
+        "decision": "Primary extension evidence for f64 Contract transfer, genuine online measurement, an equal-budget Optuna TPE baseline, and source-labelled BLIS/OpenBLAS prior ablation. Use the low-budget gains over random and naive source merging; do not claim statistically significant superiority over Optuna or cross-host generalization.",
+        "usable_claims": [
+          "The f64 Haswell dgemm 6x8 path passed 3132 trials over 36 shapes, with all direct/adapt predictions matching runtime observations.",
+          "At budget 5, offline and online calibrated policies were 1.192x and 1.155x faster than random in paired geometric comparisons, with both 95% bootstrap intervals above one.",
+          "Online calibration did not significantly outperform Optuna TPE at budget 5 or 25; all 7500 tuner objectives were fresh subprocess measurements with zero objective-cache hits.",
+          "BLIS-only and calibrated source priors both outperformed naive BLIS/OpenBLAS merging at budget 5, while calibrated and BLIS-only performance were statistically indistinguishable."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/cgo_extension",
+            "exists": true
+          }
+        ],
+        "file_count": 13474,
+        "size_bytes": 391640393,
+        "last_modified_utc": "2026-07-15T16:51:43Z",
+        "tree_fingerprint_sha256": "b3a0a3b54019b70d25d179346989a20b3b1372f6c09b8cdc5bcf880f3d9734be",
+        "tracked_files": {
+          "jlq/thesis/experiments/cgo_extension/cgo_extension_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 1105,
+            "modified_at_utc": "2026-07-15T16:40:49Z",
+            "sha256": "3b3ad21f006a57c4f762bfe0bf2e81560ee50b6152af9ede6e5c9a6d262d6320"
+          },
+          "jlq/thesis/experiments/cgo_extension/processed/cgo_extension_summary.json": {
+            "exists": true,
+            "size_bytes": 6692,
+            "modified_at_utc": "2026-07-15T16:51:19Z",
+            "sha256": "62c564c4bd2a6122c3cf99fb6086503e0ae711d0a67a1523a2a809f767b04867"
+          },
+          "jlq/thesis/experiments/cgo_extension/processed/f64_contract_summary.json": {
+            "exists": true,
+            "size_bytes": 768,
+            "modified_at_utc": "2026-07-15T16:36:24Z",
+            "sha256": "ced646598f7b503da9fcea10fe252efc215afcef1a306a68a35b1caa6cc67161"
+          },
+          "jlq/thesis/experiments/cgo_extension/processed/multisource_fixed_budget.csv": {
+            "exists": true,
+            "size_bytes": 805,
+            "modified_at_utc": "2026-07-15T16:22:33Z",
+            "sha256": "05a06cabd527cc99041e1a533a14dba249e1ad4966423d12ed906aba33c5cc20"
+          },
+          "jlq/thesis/experiments/cgo_extension/processed/paired_bootstrap_comparisons.csv": {
+            "exists": true,
+            "size_bytes": 1126,
+            "modified_at_utc": "2026-07-15T16:51:19Z",
+            "sha256": "24029dac354deb28378251b0f321a2225a397c351e82397363a99ca4805d5242"
+          },
+          "jlq/thesis/experiments/cgo_extension/provenance/cgo_extension_manifest.json": {
+            "exists": true,
+            "size_bytes": 1381,
+            "modified_at_utc": "2026-07-15T16:51:19Z",
+            "sha256": "038ad457c833aba80c4361c1bbe88d9154a3312c5acc9b389a88d2fde4cfefc8"
+          },
+          "jlq/thesis/experiments/cgo_extension/raw/optuna_traces.csv": {
+            "exists": true,
+            "size_bytes": 586267,
+            "modified_at_utc": "2026-07-15T16:48:56Z",
+            "sha256": "19578ba29eda284156c226b2aa1e3b1aacd6bc9eefc5b35e0aa7c614a6a4c48a"
+          },
+          "jlq/thesis/experiments/cgo_extension/raw/true_online_traces.csv": {
+            "exists": true,
+            "size_bytes": 2466777,
+            "modified_at_utc": "2026-07-15T16:47:58Z",
+            "sha256": "cb15caa355ec6a9dd79c67f2a68fa1f631e1a86c8e0b4a440e3f6bc7b7606a2d"
+          },
+          "jlq/thesis/experiments/cgo_extension/reports/cgo_extension_results.md": {
+            "exists": true,
+            "size_bytes": 3309,
+            "modified_at_utc": "2026-07-15T16:51:19Z",
+            "sha256": "4b917ddc16f929cc0db8963a4728e0c701274c73ac66ad0e4e65aef5083a3ab0"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T17:01:04Z"
+      }
+    },
+    {
+      "id": "thesis.chapter3_multisource",
+      "title": "Chapter 3 BLIS and OpenBLAS Multi-source Expert Facts",
+      "chapter": "3",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter3_multisource"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter3_multisource/chapter3_multisource_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter3_multisource/data/multisource_facts.yaml",
+        "jlq/thesis/experiments/chapter3_multisource/data/conflicts.yaml",
+        "jlq/thesis/experiments/chapter3_multisource/processed/summary.json",
+        "jlq/thesis/experiments/chapter3_multisource/processed/openblas_validation_summary.json",
+        "jlq/thesis/experiments/chapter3_multisource/reports/multisource_results.md",
+        "jlq/thesis/experiments/chapter3_multisource/reports/openblas_runtime_validation.md",
+        "jlq/thesis/experiments/chapter3_multisource/provenance/manifest.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter3_multisource/scripts/run_multisource.py --skip-openblas-build",
+      "claim_boundary": "Pinned BLIS/OpenBLAS source extraction and four-shape host OpenBLAS CBLAS validation. Facts remain backend-specific: hard compatibility contracts may transfer conditionally, while blocking values are soft implementation hints rather than universal performance laws.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter3_multisource/scripts/run_multisource.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 3 multi-source knowledge model",
+          "Chapter 7 discussion"
+        ],
+        "decision": "Primary evidence that hard compatibility knowledge and soft performance hints are separated across BLIS and OpenBLAS. Host OpenBLAS runtime validation supports extraction fidelity; backend-specific conflicts must not be collapsed into universal constants.",
+        "usable_claims": [
+          "BLIS and OpenBLAS expose source-linked but backend-specific microkernel, packing, layout and blocking facts.",
+          "Cross-source conflicts motivate hard compatibility contracts plus calibratable soft performance priors.",
+          "The pinned OpenBLAS Haswell CBLAS probe passed all four shapes and 28 real trials."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter3_multisource",
+            "exists": true
+          }
+        ],
+        "file_count": 18,
+        "size_bytes": 121065,
+        "last_modified_utc": "2026-07-15T13:23:02Z",
+        "tree_fingerprint_sha256": "95bccb69ca732981ee95e5e5659dc496dcff9f7bfd766ce4cdfc95c815da62c6",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter3_multisource/chapter3_multisource_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 691,
+            "modified_at_utc": "2026-07-15T12:15:19Z",
+            "sha256": "b5ca335b79907b1c05be674691a3de71c7c6047312a7a2e1de133de133a6345e"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/data/conflicts.yaml": {
+            "exists": true,
+            "size_bytes": 1208,
+            "modified_at_utc": "2026-07-15T12:15:26Z",
+            "sha256": "b6e1b537b026a9ceff4912ee1d04a3a4e2a3bfc568feedf67a3b70358aca328b"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/data/multisource_facts.yaml": {
+            "exists": true,
+            "size_bytes": 9938,
+            "modified_at_utc": "2026-07-15T12:15:26Z",
+            "sha256": "8d08d895242f0bf7d56dcb7a7fcfb356b4a85bc4adbfd68c59efb1ec92e8c599"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/processed/openblas_validation_summary.json": {
+            "exists": true,
+            "size_bytes": 1636,
+            "modified_at_utc": "2026-07-15T12:21:13Z",
+            "sha256": "f3dc0a4cb8e75589447b8080a92b04d30910b35c987dc7285ee7809e093eba4c"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/processed/summary.json": {
+            "exists": true,
+            "size_bytes": 640,
+            "modified_at_utc": "2026-07-15T12:15:26Z",
+            "sha256": "aa2e360ef79a46ad37d11e08abfcd4b7ad09a6da08efb72a747acc2a94aecd11"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 2508,
+            "modified_at_utc": "2026-07-15T12:15:26Z",
+            "sha256": "127243add344078fc7c84d7860605c020c8e56b9021a73233b69f910476764d3"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/reports/multisource_results.md": {
+            "exists": true,
+            "size_bytes": 1295,
+            "modified_at_utc": "2026-07-15T12:15:26Z",
+            "sha256": "0d59dd281c4f951d26ffb7f9a95f969b80df7c87697c8f9d90aa2f76d3e891b3"
+          },
+          "jlq/thesis/experiments/chapter3_multisource/reports/openblas_runtime_validation.md": {
+            "exists": true,
+            "size_bytes": 556,
+            "modified_at_utc": "2026-07-15T12:21:13Z",
+            "sha256": "35c1c5939c62c36cecd6679e905d676adfdae9e45f35edd653bd3216208f7c2f"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T13:27:26Z"
+      }
+    },
+    {
       "id": "thesis.chapter3_rules",
       "title": "Chapter 3 GEMM Expert Knowledge and Preliminary MLIR Evidence",
       "chapter": "3",
@@ -592,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -700,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -786,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -881,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -957,9 +1183,9 @@
           },
           "midend/lib/Conversion/MatMulOptimization/MatMulBlisMicrokernel.cpp": {
             "exists": true,
-            "size_bytes": 20985,
-            "modified_at_utc": "2026-07-14T07:49:57Z",
-            "sha256": "a7e6f886b127f8a1b25719210ef02ddbbeb39add26cb5b8ac5ae817f3de288b2"
+            "size_bytes": 21170,
+            "modified_at_utc": "2026-07-15T15:48:47Z",
+            "sha256": "08d8befd1ccbc61d23efa89110bf499ff0f91ac8cf650bc68c444800ef0b3ce7"
           },
           "midend/lib/Dialect/Microkernel/TransformOps.cpp": {
             "exists": true,
@@ -1034,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1043,10 +1269,10 @@
             "exists": true
           }
         ],
-        "file_count": 12226,
-        "size_bytes": 798402841,
-        "last_modified_utc": "2026-07-15T01:06:54Z",
-        "tree_fingerprint_sha256": "cce147768c4a59e936d25c5780a458d13a663beb6cf2f4537cf984ec8354cd7d",
+        "file_count": 14923,
+        "size_bytes": 863042068,
+        "last_modified_utc": "2026-07-15T12:00:53Z",
+        "tree_fingerprint_sha256": "10038479a0fdb6a7a97854b3a1f131b2d33b5eaa894ed352b52ea7adc2ea153a",
         "tracked_files": {
           "jlq/thesis/experiments/chapter6_evaluation/chapter6_artifact_index.md": {
             "exists": true,
@@ -1135,7 +1361,296 @@
         },
         "last_successful_run_utc": "2026-07-15T01:06:58Z"
       }
+    },
+    {
+      "id": "thesis.chapter6_online_prior",
+      "title": "Chapter 6 Online-calibrated Soft Prior Evaluation",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_online_prior"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_online_prior/chapter6_online_prior_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_online_prior/data/online_prior_config.json",
+        "jlq/thesis/experiments/chapter6_online_prior/processed/extended_measurement_summary.json",
+        "jlq/thesis/experiments/chapter6_online_prior/processed/online_prior_summary.json",
+        "jlq/thesis/experiments/chapter6_online_prior/processed/fixed_budget_summary.csv",
+        "jlq/thesis/experiments/chapter6_online_prior/processed/rank_correlations.csv",
+        "jlq/thesis/experiments/chapter6_online_prior/raw/online_prior_traces.csv",
+        "jlq/thesis/experiments/chapter6_online_prior/reports/online_prior_results.md",
+        "jlq/thesis/experiments/chapter6_online_prior/provenance/manifest.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter6_online_prior/scripts/run_online_prior.py --skip-measure",
+      "claim_boundary": "A same-host f32 study over a 1008-case real measurement corpus. It evaluates static, offline-calibrated, online-calibrated and misleading priors under fixed replay budgets; it does not yet establish cross-host or cross-architecture transfer.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_online_prior/scripts/run_online_prior.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 online calibration",
+          "Chapter 7 conclusions and limitations"
+        ],
+        "decision": "Primary evidence for separating static source knowledge from target-calibrated soft priors. The same-host holdout shows strong offline calibration and no additional early-budget gain from online updating once the offline model is already trained; the misleading-prior control demonstrates recovery rather than guaranteed dominance.",
+        "usable_claims": [
+          "A 1008-case real measurement corpus supports design, validation and held-out online-prior comparisons without synthetic objective values.",
+          "Static BLIS ranking is weakly correlated with target performance, while calibrated ranking is substantially stronger on all splits.",
+          "Online feedback can recover from a deliberately misleading prior, but does not automatically outperform a well-trained offline prior on the same host."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_online_prior",
+            "exists": true
+          }
+        ],
+        "file_count": 19,
+        "size_bytes": 2864868,
+        "last_modified_utc": "2026-07-15T13:23:02Z",
+        "tree_fingerprint_sha256": "63d1513b2e467ef5e499cbb193df1334e082676be939daf183401f15de258197",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_online_prior/chapter6_online_prior_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 767,
+            "modified_at_utc": "2026-07-15T12:36:36Z",
+            "sha256": "88e8140fdf0a4a2de1c90cf1f06809e75be270ec9e234f994fbd64f6d2634ea9"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/data/online_prior_config.json": {
+            "exists": true,
+            "size_bytes": 1432,
+            "modified_at_utc": "2026-07-15T11:57:08Z",
+            "sha256": "5b7aa439d763070f1e1286dfda4596ecdca2b72dbe1fc8ae6e9b51cdb61ab58c"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/processed/extended_measurement_summary.json": {
+            "exists": true,
+            "size_bytes": 297,
+            "modified_at_utc": "2026-07-15T12:00:54Z",
+            "sha256": "9b4e50d0040a4269601d232d05c0b95202bbd6b14564c85c137c40e42a89e59c"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/processed/fixed_budget_summary.csv": {
+            "exists": true,
+            "size_bytes": 4539,
+            "modified_at_utc": "2026-07-15T12:44:56Z",
+            "sha256": "f818699c33f8b9953153d50d955f3147974044c24c33c6f11ace364fd47ffff1"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/processed/online_prior_summary.json": {
+            "exists": true,
+            "size_bytes": 925,
+            "modified_at_utc": "2026-07-15T12:44:56Z",
+            "sha256": "2ae86ce02c2050a9035d34b065f07af2175d7b78251f5675af7fddb649ecc50b"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/processed/rank_correlations.csv": {
+            "exists": true,
+            "size_bytes": 2586,
+            "modified_at_utc": "2026-07-15T12:44:55Z",
+            "sha256": "c845f0b269c685495309a995d007de4b2506c7f4514e4b5475b36e2081369def"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 1231,
+            "modified_at_utc": "2026-07-15T12:44:56Z",
+            "sha256": "acd09895ccdc0168983862dfee9afd732f16cfa90b19f0f82e7839870b625c4d"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/raw/online_prior_traces.csv": {
+            "exists": true,
+            "size_bytes": 1861953,
+            "modified_at_utc": "2026-07-15T12:44:55Z",
+            "sha256": "3d4d9a98f1ccc3947363ba6b97aef08e7e5b163950962e130466d6fe46671e0f"
+          },
+          "jlq/thesis/experiments/chapter6_online_prior/reports/online_prior_results.md": {
+            "exists": true,
+            "size_bytes": 2151,
+            "modified_at_utc": "2026-07-15T12:44:56Z",
+            "sha256": "695608d0eccb0d22b125e6d48fbef5fde55550a59fb7144b2b2878a7c79bdd25"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T13:27:26Z"
+      }
+    },
+    {
+      "id": "thesis.k230_rvv_backend",
+      "title": "K230 C908 RVV and OpenBLAS Deployment ELF Package",
+      "chapter": "cross-architecture extension",
+      "category": "thesis_evidence",
+      "status": "ready_pending_external_run",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/k230_rvv_backend"
+        },
+        {
+          "role": "deployment_archive",
+          "path": "jlq/thesis/experiments/k230_rvv_backend/build/k230_rvv_backend_deployment.tar.gz"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/k230_rvv_backend/k230_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/k230_rvv_backend/provenance/elf_manifest.json",
+        "jlq/thesis/experiments/k230_rvv_backend/provenance/deployment_manifest.json",
+        "jlq/thesis/experiments/k230_rvv_backend/reports/k230_elf_results.md"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/k230_rvv_backend/scripts/build_k230_elfs.py --skip-openblas-build",
+      "claim_boundary": "Official K230 RT-Smart musl toolchain build evidence for scalar, explicit-RVV and full OpenBLAS RISCV64_ZVL128B static ELF binaries. Physical K230 execution has not occurred, so no K230 performance, transfer or cross-architecture generalization claim is currently supported.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/k230_rvv_backend/scripts/build_k230_elfs.py"
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: K230 deployment artifacts",
+          "Future multi-backend evaluation after board execution"
+        ],
+        "decision": "Official SDK/toolchain build evidence only until the returned K230 board CSV files are imported. The package contains scalar, explicit-RVV and full OpenBLAS static ELF variants but currently supports no K230 performance claim.",
+        "usable_claims": [
+          "The official K230 RT-Smart musl toolchain produced three static ELF64 RISC-V binaries.",
+          "The OpenBLAS variant contains the pinned RISCV64_ZVL128B 8x8 SGEMM and packing path through an audited intrinsic compatibility layer.",
+          "Runtime speedup, ranking transfer and cross-backend generalization remain unmeasured until physical-board execution."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/k230_rvv_backend",
+            "exists": true
+          },
+          {
+            "role": "deployment_archive",
+            "path": "jlq/thesis/experiments/k230_rvv_backend/build/k230_rvv_backend_deployment.tar.gz",
+            "exists": true
+          }
+        ],
+        "file_count": 24,
+        "size_bytes": 3829275,
+        "last_modified_utc": "2026-07-15T13:33:15Z",
+        "tree_fingerprint_sha256": "9c9617503d1385173d7739f9c779705c74b841623c3454293581a94bcd34c616",
+        "tracked_files": {
+          "jlq/thesis/experiments/k230_rvv_backend/k230_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 820,
+            "modified_at_utc": "2026-07-15T13:18:08Z",
+            "sha256": "26891200827e29ca926d67ba32e99c8d84425bfeac40ed77bf9c7bcaf196b344"
+          },
+          "jlq/thesis/experiments/k230_rvv_backend/provenance/deployment_manifest.json": {
+            "exists": true,
+            "size_bytes": 560,
+            "modified_at_utc": "2026-07-15T13:33:15Z",
+            "sha256": "bd8928623d7bebd006c97aced80c72c1541e97bb5718352ae6f052e43be4bbbe"
+          },
+          "jlq/thesis/experiments/k230_rvv_backend/provenance/elf_manifest.json": {
+            "exists": true,
+            "size_bytes": 26868,
+            "modified_at_utc": "2026-07-15T13:33:15Z",
+            "sha256": "3233887735524973013e08746dd297b66b48f6c4a7dac63fef25a35a79363bbc"
+          },
+          "jlq/thesis/experiments/k230_rvv_backend/reports/k230_elf_results.md": {
+            "exists": true,
+            "size_bytes": 2251,
+            "modified_at_utc": "2026-07-15T13:33:15Z",
+            "sha256": "9ce314f067f9aef0e4d60d6439f78d63f36f0b50adaa36efddbc7d7c5d5216c3"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T13:33:15Z"
+      }
+    },
+    {
+      "id": "thesis.x86_cross_host",
+      "title": "Intel Core i9-14900K/KF Cross-host Deployment Package",
+      "chapter": "cross-host extension",
+      "category": "thesis_evidence",
+      "status": "ready_pending_external_run",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/x86_cross_host"
+        },
+        {
+          "role": "deployment_archive",
+          "path": "jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900k-bundle.tar.gz"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/x86_cross_host/data/experiment_config.json",
+        "jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900k-bundle/bundle_manifest.json",
+        "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py",
+      "claim_boundary": "A fixed-revision source deployment and strict result-import package only. No cross-host performance or ranking claim is supported before a 14900K/KF archive is returned and imported.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py"
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: 14900K/KF deployment package",
+          "Future cross-host evaluation after result import"
+        ],
+        "decision": "Source-only deployment, P-core selection, result collection and strict import evidence only until the 14900K/KF archive is returned. Bundle readiness is not a cross-host performance result.",
+        "usable_claims": [
+          "The fixed-revision source bundle automatically builds Buddy, LLVM/Clang and BLIS, pins a P-core, runs the formal protocol and creates a SHA-256 result archive.",
+          "Cross-host ranking stability and performance generalization remain unmeasured until a target archive passes the importer."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T17:22:25Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/x86_cross_host",
+            "exists": true
+          },
+          {
+            "role": "deployment_archive",
+            "path": "jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900k-bundle.tar.gz",
+            "exists": true
+          }
+        ],
+        "file_count": 56,
+        "size_bytes": 580115,
+        "last_modified_utc": "2026-07-15T16:52:34Z",
+        "tree_fingerprint_sha256": "23637272bf65043cda6fc35e0cc44402aeba4a1152615d73c2e95e1a24d26f59",
+        "tracked_files": {
+          "jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900k-bundle/bundle_manifest.json": {
+            "exists": true,
+            "size_bytes": 6263,
+            "modified_at_utc": "2026-07-15T16:52:34Z",
+            "sha256": "28460816188f806346bfa4b7ce409556a7f114db29d08cc0e3e16ee15b7a79d5"
+          },
+          "jlq/thesis/experiments/x86_cross_host/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 718,
+            "modified_at_utc": "2026-07-15T16:28:45Z",
+            "sha256": "412b3d0694a04c54b9687d418c42addc42498881cba6ea2a1a6d7983395ccdfe"
+          },
+          "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 692,
+            "modified_at_utc": "2026-07-15T16:40:49Z",
+            "sha256": "b26a88cb9db4ae1934d45b1502ae6fcf24613deb4eef02c3437ef6269c2291ed"
+          }
+        },
+        "last_successful_run_utc": null
+      }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-15T01:06:58Z"
+  "last_refreshed_at_utc": "2026-07-15T17:22:25Z"
 }

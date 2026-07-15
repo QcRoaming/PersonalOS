@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-15T01:06:58Z`
-- Registered experiments: 11
-- Fully available paths: 11/11
-- Runner-maintained entries: 10/11
-- Main-text eligible entries: 6/11
+- Last refreshed: `2026-07-15T17:22:25Z`
+- Registered experiments: 16
+- Fully available paths: 16/16
+- Runner-maintained entries: 15/16
+- Main-text eligible entries: 9/16
 
 ## Overview
 
@@ -23,11 +23,16 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `historical.rvv_toolchain` | historical | historical_experiment | archived | appendix_only | available | 4 | 6.0 KiB | not recorded |
 | `historical.transform_rvv_codegen` | historical | historical_experiment | archived | appendix_only | available | 24 | 8.8 MiB | not recorded |
 | `paper.transform_dialect_section_4_5` | 4.5 alignment | paper_reproduction_material | reference_extraction_only | reference_only | available | 7 | 44.6 KiB | not recorded |
+| `thesis.cgo_local_extension` | 6 extension | thesis_evidence | complete_method_evidence | primary_main_text | available | 13474 | 373.5 MiB | 2026-07-15T17:01:04Z |
+| `thesis.chapter3_multisource` | 3 | thesis_evidence | complete_method_evidence | primary_main_text | available | 18 | 118.2 KiB | 2026-07-15T13:27:26Z |
 | `thesis.chapter3_rules` | 3 | thesis_evidence | complete_method_evidence | primary_main_text | available | 794 | 119.8 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter4_5_integrated` | 4-5 integration | thesis_evidence | complete_method_evidence | primary_main_text | available | 101 | 7.4 MiB | 2026-07-14T08:51:51Z |
 | `thesis.chapter4_space` | 4 | thesis_evidence | complete_method_evidence | primary_main_text | available | 216 | 56.6 MiB | not recorded |
 | `thesis.chapter5_blis_adapter` | 5 | thesis_evidence | complete_method_evidence | primary_main_text | available | 122 | 8.9 MiB | 2026-07-14T08:04:14Z |
-| `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 12226 | 761.4 MiB | 2026-07-15T01:06:58Z |
+| `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
+| `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
+| `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | ready_pending_external_run | appendix_only | available | 24 | 3.7 MiB | 2026-07-15T13:33:15Z |
+| `thesis.x86_cross_host` | cross-host extension | thesis_evidence | ready_pending_external_run | appendix_only | available | 56 | 566.5 KiB | not recorded |
 
 ## Entries
 
@@ -127,6 +132,38 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Claim boundary: The extracted files document the Section 4.5 tuner interface and reusable patterns, but missing support files prevent claiming a standalone local reproduction or observed library replacement.
 - Observed: 7 files, 44.6 KiB, tree fingerprint `a067c601ef5ad15b52cab2bf85ee4e749bfdff8df5178ac3acf6f1dc57b1456d`
 
+### CGO-strengthening f64, True-online, Optuna and Multi-source Evaluation (`thesis.cgo_local_extension`)
+
+- Chapter/scope: 6 extension
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 additional dtype and live tuning evaluation; Chapter 7 conclusions and limitations
+- Writing decision: Primary extension evidence for f64 Contract transfer, genuine online measurement, an equal-budget Optuna TPE baseline, and source-labelled BLIS/OpenBLAS prior ablation. Use the low-budget gains over random and naive source merging; do not claim statistically significant superiority over Optuna or cross-host generalization.
+- Paths: experiment_root=`jlq/thesis/experiments/cgo_extension`
+- Artifact index: `jlq/thesis/experiments/cgo_extension/cgo_extension_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/cgo_extension/processed/cgo_extension_summary.json`, `jlq/thesis/experiments/cgo_extension/processed/f64_contract_summary.json`, `jlq/thesis/experiments/cgo_extension/raw/true_online_traces.csv`, `jlq/thesis/experiments/cgo_extension/raw/optuna_traces.csv`, `jlq/thesis/experiments/cgo_extension/processed/multisource_fixed_budget.csv`, `jlq/thesis/experiments/cgo_extension/processed/paired_bootstrap_comparisons.csv`, `jlq/thesis/experiments/cgo_extension/reports/cgo_extension_results.md`, `jlq/thesis/experiments/cgo_extension/provenance/cgo_extension_manifest.json`
+- Reproduction: `python3 jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py` succeeds
+- Claim boundary: Single-thread local x86 evidence for f32/f64 BLIS Haswell Contracts, fresh-process online tuning, Optuna TPE and source-labelled soft-prior ranking. It does not establish cross-host or cross-architecture generalization.
+- Observed: 13474 files, 373.5 MiB, tree fingerprint `b3a0a3b54019b70d25d179346989a20b3b1372f6c09b8cdc5bcf880f3d9734be`
+
+### Chapter 3 BLIS and OpenBLAS Multi-source Expert Facts (`thesis.chapter3_multisource`)
+
+- Chapter/scope: 3
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 3 multi-source knowledge model; Chapter 7 discussion
+- Writing decision: Primary evidence that hard compatibility knowledge and soft performance hints are separated across BLIS and OpenBLAS. Host OpenBLAS runtime validation supports extraction fidelity; backend-specific conflicts must not be collapsed into universal constants.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter3_multisource`
+- Artifact index: `jlq/thesis/experiments/chapter3_multisource/chapter3_multisource_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/chapter3_multisource/data/multisource_facts.yaml`, `jlq/thesis/experiments/chapter3_multisource/data/conflicts.yaml`, `jlq/thesis/experiments/chapter3_multisource/processed/summary.json`, `jlq/thesis/experiments/chapter3_multisource/processed/openblas_validation_summary.json`, `jlq/thesis/experiments/chapter3_multisource/reports/multisource_results.md`, `jlq/thesis/experiments/chapter3_multisource/reports/openblas_runtime_validation.md`, `jlq/thesis/experiments/chapter3_multisource/provenance/manifest.json`
+- Reproduction: `python3 jlq/thesis/experiments/chapter3_multisource/scripts/run_multisource.py --skip-openblas-build`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter3_multisource/scripts/run_multisource.py` succeeds
+- Claim boundary: Pinned BLIS/OpenBLAS source extraction and four-shape host OpenBLAS CBLAS validation. Facts remain backend-specific: hard compatibility contracts may transfer conditionally, while blocking values are soft implementation hints rather than universal performance laws.
+- Observed: 18 files, 118.2 KiB, tree fingerprint `95bccb69ca732981ee95e5e5659dc496dcff9f7bfd766ce4cdfc95c815da62c6`
+
 ### Chapter 3 GEMM Expert Knowledge and Preliminary MLIR Evidence (`thesis.chapter3_rules`)
 
 - Chapter/scope: 3
@@ -205,4 +242,52 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/chapter6_evaluation/scripts/run_chapter6.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_evaluation/scripts/run_chapter6.py` succeeds
 - Claim boundary: Formal B1-B4 equal-budget, five-seed evaluation over 36 predeclared row-major f32 shapes on one single-thread x86-64 AVX2/FMA host, with optimized dynamic MLIR and complete BLIS references, ablations, shape holdout, and overhead. BaCO uses offline replay over real measured candidates. Confidence intervals do not represent cross-host variation; additional dtype/architecture performance remains outside this completed run. Chapter 3 author signoff is complete and separately recorded.
-- Observed: 12226 files, 761.4 MiB, tree fingerprint `cce147768c4a59e936d25c5780a458d13a663beb6cf2f4537cf984ec8354cd7d`
+- Observed: 14923 files, 823.1 MiB, tree fingerprint `10038479a0fdb6a7a97854b3a1f131b2d33b5eaa894ed352b52ea7adc2ea153a`
+
+### Chapter 6 Online-calibrated Soft Prior Evaluation (`thesis.chapter6_online_prior`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 online calibration; Chapter 7 conclusions and limitations
+- Writing decision: Primary evidence for separating static source knowledge from target-calibrated soft priors. The same-host holdout shows strong offline calibration and no additional early-budget gain from online updating once the offline model is already trained; the misleading-prior control demonstrates recovery rather than guaranteed dominance.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_online_prior`
+- Artifact index: `jlq/thesis/experiments/chapter6_online_prior/chapter6_online_prior_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/chapter6_online_prior/data/online_prior_config.json`, `jlq/thesis/experiments/chapter6_online_prior/processed/extended_measurement_summary.json`, `jlq/thesis/experiments/chapter6_online_prior/processed/online_prior_summary.json`, `jlq/thesis/experiments/chapter6_online_prior/processed/fixed_budget_summary.csv`, `jlq/thesis/experiments/chapter6_online_prior/processed/rank_correlations.csv`, `jlq/thesis/experiments/chapter6_online_prior/raw/online_prior_traces.csv`, `jlq/thesis/experiments/chapter6_online_prior/reports/online_prior_results.md`, `jlq/thesis/experiments/chapter6_online_prior/provenance/manifest.json`
+- Reproduction: `python3 jlq/thesis/experiments/chapter6_online_prior/scripts/run_online_prior.py --skip-measure`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_online_prior/scripts/run_online_prior.py` succeeds
+- Claim boundary: A same-host f32 study over a 1008-case real measurement corpus. It evaluates static, offline-calibrated, online-calibrated and misleading priors under fixed replay budgets; it does not yet establish cross-host or cross-architecture transfer.
+- Observed: 19 files, 2.7 MiB, tree fingerprint `63d1513b2e467ef5e499cbb193df1334e082676be939daf183401f15de258197`
+
+### K230 C908 RVV and OpenBLAS Deployment ELF Package (`thesis.k230_rvv_backend`)
+
+- Chapter/scope: cross-architecture extension
+- Category: `thesis_evidence`
+- Status: `ready_pending_external_run`
+- Paper use: `appendix_only`; main-text eligible: `false`
+- Recommended sections: Appendix: K230 deployment artifacts; Future multi-backend evaluation after board execution
+- Writing decision: Official SDK/toolchain build evidence only until the returned K230 board CSV files are imported. The package contains scalar, explicit-RVV and full OpenBLAS static ELF variants but currently supports no K230 performance claim.
+- Paths: experiment_root=`jlq/thesis/experiments/k230_rvv_backend`; deployment_archive=`jlq/thesis/experiments/k230_rvv_backend/build/k230_rvv_backend_deployment.tar.gz`
+- Artifact index: `jlq/thesis/experiments/k230_rvv_backend/k230_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/k230_rvv_backend/provenance/elf_manifest.json`, `jlq/thesis/experiments/k230_rvv_backend/provenance/deployment_manifest.json`, `jlq/thesis/experiments/k230_rvv_backend/reports/k230_elf_results.md`
+- Reproduction: `python3 jlq/thesis/experiments/k230_rvv_backend/scripts/build_k230_elfs.py --skip-openblas-build`
+- Registry maintenance: automatic after `jlq/thesis/experiments/k230_rvv_backend/scripts/build_k230_elfs.py` succeeds
+- Claim boundary: Official K230 RT-Smart musl toolchain build evidence for scalar, explicit-RVV and full OpenBLAS RISCV64_ZVL128B static ELF binaries. Physical K230 execution has not occurred, so no K230 performance, transfer or cross-architecture generalization claim is currently supported.
+- Observed: 24 files, 3.7 MiB, tree fingerprint `9c9617503d1385173d7739f9c779705c74b841623c3454293581a94bcd34c616`
+
+### Intel Core i9-14900K/KF Cross-host Deployment Package (`thesis.x86_cross_host`)
+
+- Chapter/scope: cross-host extension
+- Category: `thesis_evidence`
+- Status: `ready_pending_external_run`
+- Paper use: `appendix_only`; main-text eligible: `false`
+- Recommended sections: Appendix: 14900K/KF deployment package; Future cross-host evaluation after result import
+- Writing decision: Source-only deployment, P-core selection, result collection and strict import evidence only until the 14900K/KF archive is returned. Bundle readiness is not a cross-host performance result.
+- Paths: experiment_root=`jlq/thesis/experiments/x86_cross_host`; deployment_archive=`jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900k-bundle.tar.gz`
+- Artifact index: `jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/x86_cross_host/data/experiment_config.json`, `jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900k-bundle/bundle_manifest.json`, `jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md`
+- Reproduction: `python3 jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py` succeeds
+- Claim boundary: A fixed-revision source deployment and strict result-import package only. No cross-host performance or ranking claim is supported before a 14900K/KF archive is returned and imported.
+- Observed: 56 files, 566.5 KiB, tree fingerprint `23637272bf65043cda6fc35e0cc44402aeba4a1152615d73c2e95e1a24d26f59`
