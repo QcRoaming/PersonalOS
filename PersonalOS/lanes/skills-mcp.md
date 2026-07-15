@@ -4,11 +4,11 @@ title: Skills, MCP, and Agent Tooling
 role: supporting
 priority: P2
 status: active
-version: 9
+version: 10
 updated_at: 2026-07-15
 keywords: Skill|Skills|MCP|Codex|Agent|Plugin|nature-skills|CDP|slock|IDEA|VSCode|personal-os
 imports: none
-last_activity_at: 2026-07-15T17:26:55Z
+last_activity_at: 2026-07-15T17:39:31Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-07-15T17:26:55Z
 
 # Current Checkpoint
 
-PersonalOS v2 已在认证的本地 clone 中完成部署并推送到 `agent/personal-os-cross-account-v2`，PR `QcRoaming/PersonalOS-v1#1` 已创建且等待合并。部署保留并刷新了晚于升级包的 16 条实验注册表，结构检查、注册表检查和 10 项测试全部通过；合并后需执行 install、doctor，并完成真实第二账号/第二设备端到端验收。
+PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机已快进到合并提交 `a0bcea7` 并成功执行 install 和 doctor。根指针、全局 Codex 指导与用户级 `personal-os` Skill 均指向权威目录；下一阶段是重启 Codex 表面，并完成真实第二账号和第二设备端到端验收。
 
 # Verified Milestones
 
@@ -34,22 +34,21 @@ PersonalOS v2 已在认证的本地 clone 中完成部署并推送到 `agent/per
 - 已在最新的 16 条实验注册表、CGO 扩展和跨平台待运行状态上完成兼容验证，没有回退研究主线。
 - 已按 Codex 当前发现规则将全局协议安装到 ~/.codex/AGENTS.md，并将用户级 Skill 安装到 ~/.agents/skills/personal-os/。
 - 已通过认证的本地 Git 将 v2 分支推送到远端，并创建到 `main` 的 PR `#1`。
+- PR `#1` 已合并；本机 `main` 已同步，install 与 doctor 均通过，全局 Skill 内容与仓库版本一致。
 
 # Doing
 
-- 等待 PR `#1` 合并；合并后安装 v2，并在真实新账号、新设备上验证恢复流程。
+- 重启 Codex CLI 或 VS Code Codex 扩展，并在真实新账号、新设备上验证恢复流程。
 
 # Next
 
-1. 审查并合并 PR `QcRoaming/PersonalOS-v1#1`。
-2. 切回 `main`、快进拉取后执行 install 和 doctor，并重启 Codex CLI 或 VS Code Codex 扩展。
-3. 用另一个 ChatGPT 账号授权同一私有仓库并发送 START_HERE.md 中的固定启动消息。
-4. 在第二台设备执行 clone、install、doctor，并完成一次 checkpoint/push/pull 往返。
-5. 完成一次 VS Code 实验 refresh --sync-push，再验证网页 HANDOFF.md 能看到相同检查点。
+1. 重启 Codex CLI 或 VS Code Codex 扩展，使其重建指令链。
+2. 用另一个 ChatGPT 账号授权同一私有仓库并发送 START_HERE.md 中的固定启动消息。
+3. 在第二台设备执行 clone、install、doctor，并完成一次 checkpoint/push/pull 往返。
+4. 完成一次 VS Code 实验 refresh --sync-push，再验证网页 HANDOFF.md 能看到相同检查点。
 
 # Current Blockers
 
-- PR `#1` 尚未合并，因此当前 `main` 和已安装的全局协议仍是 v1 状态。
 - 跨账号恢复仍需在第二个真实 ChatGPT 账号完成 GitHub 私有仓库授权和固定启动消息验收。
 - 多设备恢复仍需在第二台真实设备执行 clone、install、doctor 和一次 checkpoint/push/pull 往返。
 - 网页端不能读取 VS Code 容器中未提交的原始实验文件；必须先同步 PersonalOS 元数据，原始证据还需单独授权其项目仓库或存储。
@@ -83,3 +82,4 @@ PersonalOS v2 已在认证的本地 clone 中完成部署并推送到 `agent/per
 - 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/KNOWLEDGE.md
 - 2026-07-15T16:11:37Z — GitHub App 读取远程最新提交成功，但创建 agent/personal-os-cross-account-v2 分支返回 403；已确定改用本地认证 Git 发布。
 - 2026-07-15T17:26:55Z — 本地认证 Git 已推送 v2 分支并创建 PR `QcRoaming/PersonalOS-v1#1`；16 条实验全部可用，10 项测试通过。
+- 2026-07-15T17:39:31Z — PR `#1` 已合并到 `main`；本机 install 和 doctor 通过，根指针与全局 Skill 安装结果一致。

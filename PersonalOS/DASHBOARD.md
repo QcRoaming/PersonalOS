@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-15T17:26:55Z
+- State watermark: 2026-07-15T17:39:31Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS-v1`
 
@@ -17,7 +17,7 @@
 | `infra.tooling` | supporting | P1 | active | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 |
 | `thesis.writing` | branch | P1 | active | 2026-07-10 | 第三章：高性能 GEMM 专家知识抽取、microkernel contract 建模与兼容性规则。当前应先完成可运行 schema/checker，再固化章节细节。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
-| `skills.mcp` | supporting | P2 | active | 2026-07-15T17:26:55Z | PersonalOS v2 已在认证的本地 clone 中完成部署并推送到 `agent/personal-os-cross-account-v2`，PR `QcRoaming/PersonalOS-v1#1` 已创建且等待合并。部署保留并刷新了晚于升级包的 16 条实验注册表，结构检查、注册表检查和 10 项测试全部通过；合并后需执行 install、doctor，并完成真实第二账号/第二设备端到端验收。 |
+| `skills.mcp` | supporting | P2 | active | 2026-07-15T17:39:31Z | PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机已快进到合并提交 `a0bcea7` 并成功执行 install 和 doctor。根指针、全局 Codex 指导与用户级 `personal-os` Skill 均指向权威目录；下一阶段是重启 Codex 表面，并完成真实第二账号和第二设备端到端验收。 |
 | `markets.ai_infrastructure` | independent | P3 | paused | 2026-07-10 | 已完成 AI → 存储 → 半导体 → 光模块/CPO → 电力与基础设施的初步讨论；当前没有明确持续任务，支线暂停。 |
 
 ## Experiment Registry
@@ -40,4 +40,4 @@
 - learning.inference: 最近一次 Qwen3.5 import 链路出现 `torchvision::nms` 与 torch/torchvision 兼容问题；当前环境状态需要重新验证。
 - infra.tooling: 历史 Docker 容器曾出现只读、DNS/代理和 content-store 不一致问题；当前是否完全解决需要重新验证。
 - research.kernel_aware_gemm: 当前本机覆盖单线程、行主序 f32 6x16 与 f64 6x8 两个 Haswell Contract；任意 stride、更多后端 Contract 和跨主机泛化尚未验证。
-- skills.mcp: PR `#1` 尚未合并，因此当前 `main` 和已安装的全局协议仍是 v1 状态。
+- skills.mcp: 跨账号恢复仍需在第二个真实 ChatGPT 账号完成 GitHub 私有仓库授权和固定启动消息验收。
