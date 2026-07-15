@@ -26,6 +26,7 @@ ALLOWED_STATUSES = {
     "archived",
     "complete_method_evidence",
     "complete_pending_human_signoff",
+    "ready_pending_external_run",
     "reference_extraction_only",
 }
 ALLOWED_PAPER_TIERS = {
