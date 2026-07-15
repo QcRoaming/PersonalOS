@@ -1,7 +1,7 @@
 ---
 id: personal.profile
-version: 1
-updated_at: 2026-07-10
+version: 2
+updated_at: 2026-07-16
 ---
 
 # Personal Profile
@@ -38,6 +38,13 @@ updated_at: 2026-07-10
 
 - 常用环境为 Windows + WSL Ubuntu + Docker Desktop。
 - 同时使用 ChatGPT、Codex CLI 和 IDE；目标是多机器共享同一 PersonalOS 状态。
+
+## Conversation Archive Contract
+
+- 当用户消息的全部内容恰好为“导入”时，显式请求备份该窗口中触发消息之前的全部对话。
+- 文本对话与语音对话都适用；语音默认保存聊天历史中的转写，只有用户另外提供音频文件时才保存原始音频。
+- 原始会话只能进入 archives/conversations/，不得自动改变 Lane、知识阶段或个人画像。
+- 没有完整数据导出或用户提供的逐字稿时，必须标记为 visible_context_only，不得声称完成了完整备份。
 
 ## Profile Update Policy
 

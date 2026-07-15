@@ -60,6 +60,21 @@ python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" sync "$PERSONAL_OS_ROOT" \
 
 网页端只有在最后一步成功后才能读到本地的新状态。
 
+## “导入”会话归档
+
+当用户消息的全部内容恰好为“导入”时，启动当前窗口归档流程。归档只保存触发消息之前的对话，并写入 archives/conversations/，不得混入 Lane 或个人画像。
+
+完整备份必须来自 ChatGPT 数据导出或用户提供的逐字稿；模型应先把实际可见消息保存为 visible_context_only 临时归档，再请求文件升级，且不能声称临时归档完整。语音窗口默认归档聊天历史中的转写，原始音频只有在用户另外提供音频文件时才归档。
+
+导入后运行：
+
+~~~bash
+python3 "$PERSONAL_OS_ROOT/scripts/conversation_archive.py" check \
+  --root "$PERSONAL_OS_ROOT"
+python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" sync \
+  "$PERSONAL_OS_ROOT" --push --message "归档当前会话"
+~~~
+
 ## 读取边界
 
 - HANDOFF.md 是跨窗口恢复摘要，不是事实源。

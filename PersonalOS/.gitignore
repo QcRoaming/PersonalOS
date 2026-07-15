@@ -1,3 +1,4 @@
 .personal-os.lock
 __pycache__/
 *.py[cod]
+archives/conversations/incoming/

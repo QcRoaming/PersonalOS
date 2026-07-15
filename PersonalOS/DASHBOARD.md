@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-15T17:39:31Z
+- State watermark: 2026-07-15T17:54:56Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS-v1`
 
@@ -17,7 +17,7 @@
 | `infra.tooling` | supporting | P1 | active | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 |
 | `thesis.writing` | branch | P1 | active | 2026-07-10 | 第三章：高性能 GEMM 专家知识抽取、microkernel contract 建模与兼容性规则。当前应先完成可运行 schema/checker，再固化章节细节。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
-| `skills.mcp` | supporting | P2 | active | 2026-07-15T17:39:31Z | PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机已快进到合并提交 `a0bcea7` 并成功执行 install 和 doctor。根指针、全局 Codex 指导与用户级 `personal-os` Skill 均指向权威目录；下一阶段是重启 Codex 表面，并完成真实第二账号和第二设备端到端验收。 |
+| `skills.mcp` | supporting | P2 | active | 2026-07-15T17:54:56Z | PersonalOS v2.1 的显式会话归档功能已与当前 v2 状态完成语义合并并通过本地验证。精确独立命令“导入”会启动隔离归档；支持 ChatGPT 数据导出、用户逐字稿、语音转写和显式音频文件，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份。现有 16 条实验注册表和 v2 本机安装状态均已保留；当前归档数为 0，尚待真实文本与语音窗口验收。 |
 | `markets.ai_infrastructure` | independent | P3 | paused | 2026-07-10 | 已完成 AI → 存储 → 半导体 → 光模块/CPO → 电力与基础设施的初步讨论；当前没有明确持续任务，支线暂停。 |
 
 ## Experiment Registry
@@ -27,7 +27,13 @@
 - Fully available paths: 16/16
 - Runner-maintained entries: 15/16
 - Main-text eligible entries: 9/16
-- Last refreshed: `2026-07-15T17:22:25Z`
+- Last refreshed: `2026-07-15T17:54:09Z`
+
+## Conversation Archive
+
+- Archived conversations: 0
+- Latest archive: never
+- Human-readable index: ARCHIVES.md
 
 ## Main-line Next Actions
 

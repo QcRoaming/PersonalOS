@@ -4,11 +4,11 @@ title: Skills, MCP, and Agent Tooling
 role: supporting
 priority: P2
 status: active
-version: 10
+version: 11
 updated_at: 2026-07-15
 keywords: Skill|Skills|MCP|Codex|Agent|Plugin|nature-skills|CDP|slock|IDEA|VSCode|personal-os
 imports: none
-last_activity_at: 2026-07-15T17:39:31Z
+last_activity_at: 2026-07-15T17:54:56Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-07-15T17:39:31Z
 
 # Current Checkpoint
 
-PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机已快进到合并提交 `a0bcea7` 并成功执行 install 和 doctor。根指针、全局 Codex 指导与用户级 `personal-os` Skill 均指向权威目录；下一阶段是重启 Codex 表面，并完成真实第二账号和第二设备端到端验收。
+PersonalOS v2.1 的显式会话归档功能已与当前 v2 状态完成语义合并并通过本地验证。精确独立命令“导入”会启动隔离归档；支持 ChatGPT 数据导出、用户逐字稿、语音转写和显式音频文件，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份。现有 16 条实验注册表和 v2 本机安装状态均已保留；当前归档数为 0，尚待真实文本与语音窗口验收。
 
 # Verified Milestones
 
@@ -33,19 +33,21 @@ PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机
 - 已完成 PersonalOS v2：新增 START_HERE、HANDOFF、KNOWLEDGE，以及 start/checkpoint/views/sync/doctor/install 命令。
 - 已在最新的 16 条实验注册表、CGO 扩展和跨平台待运行状态上完成兼容验证，没有回退研究主线。
 - 已按 Codex 当前发现规则将全局协议安装到 ~/.codex/AGENTS.md，并将用户级 Skill 安装到 ~/.agents/skills/personal-os/。
-- 已通过认证的本地 Git 将 v2 分支推送到远端，并创建到 `main` 的 PR `#1`。
-- PR `#1` 已合并；本机 `main` 已同步，install 与 doctor 均通过，全局 Skill 内容与仓库版本一致。
+- PR `#1` 已合并；本机 `main` 已同步，v2 install 与 doctor 均通过。
+- 已新增独立会话归档注册表与 ARCHIVES.md，原始会话不会流入 Lane、个人画像、HANDOFF 或知识索引。
+- 已实现 ChatGPT active branch 还原、在“导入”触发消息前截断、语音转写标记、显式音频复制和完整性哈希校验。
+- v2.1 已在保留 16 条实验记录的前提下通过归档检查、结构检查和全部 14 项测试。
 
 # Doing
 
-- 重启 Codex CLI 或 VS Code Codex 扩展，并在真实新账号、新设备上验证恢复流程。
+- 在真实文本窗口和语音窗口验证“导入”触发、会话选择、触发点截断与覆盖级别。
 
 # Next
 
-1. 重启 Codex CLI 或 VS Code Codex 扩展，使其重建指令链。
-2. 用另一个 ChatGPT 账号授权同一私有仓库并发送 START_HERE.md 中的固定启动消息。
-3. 在第二台设备执行 clone、install、doctor，并完成一次 checkpoint/push/pull 往返。
-4. 完成一次 VS Code 实验 refresh --sync-push，再验证网页 HANDOFF.md 能看到相同检查点。
+1. 重启 Codex CLI 或 VS Code Codex 扩展，使其重新加载 v2.1 协议和 Skill。
+2. 在真实文本窗口和语音窗口分别输入“导入”，用官方数据导出验证当前会话选择、触发点截断和语音转写归档。
+3. 用另一个 ChatGPT 账号授权同一私有仓库并发送 START_HERE.md 中的固定启动消息。
+4. 在第二台设备执行 clone、install、doctor，并完成一次 checkpoint/push/pull 往返。
 
 # Current Blockers
 
@@ -71,6 +73,7 @@ PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机
 | 跨窗口状态协议 | applied | 已实现确定性 Handoff、单 Lane 启动和结构化检查点并通过测试 | 真实网页新窗口验收 |
 | 多机器同步 | applied | 已实现 Git commit-rebase-push 闭环并用本地远程仓库验证 | 第二台真实设备验收 |
 | 跨账号恢复 | applied | 已实现 GitHub 授权加 START_HERE 固定启动协议 | 第二个 ChatGPT 账号端到端验收 |
+| 会话与语音归档 | applied | 已实现 exact_export/provided_transcript/visible_context_only、语音转写/音频区分和 4 项归档测试 | 真实 ChatGPT 数据导出与语音窗口验收 |
 
 # Recent Evidence
 
@@ -81,5 +84,6 @@ PersonalOS v2 已通过 PR `QcRoaming/PersonalOS-v1#1` 合并到 `main`，本机
 - 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/HANDOFF.md
 - 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/KNOWLEDGE.md
 - 2026-07-15T16:11:37Z — GitHub App 读取远程最新提交成功，但创建 agent/personal-os-cross-account-v2 分支返回 403；已确定改用本地认证 Git 发布。
-- 2026-07-15T17:26:55Z — 本地认证 Git 已推送 v2 分支并创建 PR `QcRoaming/PersonalOS-v1#1`；16 条实验全部可用，10 项测试通过。
-- 2026-07-15T17:39:31Z — PR `#1` 已合并到 `main`；本机 install 和 doctor 通过，根指针与全局 Skill 安装结果一致。
+- 2026-07-15T17:30:17Z — 新增“导入”会话归档协议、conversation_archive.py、空注册表、归档视图和 4 项归档测试；全套 14 项测试通过。
+- 2026-07-15T17:39:31Z — PR `#1` 已合并到 `main`；本机 v2 install 和 doctor 通过。
+- 2026-07-15T17:54:56Z — v2.1 已与 16 条实验状态完成语义合并；归档检查、结构检查和 14 项测试通过，当前真实归档数为 0。

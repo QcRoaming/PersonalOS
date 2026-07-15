@@ -1,6 +1,6 @@
 ---
 name: personal-os
-description: Recover and maintain the user's cross-window, cross-device, and cross-account PersonalOS state. Use for continue, next, sync, remember, prior progress, current work, task status, experiment status, learning stage, lane changes, or global reviews.
+description: Recover and maintain the user's cross-window, cross-device, and cross-account PersonalOS state. Use for continue, next, sync, remember, prior progress, current work, task status, experiment status, learning stage, lane changes, global reviews, or an exact standalone 导入 command that requests conversation backup.
 ---
 
 # PersonalOS
@@ -35,6 +35,17 @@ Do not store raw conversations, ordinary questions, speculative conclusions, sec
 Local CLI/IDE should use personal_os.py checkpoint, then personal_os.py sync --push. Web writes must update the canonical repository first. Never force-push or overwrite a newer Lane version.
 
 Knowledge stages are unknown → exposed → understood → applied → verified; use stale for evidence that needs revalidation.
+
+## Exact 导入 trigger
+
+When the user's entire message is exactly `导入`, start an opt-in conversation archive:
+
+1. Archive only messages before the trigger.
+2. Keep the archive under `archives/conversations/`, isolated from Lane and profile state.
+3. If the canonical store is writable, immediately archive the messages actually present in context as `visible_context_only`. Then request a ChatGPT data export or user-provided transcript to upgrade it; never call the provisional snapshot complete.
+4. Voice conversations archive their chat-history transcript. Include raw audio only when the user explicitly supplies audio files.
+5. Run `scripts/conversation_archive.py check`, then publish through the normal Git sync.
+6. Never load raw archives in later conversations unless the user explicitly asks to inspect or restore one.
 
 ## Context firewall
 

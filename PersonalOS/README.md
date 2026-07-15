@@ -1,6 +1,6 @@
 # PersonalOS
 
-PersonalOS 是一个轻量、Git 驱动的个人连续性系统。它不保存聊天原文，而是保存能让下一个窗口、下一台设备或下一个账号继续工作的最小语义状态：稳定画像、主线与支线、当前检查点、任务状态、已验证知识、实验元数据、决策、阻塞和下一步。
+PersonalOS 是一个轻量、Git 驱动的个人连续性系统。它默认不保存聊天原文，只保存能让下一个窗口、下一台设备或下一个账号继续工作的最小语义状态；当用户发送精确的独立命令“导入”时，可以显式启动隔离的原始会话归档流程。
 
 ## 能达到什么程度
 
@@ -43,6 +43,8 @@ GitHub 私有仓库（唯一事实源）
 | KNOWLEDGE.md | 所有 Lane 的知识主题与阶段索引 | 否，自动生成 |
 | DASHBOARD.md | 全局任务总览 | 否，自动生成 |
 | EXPERIMENTS.md | 实验注册表的人类可读视图 | 否，自动生成 |
+| archives/conversations/ | 用户通过“导入”显式创建的原始会话与语音转写归档 | 是，独立归档 |
+| ARCHIVES.md | 会话归档数量、覆盖级别、完整性和位置索引 | 否，自动生成 |
 | START_HERE.md | 新窗口、新设备和新账号的固定启动入口 | 协议 |
 | AGENTS.md | 仓库内 Codex 读写边界 | 协议 |
 | skill/personal-os/SKILL.md | 可安装到本机的便携 Skill 源 | 协议 |
@@ -201,12 +203,83 @@ unknown → exposed → understood → applied → verified
 
 checkpoint 更新一个 Lane、递增 version、记录精确活动时间，并重建三个全局视图。随后仍需运行 sync --push。
 
+## 输入“导入”备份当前窗口
+
+当一条用户消息的全部内容恰好为：
+
+~~~text
+导入
+~~~
+
+PersonalOS 启动会话归档流程，并把触发消息之前的对话备份到 archives/conversations/。原始对话与 Lane、个人画像、知识阶段完全隔离，日常恢复不会自动读取归档内容。
+
+系统区分三种覆盖级别：
+
+| 覆盖级别 | 含义 |
+|---|---|
+| exact_export | 从 ChatGPT 官方数据导出中选中并导入完整会话 |
+| provided_transcript | 完整保留用户提供的 JSON、Markdown 或文本逐字稿 |
+| visible_context_only | 只能看到模型当前上下文的临时恢复，不保证完整，禁止称为完整备份 |
+
+ChatGPT 网页端没有一个可由模型调用的“读取当前 UI 全部历史”接口。因此，仅输入“导入”时，助手会先把模型当前实际可见的消息保存为 visible_context_only 临时归档（权威仓库可写时），随后要求补充数据导出或逐字稿来升级为完整归档；它不能把临时归档声称为完整备份。
+
+### 导入 ChatGPT 数据导出
+
+在 ChatGPT 的 Settings → Data controls → Export data 请求导出，解压后找到 conversations.json。当前窗口的 conversation ID 通常可从对话 URL 获取：
+
+~~~bash
+python3 "$PERSONAL_OS_ROOT/scripts/conversation_archive.py" import \
+  --root "$PERSONAL_OS_ROOT" \
+  --source /path/to/conversations.json \
+  --kind chatgpt-export \
+  --surface chatgpt_text \
+  --conversation-id CONVERSATION_ID \
+  --before-trigger "导入"
+~~~
+
+脚本会沿当前 active branch 还原消息顺序，并排除最后一条“导入”触发消息。
+
+### 导入语音对话
+
+语音会话结束后，ChatGPT 历史中出现的转写可以按相同方式导入：
+
+~~~bash
+python3 "$PERSONAL_OS_ROOT/scripts/conversation_archive.py" import \
+  --root "$PERSONAL_OS_ROOT" \
+  --source /path/to/conversations.json \
+  --kind chatgpt-export \
+  --surface chatgpt_voice \
+  --conversation-id CONVERSATION_ID
+~~~
+
+这默认是“语音转写备份”，不是原始音频备份。若已经取得音频文件，可显式附加：
+
+~~~bash
+python3 "$PERSONAL_OS_ROOT/scripts/conversation_archive.py" import \
+  --root "$PERSONAL_OS_ROOT" \
+  --source /path/to/transcript.json \
+  --kind transcript \
+  --surface chatgpt_voice \
+  --audio /path/to/voice-audio.m4a
+~~~
+
+每个归档保存源文件 SHA-256、消息 payload SHA-256、覆盖级别、语音/音频状态和 Lane 指针。导入后执行：
+
+~~~bash
+python3 "$PERSONAL_OS_ROOT/scripts/conversation_archive.py" check \
+  --root "$PERSONAL_OS_ROOT"
+python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" sync \
+  "$PERSONAL_OS_ROOT" --push --message "归档当前会话"
+~~~
+
+注意：ChatGPT 全账号导出文件本身可能包含其他会话和敏感信息。只提交 PersonalOS 生成的单会话归档，不要把原始 conversations.json 放进 Git。
+
 ## 日常闭环
 
 每次会话：
 
 1. start --pull：先拿到远程最新状态并选择一个 Lane。
-2. 完成实际工作；普通问答和临时猜测不记录。
+2. 完成实际工作；普通问答和临时猜测不记录，只有精确命令“导入”才进入原始会话归档。
 3. 有语义变化时 checkpoint；实验则先 refresh registry。
 4. 执行 check 或 doctor。
 5. sync --push：提交、rebase 并推送。
@@ -235,7 +308,7 @@ python3 -m unittest discover -s tests -v
 仓库必须保持 private。不要写入：
 
 - GitHub token、API key、SSH private key、Cookie 或密码；
-- 聊天原文和完整提示词历史；
+- 未经精确“导入”命令授权的聊天原文和完整提示词历史；
 - 未确认的人格推断或敏感画像；
 - 大型原始实验数据、构建目录和二进制。
 

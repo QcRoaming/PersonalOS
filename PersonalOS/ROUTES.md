@@ -1,6 +1,6 @@
 ---
 id: personal.routes
-version: 6
+version: 7
 updated_at: 2026-07-16
 main_lane: research.kernel_aware_gemm
 canonical_store: private_git
@@ -9,6 +9,7 @@ repository_subdir: PersonalOS
 sync_method: git_checkpoint
 web_access: github_connector
 bootstrap_entry: START_HERE.md
+conversation_archive: opt_in_private_git
 ---
 
 # Context Routes
@@ -31,6 +32,7 @@ bootstrap_entry: START_HERE.md
 - 独立 Lane 之间默认不共享任务、知识状态或推荐结果。
 - 跨 Lane 只传递明确声明的依赖小节，不传递整份文件。
 - 没有匹配到 Lane 的一次性问题归为 `adhoc`，不持久化。
+- 原始会话归档位于 `archives/conversations/`，不属于任何 Lane；只有用户明确要求检查或恢复时才读取。
 
 ## Explicit Dependencies
 
@@ -66,3 +68,4 @@ bootstrap_entry: START_HERE.md
 - 本地同步方式：语义检查点 → 校验生成视图 → Git commit → rebase → push。
 - 网页读取方式：GitHub 连接器读取权威仓库；不依赖旧账号聊天记录。
 - 恢复入口：`START_HERE.md`；最近进度：`HANDOFF.md`；知识总览：`KNOWLEDGE.md`。
+- 会话归档：仅由精确独立命令“导入”触发，存入私人 Git 的隔离目录；语义状态仍由 Lane 文件拥有。
