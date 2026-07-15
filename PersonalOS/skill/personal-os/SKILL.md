@@ -42,4 +42,3 @@ Knowledge stages are unknown → exposed → understood → applied → verified
 - Lane-local tasks, experiments, knowledge and recommendations do not flow sideways.
 - Raw experiment files remain in the owning workspace; PersonalOS stores compact results and immutable artifact pointers.
 - A new account is recovered through GitHub authorization and START_HERE.md, not through the old account's memory or Library.
-

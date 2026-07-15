@@ -67,4 +67,3 @@ python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" sync "$PERSONAL_OS_ROOT" \
 - EXPERIMENTS.md 是实验元数据索引；原始 CSV、IR、二进制和图表仍属于实验工作区。
 - lanes/*.md 各自拥有任务、决策、阻塞和知识状态，默认互不横向传播。
 - 不保存聊天原文、账号令牌、SSH key、Cookie、环境变量秘密或大型实验数据。
-
