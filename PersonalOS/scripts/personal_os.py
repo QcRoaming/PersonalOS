@@ -16,6 +16,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from experiment_registry import validate_registry_files
+from conversation_archive import validate_archive_files
 
 
 REQUIRED_ROOT_FILES = ("PERSONAL.md", "ROUTES.md", "AGENTS.md")
@@ -223,6 +224,17 @@ def latest_experiment(root: Path) -> tuple[str, str, str] | None:
     return max(ranked) if ranked else None
 
 
+def latest_conversation_archive(root: Path) -> dict[str, object] | None:
+    path = root / "archives" / "conversations" / "index.json"
+    if not path.is_file():
+        return None
+    try:
+        entries = json.loads(path.read_text(encoding="utf-8")).get("entries", [])
+    except (OSError, json.JSONDecodeError):
+        return None
+    return max(entries, key=lambda item: item.get("imported_at", "")) if entries else None
+
+
 def state_watermark(root: Path) -> str:
     values = [
         lane.meta.get("last_activity_at", lane.meta.get("updated_at", ""))
@@ -235,6 +247,14 @@ def state_watermark(root: Path) -> str:
                 json.loads(registry.read_text(encoding="utf-8")).get(
                     "last_refreshed_at_utc", ""
                 )
+            )
+        except (OSError, json.JSONDecodeError):
+            pass
+    archives = root / "archives" / "conversations" / "index.json"
+    if archives.is_file():
+        try:
+            values.append(
+                json.loads(archives.read_text(encoding="utf-8")).get("updated_at", "")
             )
         except (OSError, json.JSONDecodeError):
             pass
@@ -273,6 +293,9 @@ def cmd_check(root: Path) -> int:
     if main_count != 1:
         errors.append(f"expected exactly one active main lane, found {main_count}")
     errors.extend(f"experiment registry: {item}" for item in validate_registry_files(root))
+    errors.extend(
+        f"conversation archive: {item}" for item in validate_archive_files(root)
+    )
     if not errors:
         for name, expected in generated_view_texts(root).items():
             path = root / name
@@ -404,6 +427,22 @@ def cmd_dashboard(root: Path) -> int:
         )
     else:
         lines.append("- Registry not found.")
+    archive_index = root / "archives" / "conversations" / "index.json"
+    lines.extend(["", "## Conversation Archive", ""])
+    if archive_index.is_file():
+        archives = json.loads(archive_index.read_text(encoding="utf-8")).get("entries", [])
+        recent_archive = max(
+            archives, key=lambda item: item.get("imported_at", "")
+        ) if archives else None
+        lines.append(f"- Archived conversations: {len(archives)}")
+        lines.append(
+            f"- Latest archive: {recent_archive.get('title')} at {recent_archive.get('imported_at')}"
+            if recent_archive
+            else "- Latest archive: never"
+        )
+        lines.append("- Human-readable index: ARCHIVES.md")
+    else:
+        lines.append("- Archive index not found.")
     main = next(
         (lane for lane in lanes if lane.meta.get("id") == routes_meta.get("main_lane")),
         None,
@@ -497,6 +536,22 @@ def render_dashboard(root: Path) -> str:
         )
     else:
         lines.append("- Registry not found.")
+    archive_index = root / "archives" / "conversations" / "index.json"
+    lines.extend(["", "## Conversation Archive", ""])
+    if archive_index.is_file():
+        archives = json.loads(archive_index.read_text(encoding="utf-8")).get("entries", [])
+        recent_archive = max(
+            archives, key=lambda item: item.get("imported_at", "")
+        ) if archives else None
+        lines.append(f"- Archived conversations: {len(archives)}")
+        lines.append(
+            f"- Latest archive: {recent_archive.get('title')} at {recent_archive.get('imported_at')}"
+            if recent_archive
+            else "- Latest archive: never"
+        )
+        lines.append("- Human-readable index: ARCHIVES.md")
+    else:
+        lines.append("- Archive index not found.")
     main = next(
         (lane for lane in lanes if lane.meta.get("id") == routes_meta.get("main_lane")),
         None,
@@ -548,6 +603,14 @@ def render_handoff(root: Path) -> str:
             [
                 f"- Latest successful registered experiment: {code}{recent[1]}{code}",
                 f"- Experiment completed at: {code}{recent[0]}{code}",
+            ]
+        )
+    latest_archive = latest_conversation_archive(root)
+    if latest_archive:
+        lines.extend(
+            [
+                f"- Latest conversation archive: {code}{latest_archive.get('title')}{code}",
+                f"- Conversation imported at: {code}{latest_archive.get('imported_at')}{code}",
             ]
         )
     lines.extend(
@@ -912,6 +975,8 @@ def managed_agents_block(root: Path) -> str:
             "- Before local work, run personal_os.py start with --pull when the worktree is clean.",
             "- After a durable task, experiment, decision, blocker, or knowledge-stage change,",
             "  create a checkpoint and run personal_os.py sync --push.",
+            "- When the entire user message is exactly 导入, follow the isolated conversation",
+            "  archive protocol; never claim completeness without an export or transcript.",
             "- Do not rely on chat memory when the canonical Git state is available.",
             MANAGED_END,
         ]

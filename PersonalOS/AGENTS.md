@@ -38,13 +38,22 @@ Persist only semantic state changes:
 - explicit stable preference;
 - knowledge-stage change supported by evidence.
 
-Do not persist raw conversations, ordinary explanations, temporary guesses, unaccepted suggestions, one-off examples, or resolved errors without future impact. Discussion alone is not evidence of mastery.
+Outside the explicit conversation archive workflow, do not persist raw conversations, ordinary explanations, temporary guesses, unaccepted suggestions, one-off examples, or resolved errors without future impact. Discussion alone is not evidence of mastery.
 
 Apply explicit user controls:
 
 - `同步状态`: commit the current semantic delta.
 - `这次不记录` or `这只是临时讨论`: do not write state.
 - `把它提升为主线`: require confirmation before changing topology.
+
+## Conversation archive protocol
+
+- An exact standalone user message `导入` requests a backup of all messages before that trigger in the current conversation.
+- Store raw conversation archives only under `archives/conversations/`; never copy them into PERSONAL.md, ROUTES.md, a Lane, HANDOFF.md, or KNOWLEDGE.md.
+- If the canonical store is writable, immediately save the messages actually present in model context as `visible_context_only`; then request a ChatGPT data export or user-provided transcript to upgrade it to exact coverage. Never call the provisional snapshot complete.
+- For ChatGPT Voice, archive the transcript found in chat history. Raw audio is included only when the user explicitly supplies audio files; record transcript-only versus transcript-plus-audio accurately.
+- Use `scripts/conversation_archive.py import`, validate hashes with its `check` command, then use the normal PersonalOS Git sync.
+- Do not load archived raw conversations during ordinary continuity work. Read an archive only when the user explicitly asks to inspect or restore it.
 
 ## Safe update protocol
 

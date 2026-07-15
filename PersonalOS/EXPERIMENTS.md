@@ -7,7 +7,7 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-15T17:22:25Z`
+- Last refreshed: `2026-07-15T17:54:09Z`
 - Registered experiments: 16
 - Fully available paths: 16/16
 - Runner-maintained entries: 15/16

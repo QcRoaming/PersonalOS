@@ -23,5 +23,6 @@
 | `skills.mcp` | 跨窗口状态协议 | applied | 已实现确定性 Handoff、单 Lane 启动和结构化检查点并通过测试 | 真实网页新窗口验收 |
 | `skills.mcp` | 多机器同步 | applied | 已实现 Git commit-rebase-push 闭环并用本地远程仓库验证 | 第二台真实设备验收 |
 | `skills.mcp` | 跨账号恢复 | applied | 已实现 GitHub 授权加 START_HERE 固定启动协议 | 第二个 ChatGPT 账号端到端验收 |
+| `skills.mcp` | 会话与语音归档 | applied | 已实现 exact_export/provided_transcript/visible_context_only、语音转写/音频区分和 4 项归档测试 | 真实 ChatGPT 数据导出与语音窗口验收 |
 
 Knowledge stages: unknown → exposed → understood → applied → verified. Use stale when older evidence must be revalidated.

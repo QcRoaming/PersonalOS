@@ -8,6 +8,7 @@ PersonalOS 是一个面向长期协作的、文件驱动的个人状态系统。
 
 - 在 Codex CLI、VS Code 扩展、ChatGPT 网页和多台机器之间恢复同一工作状态。
 - 更换 ChatGPT 账号后，通过重新授权同一 GitHub 私有仓库恢复个人画像、当前任务、最近实验和学习阶段。
+- 在任意窗口输入精确命令“导入”时，启动隔离的文本/语音转写归档流程；完整性由数据导出或用户提供的逐字稿保证。
 - 将研究、写作、环境配置和独立学习拆成相互隔离的 Lane。
 - 只同步实验元数据、证据位置、哈希和结论边界；原始数据仍留在各自工作区。
 
@@ -45,6 +46,8 @@ PersonalOS/
 ├── DASHBOARD.md      # 自动生成的任务总览
 ├── registries/       # 机器可读实验元数据
 ├── EXPERIMENTS.md    # 自动生成的实验总览
+├── archives/         # 显式“导入”创建的会话与语音转写归档
+├── ARCHIVES.md       # 自动生成的会话归档索引
 ├── skill/            # 可安装的便携 PersonalOS Skill
-└── scripts/          # start/checkpoint/sync/install/doctor 等工具
+└── scripts/          # 状态闭环、实验注册和会话归档工具
 ~~~
