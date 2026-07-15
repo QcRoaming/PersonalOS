@@ -47,6 +47,14 @@ Apply explicit user controls:
 6. Run `python3 scripts/personal_os.py check .`.
 7. Run `python3 scripts/personal_os.py dashboard .` after a durable change.
 
+## Experiment registry protocol
+
+- Treat `registries/experiments.json` as the machine-readable experiment index and `EXPERIMENTS.md` as its generated view.
+- Keep raw data, IR, binaries, figures, and build outputs in the owning workspace; PersonalOS stores metadata, evidence pointers, hashes, and run state only.
+- Register a stable experiment ID, scope paths, evidence files, reproduction command, and claim boundary when adding a new experiment family.
+- After a registered producer successfully generates experiment data, run `python3 scripts/experiment_registry.py refresh --workspace-root <workspace> --completed-id <experiment-id>`.
+- Do not mark `last_successful_run_utc` before every producer step has completed. If the registry script exists and refresh fails, report the failure instead of silently accepting stale metadata.
+
 If the lane version changed after it was read, do not overwrite it. Write `pending/<timestamp>-<session>.delta.md` with `lane`, `base_version`, and the proposed changes. Merge against the latest lane, then delete the processed delta.
 
 ## Recommendation boundary
@@ -54,4 +62,3 @@ If the lane version changed after it was read, do not overwrite it. Write `pendi
 - Recommend within the active lane by default.
 - Compare all lanes only when the user requests global prioritization.
 - Respect `priority`, `role`, blockers, prerequisites, and explicit user intent.  
-

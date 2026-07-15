@@ -1,0 +1,1141 @@
+{
+  "schema_version": 1,
+  "registry_id": "personal.experiments",
+  "workspace_root_hint": "/buddy-mlir",
+  "generated_view": "EXPERIMENTS.md",
+  "paper_selection_source": "jlq/thesis/experiments/data/paper_evidence_selection.json",
+  "storage_policy": {
+    "personal_os_role": "metadata_control_plane",
+    "raw_data_location": "workspace_only",
+    "refresh_policy": "registered producers refresh after successful completion"
+  },
+  "excluded_infrastructure_paths": [
+    "jlq/thesis/experiments/config",
+    "jlq/thesis/experiments/scripts",
+    "jlq/thesis/experiments/tools"
+  ],
+  "entries": [
+    {
+      "id": "historical.host_mlir_aot",
+      "title": "Historical Host MLIR AOT GEMM Benchmark",
+      "chapter": "historical",
+      "category": "historical_experiment",
+      "status": "archived",
+      "paths": [
+        {
+          "role": "input_cases",
+          "path": "jlq/thesis/experiments/config/aot_cases.csv"
+        },
+        {
+          "role": "build_outputs",
+          "path": "jlq/thesis/experiments/outputs/mlir_aot"
+        },
+        {
+          "role": "results",
+          "path": "jlq/thesis/experiments/results/mlir_aot_benchmark.csv"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/results/mlir_aot_benchmark.csv",
+        "jlq/thesis/experiments/results/mlir_aot_benchmark_summary.md"
+      ],
+      "reproduce_command": "bash jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh",
+      "claim_boundary": "Host CPU AOT correctness and timing evidence from the earlier generic Transform pipeline; it is not the Chapter 3 frozen dataset and does not demonstrate BLIS replacement.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "input_cases",
+            "path": "jlq/thesis/experiments/config/aot_cases.csv",
+            "exists": true
+          },
+          {
+            "role": "build_outputs",
+            "path": "jlq/thesis/experiments/outputs/mlir_aot",
+            "exists": true
+          },
+          {
+            "role": "results",
+            "path": "jlq/thesis/experiments/results/mlir_aot_benchmark.csv",
+            "exists": true
+          }
+        ],
+        "file_count": 32,
+        "size_bytes": 4060574,
+        "last_modified_utc": "2026-07-01T06:57:15Z",
+        "tree_fingerprint_sha256": "f248aa75fc7db6e04f845b213a570c4ccc089222e13f2d1b9c2b48cade5d25ad",
+        "tracked_files": {
+          "jlq/thesis/experiments/README.md": {
+            "exists": true,
+            "size_bytes": 4350,
+            "modified_at_utc": "2026-07-14T11:04:11Z",
+            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+          },
+          "jlq/thesis/experiments/results/mlir_aot_benchmark.csv": {
+            "exists": true,
+            "size_bytes": 1375,
+            "modified_at_utc": "2026-07-01T06:57:15Z",
+            "sha256": "e3115e881a4a08a17830acff3999faa72d86f7f273b691aaec8cd3deb5d29c32"
+          },
+          "jlq/thesis/experiments/results/mlir_aot_benchmark_summary.md": {
+            "exists": true,
+            "size_bytes": 1941,
+            "modified_at_utc": "2026-07-01T06:57:15Z",
+            "sha256": "745d7033502d25aa932fdf99259e086ec7c4bfac6f098a3ff14ae0d10d6179b0"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "supporting_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 2 baseline pipeline",
+          "Chapter 3 motivation"
+        ],
+        "decision": "Use only to document the earlier generic Transform/AOT pipeline. Use Chapter 3 for frozen preliminary statistics.",
+        "usable_claims": [
+          "The host MLIR Transform-to-AOT path compiled, ran, and checked correctness."
+        ]
+      }
+    },
+    {
+      "id": "historical.native_cpp_tile_sanity",
+      "title": "Historical Native C++ Tile Sanity Benchmark",
+      "chapter": "historical",
+      "category": "historical_experiment",
+      "status": "archived",
+      "paths": [
+        {
+          "role": "executable",
+          "path": "jlq/thesis/experiments/outputs/cpu_matmul_bench"
+        },
+        {
+          "role": "result_csv",
+          "path": "jlq/thesis/experiments/results/cpu_initial_results.csv"
+        },
+        {
+          "role": "result_summary",
+          "path": "jlq/thesis/experiments/results/cpu_benchmark_summary.md"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/results/cpu_initial_results.csv",
+        "jlq/thesis/experiments/results/cpu_benchmark_summary.md"
+      ],
+      "reproduce_command": "bash jlq/thesis/experiments/scripts/run_cpu_benchmark.sh",
+      "claim_boundary": "A native C++ schedule sanity check retained for historical comparison; it is not primary MLIR performance evidence.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "executable",
+            "path": "jlq/thesis/experiments/outputs/cpu_matmul_bench",
+            "exists": true
+          },
+          {
+            "role": "result_csv",
+            "path": "jlq/thesis/experiments/results/cpu_initial_results.csv",
+            "exists": true
+          },
+          {
+            "role": "result_summary",
+            "path": "jlq/thesis/experiments/results/cpu_benchmark_summary.md",
+            "exists": true
+          }
+        ],
+        "file_count": 3,
+        "size_bytes": 27347,
+        "last_modified_utc": "2026-06-11T02:15:18Z",
+        "tree_fingerprint_sha256": "a54e107db565cd9f9c49365e679a8809132206df44bf323713db24340604627f",
+        "tracked_files": {
+          "jlq/thesis/experiments/README.md": {
+            "exists": true,
+            "size_bytes": 4350,
+            "modified_at_utc": "2026-07-14T11:04:11Z",
+            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+          },
+          "jlq/thesis/experiments/results/cpu_benchmark_summary.md": {
+            "exists": true,
+            "size_bytes": 940,
+            "modified_at_utc": "2026-06-11T02:15:18Z",
+            "sha256": "108dc41ea630ed9f5a0439dfba54ec4fda3975c31d509197a12912df255c10d5"
+          },
+          "jlq/thesis/experiments/results/cpu_initial_results.csv": {
+            "exists": true,
+            "size_bytes": 527,
+            "modified_at_utc": "2026-06-11T02:15:18Z",
+            "sha256": "70d9216cee97b44cdf16ceb28a3e5b4669c2a3b596b3352ba2ff20445abf2008"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: development history"
+        ],
+        "decision": "Retain as a native C++ sanity check; do not use for the MLIR method's primary performance claim.",
+        "usable_claims": [
+          "Early native tiling variants were executable and measurable."
+        ]
+      }
+    },
+    {
+      "id": "historical.qemu_rvv_correctness",
+      "title": "Historical QEMU Scalar and RVV Correctness Check",
+      "chapter": "historical",
+      "category": "historical_experiment",
+      "status": "archived",
+      "paths": [
+        {
+          "role": "scalar_executable",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gc_correctness.elf"
+        },
+        {
+          "role": "scalar_log",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gc_correctness.qemu.log"
+        },
+        {
+          "role": "vector_executable",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.elf"
+        },
+        {
+          "role": "vector_disassembly",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.objdump.txt"
+        },
+        {
+          "role": "vector_log",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.qemu.log"
+        },
+        {
+          "role": "vectorizer_log",
+          "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.vectorize.log"
+        },
+        {
+          "role": "correctness_report",
+          "path": "jlq/thesis/experiments/results/qemu_correctness_check.md"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/results/qemu_correctness_check.md"
+      ],
+      "reproduce_command": "bash jlq/thesis/experiments/scripts/run_qemu_correctness.sh",
+      "claim_boundary": "Scalar and RVV emulator correctness evidence only; no real-board performance conclusion is supported.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "scalar_executable",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gc_correctness.elf",
+            "exists": true
+          },
+          {
+            "role": "scalar_log",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gc_correctness.qemu.log",
+            "exists": true
+          },
+          {
+            "role": "vector_executable",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.elf",
+            "exists": true
+          },
+          {
+            "role": "vector_disassembly",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.objdump.txt",
+            "exists": true
+          },
+          {
+            "role": "vector_log",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.qemu.log",
+            "exists": true
+          },
+          {
+            "role": "vectorizer_log",
+            "path": "jlq/thesis/experiments/outputs/rvv/rv64gcv_correctness.vectorize.log",
+            "exists": true
+          },
+          {
+            "role": "correctness_report",
+            "path": "jlq/thesis/experiments/results/qemu_correctness_check.md",
+            "exists": true
+          }
+        ],
+        "file_count": 7,
+        "size_bytes": 14745,
+        "last_modified_utc": "2026-07-01T06:56:02Z",
+        "tree_fingerprint_sha256": "a7dec6493bf53132004e540a8fe0d14a65dec5796286e36d1c00c66a9fa19fec",
+        "tracked_files": {
+          "jlq/thesis/experiments/README.md": {
+            "exists": true,
+            "size_bytes": 4350,
+            "modified_at_utc": "2026-07-14T11:04:11Z",
+            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+          },
+          "jlq/thesis/experiments/results/qemu_correctness_check.md": {
+            "exists": true,
+            "size_bytes": 2719,
+            "modified_at_utc": "2026-07-01T06:56:02Z",
+            "sha256": "69c9c3b867a58c8fae011cf2e6a10aa0b2ac23a8a64dbf2b239e8a6002298572"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: RVV exploratory evidence"
+        ],
+        "decision": "Correctness-only emulator evidence is outside the current x86 BLIS thesis evaluation.",
+        "usable_claims": [
+          "Scalar and RVV test executables passed the recorded QEMU correctness check."
+        ]
+      }
+    },
+    {
+      "id": "historical.rvv_toolchain",
+      "title": "Historical RVV Toolchain and Instruction-generation Check",
+      "chapter": "historical",
+      "category": "historical_experiment",
+      "status": "archived",
+      "paths": [
+        {
+          "role": "object",
+          "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.o"
+        },
+        {
+          "role": "disassembly",
+          "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.objdump.txt"
+        },
+        {
+          "role": "vectorizer_log",
+          "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.vectorize.log"
+        },
+        {
+          "role": "toolchain_report",
+          "path": "jlq/thesis/experiments/results/rvv_toolchain_check.md"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/results/rvv_toolchain_check.md"
+      ],
+      "reproduce_command": "bash jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh",
+      "claim_boundary": "RVV toolchain and instruction-generation evidence only; it does not establish emulator correctness or real-board performance.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "object",
+            "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.o",
+            "exists": true
+          },
+          {
+            "role": "disassembly",
+            "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.objdump.txt",
+            "exists": true
+          },
+          {
+            "role": "vectorizer_log",
+            "path": "jlq/thesis/experiments/outputs/rvv/rvv_saxpy.vectorize.log",
+            "exists": true
+          },
+          {
+            "role": "toolchain_report",
+            "path": "jlq/thesis/experiments/results/rvv_toolchain_check.md",
+            "exists": true
+          }
+        ],
+        "file_count": 4,
+        "size_bytes": 6098,
+        "last_modified_utc": "2026-07-01T06:56:02Z",
+        "tree_fingerprint_sha256": "2f3acaed602c37927501784be6dc46aa5ea0809dcb334645a68e6da8d137f033",
+        "tracked_files": {
+          "jlq/thesis/experiments/README.md": {
+            "exists": true,
+            "size_bytes": 4350,
+            "modified_at_utc": "2026-07-14T11:04:11Z",
+            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+          },
+          "jlq/thesis/experiments/results/rvv_toolchain_check.md": {
+            "exists": true,
+            "size_bytes": 1786,
+            "modified_at_utc": "2026-07-01T06:56:02Z",
+            "sha256": "d67b2a9d49b03219008f923a7f27b9bf1b54b745e1b8422f99f691dedad307ab"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: RVV exploratory evidence"
+        ],
+        "decision": "Toolchain evidence only; it does not support runtime performance conclusions.",
+        "usable_claims": [
+          "The configured toolchain emitted recorded RVV instructions."
+        ]
+      }
+    },
+    {
+      "id": "historical.transform_rvv_codegen",
+      "title": "Historical Transform Dialect to RVV Code-generation Demo",
+      "chapter": "historical",
+      "category": "historical_experiment",
+      "status": "archived",
+      "paths": [
+        {
+          "role": "ir_snapshots",
+          "path": "jlq/thesis/experiments/outputs/transform_ir_snapshots"
+        },
+        {
+          "role": "metrics",
+          "path": "jlq/thesis/experiments/results/transform_metrics.tsv"
+        },
+        {
+          "role": "report",
+          "path": "jlq/thesis/experiments/results/transform_demo_check.md"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/results/transform_demo_check.md",
+        "jlq/thesis/experiments/results/transform_metrics.tsv"
+      ],
+      "reproduce_command": "bash jlq/thesis/experiments/scripts/run_transform_demo.sh",
+      "claim_boundary": "Transform and RVV code-generation evidence; fixed-size MLIR vectors and generated RVV instructions do not by themselves establish target-hardware speedup.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "ir_snapshots",
+            "path": "jlq/thesis/experiments/outputs/transform_ir_snapshots",
+            "exists": true
+          },
+          {
+            "role": "metrics",
+            "path": "jlq/thesis/experiments/results/transform_metrics.tsv",
+            "exists": true
+          },
+          {
+            "role": "report",
+            "path": "jlq/thesis/experiments/results/transform_demo_check.md",
+            "exists": true
+          }
+        ],
+        "file_count": 24,
+        "size_bytes": 9203121,
+        "last_modified_utc": "2026-07-01T06:55:31Z",
+        "tree_fingerprint_sha256": "22a95787e31aeca8bc889b42f6341011c669baed56107d92257611dffda6b0e3",
+        "tracked_files": {
+          "jlq/thesis/experiments/README.md": {
+            "exists": true,
+            "size_bytes": 4350,
+            "modified_at_utc": "2026-07-14T11:04:11Z",
+            "sha256": "265334439ba4f0bfcf390b9681984400965cf23012d48531521be509ceea2ff7"
+          },
+          "jlq/thesis/experiments/results/transform_demo_check.md": {
+            "exists": true,
+            "size_bytes": 1343,
+            "modified_at_utc": "2026-07-01T06:55:31Z",
+            "sha256": "56fa91720f99c9f84d86b4242b92e3e679f4bd331543d3b9237df2186b0c4c73"
+          },
+          "jlq/thesis/experiments/results/transform_metrics.tsv": {
+            "exists": true,
+            "size_bytes": 498,
+            "modified_at_utc": "2026-07-01T06:55:30Z",
+            "sha256": "93fd0fd3011f867c9ea90f897485c0989bcb9efc1802fc4683407cd3440737c0"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: Transform/RVV exploratory evidence"
+        ],
+        "decision": "Keep as code-generation evidence; fixed vectors and RVV instructions do not establish target speedup.",
+        "usable_claims": [
+          "Transform Dialect generated the recorded RVV-oriented IR and object code."
+        ]
+      }
+    },
+    {
+      "id": "paper.transform_dialect_section_4_5",
+      "title": "CGO 2025 Transform Dialect Section 4.5 Core Materials",
+      "chapter": "4.5 alignment",
+      "category": "paper_reproduction_material",
+      "status": "reference_extraction_only",
+      "paths": [
+        {
+          "role": "extracted_core_files",
+          "path": "jlq/thesis/experiments/4.5"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/4.5/REUSABLE_NOTES.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/4.5/REUSABLE_NOTES.md",
+        "jlq/thesis/experiments/4.5/parametric_transform.mlir",
+        "jlq/thesis/experiments/4.5/search_settings.json"
+      ],
+      "reproduce_command": null,
+      "claim_boundary": "The extracted files document the Section 4.5 tuner interface and reusable patterns, but missing support files prevent claiming a standalone local reproduction or observed library replacement.",
+      "automation": {
+        "auto_refresh": false,
+        "producer": null
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "extracted_core_files",
+            "path": "jlq/thesis/experiments/4.5",
+            "exists": true
+          }
+        ],
+        "file_count": 7,
+        "size_bytes": 45678,
+        "last_modified_utc": "2026-07-13T11:50:19Z",
+        "tree_fingerprint_sha256": "a067c601ef5ad15b52cab2bf85ee4e749bfdff8df5178ac3acf6f1dc57b1456d",
+        "tracked_files": {
+          "jlq/thesis/experiments/4.5/REUSABLE_NOTES.md": {
+            "exists": true,
+            "size_bytes": 20152,
+            "modified_at_utc": "2026-07-13T11:50:19Z",
+            "sha256": "d862b12215e76c8ebe49e10667ca041d3d5dbdcb8c38d8941e0c1429d38ba145"
+          },
+          "jlq/thesis/experiments/4.5/parametric_transform.mlir": {
+            "exists": true,
+            "size_bytes": 4826,
+            "modified_at_utc": "2024-08-23T13:16:29Z",
+            "sha256": "7d3534b23e303f6d0e3a91470fecf09919c1070a0292d91ee04412e890cbee68"
+          },
+          "jlq/thesis/experiments/4.5/search_settings.json": {
+            "exists": true,
+            "size_bytes": 1862,
+            "modified_at_utc": "2024-08-23T13:16:29Z",
+            "sha256": "0ece88ba608a86782a17f18f930ef788a1c7716353ae5cae904451c15e9f67f0"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "reference_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Chapter 2 related work",
+          "Chapter 4 interface alignment"
+        ],
+        "decision": "Use as a source-grounded interface reference, not as a local reproduction or local measurement.",
+        "usable_claims": [
+          "The extracted Section 4.5 materials expose a reusable parameterized Transform and tuner interface pattern."
+        ]
+      }
+    },
+    {
+      "id": "thesis.chapter3_rules",
+      "title": "Chapter 3 GEMM Expert Knowledge and Preliminary MLIR Evidence",
+      "chapter": "3",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter3_rules"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter3_rules/chapter3_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter3_rules/processed/preliminary_summary.json",
+        "jlq/thesis/experiments/chapter3_rules/reports/chapter3_preliminary_results.md",
+        "jlq/thesis/experiments/chapter3_rules/verification/human_signoffs.json",
+        "jlq/thesis/experiments/chapter3_rules/verification/manual_verification.csv",
+        "jlq/thesis/experiments/chapter3_rules/verification/validation_report.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py",
+      "claim_boundary": "Automated artifacts, the preliminary MLIR AOT path, and all 16 source-backed thesis-author signoffs are complete. All correct Transform candidates were still observed fallback rather than BLIS replacement.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter3_rules",
+            "exists": true
+          }
+        ],
+        "file_count": 794,
+        "size_bytes": 125624793,
+        "last_modified_utc": "2026-07-15T01:06:47Z",
+        "tree_fingerprint_sha256": "4b71d9a565d015cd0266cb4675f32e69020cc564e95deba090d68c10a01f0b93",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter3_rules/chapter3_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 1156,
+            "modified_at_utc": "2026-07-15T01:06:47Z",
+            "sha256": "526013ee18d74ce24f123d6a75638970db40aca6ba4a75855f2191f1f7a8c8dd"
+          },
+          "jlq/thesis/experiments/chapter3_rules/processed/preliminary_summary.json": {
+            "exists": true,
+            "size_bytes": 403,
+            "modified_at_utc": "2026-07-13T03:27:09Z",
+            "sha256": "b34f804b8f15b070aac34326b32ad22cbccfe743f5e110e7837d7578f9cfc1c8"
+          },
+          "jlq/thesis/experiments/chapter3_rules/reports/chapter3_preliminary_results.md": {
+            "exists": true,
+            "size_bytes": 1399,
+            "modified_at_utc": "2026-07-15T01:06:47Z",
+            "sha256": "75d4a09c2266ee01bb46c7d88ab0c17eae8f124e013149012a93442758a9865b"
+          },
+          "jlq/thesis/experiments/chapter3_rules/verification/human_signoffs.json": {
+            "exists": true,
+            "size_bytes": 1289,
+            "modified_at_utc": "2026-07-15T00:58:18Z",
+            "sha256": "310a7f602ad1e6b56b441e788442792f3cbb3a6aba09e6c4e8c7861364717edc"
+          },
+          "jlq/thesis/experiments/chapter3_rules/verification/manual_verification.csv": {
+            "exists": true,
+            "size_bytes": 3416,
+            "modified_at_utc": "2026-07-15T01:06:31Z",
+            "sha256": "25023b9fab3c82f260f94d1d50045de2e9a155c290e1be49e3e83a110301bda9"
+          },
+          "jlq/thesis/experiments/chapter3_rules/verification/validation_report.json": {
+            "exists": true,
+            "size_bytes": 485,
+            "modified_at_utc": "2026-07-15T01:06:43Z",
+            "sha256": "5032ad091ed0df9f6b49120d696e0f3fcdeede7a1f1c99fb5970a947f13e4aa1"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T01:06:58Z"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 3",
+          "Chapter 6 RQ1 preliminary support"
+        ],
+        "decision": "Primary evidence for Fact/Contract/Rule modeling and the eight-shape preliminary MLIR study. All 16 source-backed review cases have explicit thesis-author signoff.",
+        "usable_claims": [
+          "The extractor produced source-linked facts and contracts with explicit evidence and review state.",
+          "The eight-shape preliminary MLIR/AOT dataset quantifies legal-space reduction, fallback, correctness, and compile cost."
+        ]
+      }
+    },
+    {
+      "id": "thesis.chapter4_5_integrated",
+      "title": "Chapter 4 Candidate Space to Chapter 5 BLIS Evaluator Integration",
+      "chapter": "4-5 integration",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter4_5_integrated"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter4_5_integrated/chapter4_5_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter4_5_integrated/data/integration_config.json",
+        "jlq/thesis/experiments/chapter4_5_integrated/raw/path_matrix.csv",
+        "jlq/thesis/experiments/chapter4_5_integrated/raw/baco_callback_log.jsonl",
+        "jlq/thesis/experiments/chapter4_5_integrated/processed/baco_tuning_trace.csv",
+        "jlq/thesis/experiments/chapter4_5_integrated/processed/integrated_summary.json",
+        "jlq/thesis/experiments/chapter4_5_integrated/reports/integrated_results.md"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter4_5_integrated/scripts/run_integrated_pipeline.py",
+      "claim_boundary": "A six-evaluation integration smoke test on one x86-64 AVX2/FMA host. It proves that Chapter 4 Expert+Shell candidates and unmodified BaCO callbacks drive the Chapter 5 real BLIS direct/adapt/fallback evaluator, but it is not the formal multi-space, multi-seed Chapter 6 comparison.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter4_5_integrated/scripts/run_integrated_pipeline.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 5 end-to-end implementation",
+          "Chapter 6 RQ2/RQ4 smoke evidence"
+        ],
+        "decision": "Primary integration evidence that Chapter 4 candidates and BaCO callbacks now drive observed Chapter 5 direct/adapt/fallback execution. The six-point tuning data is not a formal convergence comparison.",
+        "usable_claims": [
+          "Checker-predicted direct, adapt, and fallback cases match observed runtime paths.",
+          "The integrated BaCO callback reaches real BLIS microkernel evaluations with candidate-level correctness and path evidence."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter4_5_integrated",
+            "exists": true
+          }
+        ],
+        "file_count": 101,
+        "size_bytes": 7801924,
+        "last_modified_utc": "2026-07-14T08:51:51Z",
+        "tree_fingerprint_sha256": "34b9fe95fee0b10850f727e54e5fd33283dad5fe13b7b470a9876fb1e3ebffe6",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter4_5_integrated/chapter4_5_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 826,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "2da991469331bec96b0f047c3f8132e5c0650f3a9c2cd5cbccdf4e2ec3883538"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/data/integration_config.json": {
+            "exists": true,
+            "size_bytes": 1236,
+            "modified_at_utc": "2026-07-14T08:43:57Z",
+            "sha256": "3b89d141c8c26ee04a277f57bd0240094c4a9ed03381364e4ec3d65d045556cf"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/processed/baco_tuning_trace.csv": {
+            "exists": true,
+            "size_bytes": 1021,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "361cbc53f6d28fa1500a7de199cfeaddfb12ff54b0c6fff6a0090e6921445184"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/processed/integrated_summary.json": {
+            "exists": true,
+            "size_bytes": 7833,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "cff1462430bf8dd173fad37c76bb1b137293a1825e9bf8eda860310018448ec5"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/raw/baco_callback_log.jsonl": {
+            "exists": true,
+            "size_bytes": 2431,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "77a2931c79cb584514e9d6d0d5f641835d00cee34db80c752ddcbd80aff8d855"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/raw/path_matrix.csv": {
+            "exists": true,
+            "size_bytes": 2139,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "87906c5a190f1543a0eec1b2ca334bc951503db995542a65145da8e104251964"
+          },
+          "jlq/thesis/experiments/chapter4_5_integrated/reports/integrated_results.md": {
+            "exists": true,
+            "size_bytes": 1353,
+            "modified_at_utc": "2026-07-14T08:51:51Z",
+            "sha256": "daac24b676636d770ee269eeb87278b74c7002fda207273f59d0da7af69b8492"
+          }
+        },
+        "last_successful_run_utc": "2026-07-14T08:51:51Z"
+      }
+    },
+    {
+      "id": "thesis.chapter4_space",
+      "title": "Chapter 4 Microkernel-aware Schedule-space Experiment Package",
+      "chapter": "4",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter4_space"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter4_space/chapter4_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter4_space/processed/baco_tuning_summary.json",
+        "jlq/thesis/experiments/chapter4_space/processed/space_summary.json",
+        "jlq/thesis/experiments/chapter4_space/processed/transform_paths_summary.json",
+        "jlq/thesis/experiments/chapter4_space/reports/figure_qa.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py",
+      "claim_boundary": "The method and tuner loop are complete. Predicted direct/adapt paths remain observed fallback because no real BLIS packing or library-call adapter is present.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter4_space",
+            "exists": true
+          }
+        ],
+        "file_count": 216,
+        "size_bytes": 59329713,
+        "last_modified_utc": "2026-07-15T00:59:19Z",
+        "tree_fingerprint_sha256": "ef59871c1510a184c215a4dc872794a52a65a0e40ff48346e065de03089df3d3",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter4_space/chapter4_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 2522,
+            "modified_at_utc": "2026-07-14T02:07:03Z",
+            "sha256": "4a49f89dc847f442087fc957552ddd2dfb5f5bd0f3ef39d86acac3b1143f532b"
+          },
+          "jlq/thesis/experiments/chapter4_space/processed/baco_tuning_summary.json": {
+            "exists": true,
+            "size_bytes": 759,
+            "modified_at_utc": "2026-07-14T02:05:34Z",
+            "sha256": "2fc22fcfb1834a6eacc820e3aabac5ad8740f0b33ac48a61ddab852304ec4c16"
+          },
+          "jlq/thesis/experiments/chapter4_space/processed/space_summary.json": {
+            "exists": true,
+            "size_bytes": 4028,
+            "modified_at_utc": "2026-07-14T02:07:23Z",
+            "sha256": "e1952012b142caa5625aa564f4417bdbca23dd69ee61a5f7708998a3ebb7925c"
+          },
+          "jlq/thesis/experiments/chapter4_space/processed/transform_paths_summary.json": {
+            "exists": true,
+            "size_bytes": 301,
+            "modified_at_utc": "2026-07-14T02:07:24Z",
+            "sha256": "2ead367e41a3502cc93edf7dc5677085361eff3ad343ae01311267a482294bb5"
+          },
+          "jlq/thesis/experiments/chapter4_space/reports/figure_qa.json": {
+            "exists": true,
+            "size_bytes": 1371,
+            "modified_at_utc": "2026-07-14T02:07:29Z",
+            "sha256": "c79930cbdf20878cd774ab7b8da27007dd1aafbeb6b3ab383d6b85f9bd3999ca"
+          }
+        },
+        "last_successful_run_utc": null
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 4",
+          "Chapter 6 RQ2-RQ3 method evidence"
+        ],
+        "decision": "Primary method evidence for B1-B4 space construction, Checker decisions, provenance, complexity, and BaCO interface. Its old path examples remain observed fallback.",
+        "usable_claims": [
+          "The implementation generates Generic, Contract-only, Expert-core, and Expert+Shell spaces with explicit provenance.",
+          "The six-task filtering funnel and generation-overhead measurements are reproducible.",
+          "Unmodified BaCO consumed the exported finite lookup in a bounded smoke run."
+        ]
+      }
+    },
+    {
+      "id": "thesis.chapter5_blis_adapter",
+      "title": "Chapter 5 Real BLIS Packing and Microkernel Call Adapter",
+      "chapter": "5",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter5_blis_adapter"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter5_blis_adapter/chapter5_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter5_blis_adapter/data/experiment_config.json",
+        "jlq/thesis/experiments/chapter5_blis_adapter/raw/path_results.csv",
+        "jlq/thesis/experiments/chapter5_blis_adapter/raw/dynamic_multishape_trials.csv",
+        "jlq/thesis/experiments/chapter5_blis_adapter/processed/chapter5_summary.json",
+        "jlq/thesis/experiments/chapter5_blis_adapter/processed/dynamic_multishape_summary.json",
+        "jlq/thesis/experiments/chapter5_blis_adapter/reports/chapter5_results.md",
+        "jlq/thesis/experiments/chapter5_blis_adapter/reports/dynamic_multishape_results.md",
+        "jlq/thesis/experiments/chapter5_blis_adapter/runtime/dynamic_matmul_bench.cpp",
+        "midend/include/Dialect/Microkernel/TransformOps.td",
+        "midend/lib/Dialect/Microkernel/TransformOps.cpp",
+        "midend/lib/Conversion/MatMulOptimization/MatMulBlisMicrokernel.cpp"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py",
+      "claim_boundary": "Rank-2 row-major f32 static direct, M/N/K fringe adapt, and one-binary dynamic-shape execution now perform real BLIS-compatible packing and call bli_sgemm_haswell_asm_6x16. Multi-shape speedups use a scalar-loop dynamic fallback; arbitrary layouts, additional dtypes/contracts, optimized dynamic baselines, parallel execution, and cross-host statistics remain outside this evidence.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter5_blis_adapter",
+            "exists": true
+          }
+        ],
+        "file_count": 122,
+        "size_bytes": 9320388,
+        "last_modified_utc": "2026-07-14T10:41:26Z",
+        "tree_fingerprint_sha256": "39a207b0c3dc741f7c5a69c09d44c939535c5b4cd6f35b5b8ff776bc82814d42",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter5_blis_adapter/chapter5_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 1406,
+            "modified_at_utc": "2026-07-14T08:00:26Z",
+            "sha256": "f0177a22544344c3b74a1d65c99cd1c533f957f744ec458c925de5bba782abbe"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 1132,
+            "modified_at_utc": "2026-07-14T08:03:27Z",
+            "sha256": "3599a6bed2b65feac6490fde8849fbf2e280ca40452abff2e53cc80d85f479d1"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/processed/chapter5_summary.json": {
+            "exists": true,
+            "size_bytes": 2249,
+            "modified_at_utc": "2026-07-14T08:00:26Z",
+            "sha256": "5abc6360431ab230c4cf24ae851f9adc616e6255bc5b2f9eb019b3950f449c11"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/processed/dynamic_multishape_summary.json": {
+            "exists": true,
+            "size_bytes": 6101,
+            "modified_at_utc": "2026-07-14T08:02:14Z",
+            "sha256": "5740f18cb965a5d9ee01abe1dfca98013bb273935f891c3be2689de33a4b11f8"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/raw/dynamic_multishape_trials.csv": {
+            "exists": true,
+            "size_bytes": 9614,
+            "modified_at_utc": "2026-07-14T08:02:14Z",
+            "sha256": "9ee9e38c8626f007c145de28cd797ca18cecda4925cb0526e004bb6925cddc2a"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/raw/path_results.csv": {
+            "exists": true,
+            "size_bytes": 597,
+            "modified_at_utc": "2026-07-14T08:00:26Z",
+            "sha256": "41a282924e590561d692cce9e8827d143bf3e6996a1e764e4080b26edf89fdf6"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/reports/chapter5_results.md": {
+            "exists": true,
+            "size_bytes": 1347,
+            "modified_at_utc": "2026-07-14T08:00:26Z",
+            "sha256": "a968e196f2ca58d864c50c06650d8713790f1d8df8069b05a1ac45a3a25ed4a5"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/reports/dynamic_multishape_results.md": {
+            "exists": true,
+            "size_bytes": 1561,
+            "modified_at_utc": "2026-07-14T08:02:14Z",
+            "sha256": "7659447d3bf3efdef856ed4f11592d1533197d9e4dec72582529b165722aa9a8"
+          },
+          "jlq/thesis/experiments/chapter5_blis_adapter/runtime/dynamic_matmul_bench.cpp": {
+            "exists": true,
+            "size_bytes": 6517,
+            "modified_at_utc": "2026-07-14T07:53:37Z",
+            "sha256": "7cf9e5c652289c1581a4207a1107ed0adc10cb3655fafccf620f22c2448dcf93"
+          },
+          "midend/include/Dialect/Microkernel/TransformOps.td": {
+            "exists": true,
+            "size_bytes": 1315,
+            "modified_at_utc": "2026-07-14T07:49:49Z",
+            "sha256": "5a1681ffa571ffecfcc98e71711ceeb87455d218619753f509a8756bccc19d2a"
+          },
+          "midend/lib/Conversion/MatMulOptimization/MatMulBlisMicrokernel.cpp": {
+            "exists": true,
+            "size_bytes": 20985,
+            "modified_at_utc": "2026-07-14T07:49:57Z",
+            "sha256": "a7e6f886b127f8a1b25719210ef02ddbbeb39add26cb5b8ac5ae817f3de288b2"
+          },
+          "midend/lib/Dialect/Microkernel/TransformOps.cpp": {
+            "exists": true,
+            "size_bytes": 2437,
+            "modified_at_utc": "2026-07-14T07:49:57Z",
+            "sha256": "11c52dc37a3d1259226b40a06129a7ae9a490fc4632da06cf71af0956795f200"
+          }
+        },
+        "last_successful_run_utc": "2026-07-14T08:04:14Z"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 5",
+          "Chapter 6 implementation validation"
+        ],
+        "decision": "Primary evidence for real packing, BLIS 6x16 invocation, fringe adaptation, and dynamic shape correctness. Performance remains preliminary because the dynamic baseline is scalar-loop.",
+        "usable_claims": [
+          "The generated binary contains and executes the real BLIS Haswell f32 6x16 microkernel path.",
+          "Seven dynamic shapes validate direct/adapt execution, nonzero-C accumulation, and runtime fringe counts.",
+          "Reported speedups are only relative to the declared scalar-loop dynamic fallback."
+        ]
+      }
+    },
+    {
+      "id": "thesis.chapter6_evaluation",
+      "title": "Chapter 6 Formal Kernel-aware GEMM Evaluation",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_evaluation"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_evaluation/chapter6_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_evaluation/data/workloads.json",
+        "jlq/thesis/experiments/chapter6_evaluation/data/experiment_config.json",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/chapter6_summary.json",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/baseline_summary.json",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/measurement_aggregates.csv",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/tuning_traces.csv",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/fixed_budget_summary.csv",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/holdout_zero_shot.csv",
+        "jlq/thesis/experiments/chapter6_evaluation/processed/overhead_profile.csv",
+        "jlq/thesis/experiments/chapter6_evaluation/reports/chapter6_results.md",
+        "jlq/thesis/experiments/chapter6_evaluation/reports/figure_qa.json",
+        "jlq/thesis/experiments/chapter6_evaluation/reports/figure_visual_review.md",
+        "jlq/thesis/experiments/chapter6_evaluation/provenance/manifest.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter6_evaluation/scripts/run_chapter6.py",
+      "claim_boundary": "Formal B1-B4 equal-budget, five-seed evaluation over 36 predeclared row-major f32 shapes on one single-thread x86-64 AVX2/FMA host, with optimized dynamic MLIR and complete BLIS references, ablations, shape holdout, and overhead. BaCO uses offline replay over real measured candidates. Confidence intervals do not represent cross-host variation; additional dtype/architecture performance remains outside this completed run. Chapter 3 author signoff is complete and separately recorded.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_evaluation/scripts/run_chapter6.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 formal evaluation",
+          "Chapter 7 conclusions and limitations"
+        ],
+        "decision": "Primary formal evidence for RQ1-RQ6 within the single-host row-major f32 boundary. Use its B1-B4 comparison, complete-BLIS reference, ablations, holdout, overhead, and confidence intervals; do not extend the result to additional dtypes or hosts.",
+        "usable_claims": [
+          "Thirty-six predeclared shapes and eight core tuning shapes provide the formal space-quality and baseline matrix.",
+          "B1-B4 use equal 25-candidate budgets, five seeds, one real measurement corpus, and pinned BaCO 3.0; finite domains, seeds, and objective values are unchanged, while runtime compatibility interventions are disclosed separately.",
+          "The evaluation includes a genuinely vectorized dynamic MLIR reference, complete BLIS bli_sgemm, component ablations, shell sensitivity, zero-shot holdout, and system overhead."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-15T01:06:58Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_evaluation",
+            "exists": true
+          }
+        ],
+        "file_count": 12226,
+        "size_bytes": 798402841,
+        "last_modified_utc": "2026-07-15T01:06:54Z",
+        "tree_fingerprint_sha256": "cce147768c4a59e936d25c5780a458d13a663beb6cf2f4537cf984ec8354cd7d",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_evaluation/chapter6_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 2219,
+            "modified_at_utc": "2026-07-15T00:59:19Z",
+            "sha256": "0dbb34f13d21374e1e593ec7b1929a78ee89b75bcf27c089cae1e8013d25eab3"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 1713,
+            "modified_at_utc": "2026-07-14T11:02:32Z",
+            "sha256": "ccef88e9da2000dde9f92bbf8a8b7b6702557c30eef171801b8e1776867d2bc8"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/data/workloads.json": {
+            "exists": true,
+            "size_bytes": 4273,
+            "modified_at_utc": "2026-07-14T10:38:02Z",
+            "sha256": "931cacad99c21dd11ae6098a0931ccf0e8f3606b3a700f7ea3d6b12469605588"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/baseline_summary.json": {
+            "exists": true,
+            "size_bytes": 234,
+            "modified_at_utc": "2026-07-15T01:00:43Z",
+            "sha256": "5dba3692aac292b8b5a1eb0d60a194b3c476dededd7965c84aeab79647b70a56"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/chapter6_summary.json": {
+            "exists": true,
+            "size_bytes": 10941,
+            "modified_at_utc": "2026-07-15T01:00:44Z",
+            "sha256": "2f80deb08d4ddb056c6a5b2b76235df2f5fe762df74eee92e588ba39ba89554d"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/fixed_budget_summary.csv": {
+            "exists": true,
+            "size_bytes": 1874,
+            "modified_at_utc": "2026-07-15T01:00:44Z",
+            "sha256": "dc5ea5a9e391d4d07b8ce74098661f5d966bab4caca9888d6064dc820600a60c"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/holdout_zero_shot.csv": {
+            "exists": true,
+            "size_bytes": 5109,
+            "modified_at_utc": "2026-07-15T01:00:44Z",
+            "sha256": "581d04f37350fc76caf5e0d637e35c30545ea635fc0a1ea666900dfc8b383a3d"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/measurement_aggregates.csv": {
+            "exists": true,
+            "size_bytes": 259248,
+            "modified_at_utc": "2026-07-14T11:19:53Z",
+            "sha256": "387fd56fb9d1962c4112ebe391dc3cbb8f631a26f4a8ed4772caf1bcdd80994e"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/overhead_profile.csv": {
+            "exists": true,
+            "size_bytes": 568,
+            "modified_at_utc": "2026-07-15T01:00:44Z",
+            "sha256": "ddf528dbd5be76a1d28917c0a77ae0dee8831ac21ba386661b3b20de76c1bade"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/processed/tuning_traces.csv": {
+            "exists": true,
+            "size_bytes": 2430344,
+            "modified_at_utc": "2026-07-14T12:35:17Z",
+            "sha256": "21e274f9e0532c77f2205135b551959059e82a4d0a651bd9a0c925088d332a5f"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 6800,
+            "modified_at_utc": "2026-07-15T01:02:04Z",
+            "sha256": "06e8a6aedc32ee889314516b6fc3c7281730459ff94b390fab72e6a1a2aaccb7"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/reports/chapter6_results.md": {
+            "exists": true,
+            "size_bytes": 4152,
+            "modified_at_utc": "2026-07-15T01:00:49Z",
+            "sha256": "04c6a3b3fa456a673020ef6739aa95179ff2db16d2dc6a9c03616f9d213f8adf"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/reports/figure_qa.json": {
+            "exists": true,
+            "size_bytes": 3234,
+            "modified_at_utc": "2026-07-15T01:01:34Z",
+            "sha256": "11cabbfabaff8ab8682cb45203d4e0b3990d971739112ae76640aefe2377a2f8"
+          },
+          "jlq/thesis/experiments/chapter6_evaluation/reports/figure_visual_review.md": {
+            "exists": true,
+            "size_bytes": 983,
+            "modified_at_utc": "2026-07-15T01:01:58Z",
+            "sha256": "5e736b9a19c6afeb578a5b2f422112acbc5e59e3b04cfa90392ffcc2d7ea7edf"
+          }
+        },
+        "last_successful_run_utc": "2026-07-15T01:06:58Z"
+      }
+    }
+  ],
+  "last_refreshed_at_utc": "2026-07-15T01:06:58Z"
+}

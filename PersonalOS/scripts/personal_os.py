@@ -4,11 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
+
+from experiment_registry import validate_registry_files
 
 
 REQUIRED_ROOT_FILES = ("PERSONAL.md", "ROUTES.md", "AGENTS.md")
@@ -108,6 +111,7 @@ def cmd_check(root: Path) -> int:
             warnings.append(f"{lane.path.name}: {line_count} lines; compact the lane")
     if main_count != 1:
         errors.append(f"expected exactly one active main lane, found {main_count}")
+    errors.extend(f"experiment registry: {item}" for item in validate_registry_files(root))
     pending_dir = root / "pending"
     if pending_dir.is_dir():
         for delta in pending_dir.glob("*.delta.md"):
@@ -206,6 +210,32 @@ def cmd_dashboard(root: Path) -> int:
                 current=current.replace("|", "/"),
             )
         )
+    registry_path = root / "registries" / "experiments.json"
+    lines.extend(["", "## Experiment Registry", ""])
+    if registry_path.is_file():
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+        experiments = registry.get("entries", [])
+        available = sum(
+            bool(item.get("observed", {}).get("all_paths_exist")) for item in experiments
+        )
+        automatic = sum(
+            bool(item.get("automation", {}).get("auto_refresh")) for item in experiments
+        )
+        body_eligible = sum(
+            bool(item.get("paper_use", {}).get("body_eligible")) for item in experiments
+        )
+        lines.extend(
+            [
+                "- Human-readable index: `EXPERIMENTS.md`",
+                f"- Registered experiments: {len(experiments)}",
+                f"- Fully available paths: {available}/{len(experiments)}",
+                f"- Runner-maintained entries: {automatic}/{len(experiments)}",
+                f"- Main-text eligible entries: {body_eligible}/{len(experiments)}",
+                f"- Last refreshed: `{registry.get('last_refreshed_at_utc', 'never')}`",
+            ]
+        )
+    else:
+        lines.append("- Registry not found.")
     main = next(
         (lane for lane in lanes if lane.meta.get("id") == routes_meta.get("main_lane")),
         None,
