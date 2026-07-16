@@ -7,7 +7,7 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-16T11:01:38Z`
+- Last refreshed: `2026-07-16T11:26:48Z`
 - Registered experiments: 16
 - Fully available paths: 16/16
 - Runner-maintained entries: 15/16
@@ -146,7 +146,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py` succeeds
 - Claim boundary: Single-thread local x86 evidence for f32/f64 BLIS Haswell Contracts, fresh-process online tuning, Optuna TPE and source-labelled soft-prior ranking. It does not establish cross-host or cross-architecture generalization.
-- Observed: 13474 files, 373.5 MiB, tree fingerprint `fab9cdda9b68fe686ee26ae72038626ffa302f1ff573ad02c429487bddf94a0a`
+- Observed: 13474 files, 373.5 MiB, tree fingerprint `55ed2333cb11aed7010da08ed512264c9c41a26c3c41e2b8858960879cb224b0`
 
 ### Chapter 3 BLIS and OpenBLAS Multi-source Expert Facts (`thesis.chapter3_multisource`)
 
@@ -290,4 +290,4 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py` succeeds
 - Claim boundary: A fixed-revision fully offline Ubuntu 20.04 deployment and strict result-import package only. No cross-host performance or ranking claim is supported before a 14900/14900K/14900KF archive is returned and imported.
-- Observed: 582 files, 1.4 GiB, tree fingerprint `1bbc03d79e3ccaa46defe2ed29402e14af5f72e2f6be2227db53b3e10f68f607`
+- Observed: 582 files, 1.4 GiB, tree fingerprint `5d02f4c1d2cd8dec67b9f8412b6b841c05fc62ee7b6a8969934449e016814963`

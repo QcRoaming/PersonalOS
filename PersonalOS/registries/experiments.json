@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -620,9 +620,9 @@
           }
         ],
         "file_count": 13474,
-        "size_bytes": 391640407,
-        "last_modified_utc": "2026-07-16T07:54:22Z",
-        "tree_fingerprint_sha256": "fab9cdda9b68fe686ee26ae72038626ffa302f1ff573ad02c429487bddf94a0a",
+        "size_bytes": 391641284,
+        "last_modified_utc": "2026-07-16T11:25:55Z",
+        "tree_fingerprint_sha256": "55ed2333cb11aed7010da08ed512264c9c41a26c3c41e2b8858960879cb224b0",
         "tracked_files": {
           "jlq/thesis/experiments/cgo_extension/cgo_extension_artifact_index.md": {
             "exists": true,
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1260,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1406,7 +1406,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1523,7 +1523,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1618,7 +1618,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:01:38Z",
+        "refreshed_at_utc": "2026-07-16T11:26:48Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1633,15 +1633,15 @@
           }
         ],
         "file_count": 582,
-        "size_bytes": 1523822211,
-        "last_modified_utc": "2026-07-16T11:01:38Z",
-        "tree_fingerprint_sha256": "1bbc03d79e3ccaa46defe2ed29402e14af5f72e2f6be2227db53b3e10f68f607",
+        "size_bytes": 1523827913,
+        "last_modified_utc": "2026-07-16T11:24:32Z",
+        "tree_fingerprint_sha256": "5d02f4c1d2cd8dec67b9f8412b6b841c05fc62ee7b6a8969934449e016814963",
         "tracked_files": {
           "jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900-offline-bundle/bundle_manifest.json": {
             "exists": true,
             "size_bytes": 35938,
-            "modified_at_utc": "2026-07-16T11:01:08Z",
-            "sha256": "7ea4f23ba0d5316275768bc339deee57fb28f7b8cb2c6746246236c02977859f"
+            "modified_at_utc": "2026-07-16T11:23:44Z",
+            "sha256": "31ab12a2ef621b74dcc3b96942ab631cbf7930979062f7be0ed7f7a68a62ba24"
           },
           "jlq/thesis/experiments/x86_cross_host/data/experiment_config.json": {
             "exists": true,
@@ -1660,5 +1660,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-16T11:01:38Z"
+  "last_refreshed_at_utc": "2026-07-16T11:26:48Z"
 }

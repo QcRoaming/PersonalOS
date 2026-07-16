@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 17
+version: 18
 updated_at: 2026-07-16
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-16T11:02:51Z
+last_activity_at: 2026-07-16T11:26:23Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-16T11:02:51Z
 
 # Current Checkpoint
 
-修复 14900 离线构建的 MLIRCAPIIR 依赖闭包：LLVM 预构建新增 MLIRCAPIIR 并校验 libMLIRCAPIIR.a，操作文档新增 new 解压目录说明和原地补编流程；重封装归档通过 277 文件校验与 4 项测试。
+修复 14900 干净目标机正式实验验收对历史 smoke 产物的隐式依赖：CGO 驱动按 formal/smoke 模式选择测试，操作文档新增现有目标机原地补齐与续跑步骤；正式数据无需重跑。
 
 # Verified Milestones
 
@@ -67,11 +67,11 @@ last_activity_at: 2026-07-16T11:02:51Z
 
 # Doing
 
-- 等待目标机在现有工作目录补编 MLIRCAPIIR 后增量续跑。
+- 等待目标机补齐 3 类 smoke 小规模产物并用 --skip-build 生成结果归档。
 
 # Next
 
-1. 目标机执行 TARGET_MACHINE_OPERATION_GUIDE.md 第 8.6 节，确认 MLIRCAPIIR: OK 后重新运行 bootstrap_and_run.sh，并返回结果归档。
+1. 目标机执行 TARGET_MACHINE_OPERATION_GUIDE.md 第 8.7 节，确认 10 项测试 OK 后返回 thesis-x86-result 归档。
 
 # Current Blockers
 
@@ -121,6 +121,9 @@ last_activity_at: 2026-07-16T11:02:51Z
 
 # Recent Evidence
 
+- 2026-07-16T11:26:23Z — combined tests 10/10 PASS; formal mode 7 PASS and 3 expected skips; smoke mode 6 PASS and 4 expected skips; archive sha256=9c1da755ed292465717ddd95e757fd07a6b5911366cb753a0f50749bf9a81721; 277 files verified; 4 package tests PASS
+- 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
+- 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
 - 2026-07-16T11:02:51Z — offline archive sha256=4bf8a11491906e383258c75d2d4532e72fc5eb9694bbf30b12db4317e50f2eb8; 277 verified files; 211 APT packages; 4 tests PASS
 - 2026-07-16T11:02:51Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
 - 2026-07-16T11:02:51Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
@@ -128,6 +131,3 @@ last_activity_at: 2026-07-16T11:02:51Z
 - 2026-07-16T10:05:39Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
 - 2026-07-16T10:05:39Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
 - 2026-07-16T09:43:00Z — Corrected archive SHA256 9c4c2aa437dcf3a8462bbd27e7fa78673f4a5d90978461be88cc7a6f3d67b0db; 211 local APT packages; 276 verified files; 4 tests PASS.
-- 2026-07-16T09:43:00Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
-- 2026-07-16T09:32:27Z — K230 board: 560/560 rows correct; 112 aggregates; RVV best-per-shape geomean 2.288x; OpenBLAS geomean 13.470x; fixed BLIS-derived candidate geomean 0.847x vs scalar.
-- 2026-07-16T09:32:27Z — artifact: /buddy-mlir/jlq/thesis/experiments/k230_rvv_backend/processed/k230_board_summary.json
