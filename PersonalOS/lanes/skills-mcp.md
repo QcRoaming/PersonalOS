@@ -4,11 +4,11 @@ title: Skills, MCP, and Agent Tooling
 role: supporting
 priority: P2
 status: active
-version: 11
+version: 12
 updated_at: 2026-07-15
 keywords: Skill|Skills|MCP|Codex|Agent|Plugin|nature-skills|CDP|slock|IDEA|VSCode|personal-os
 imports: none
-last_activity_at: 2026-07-15T17:54:56Z
+last_activity_at: 2026-07-15T17:58:29Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-07-15T17:54:56Z
 
 # Current Checkpoint
 
-PersonalOS v2.1 的显式会话归档功能已与当前 v2 状态完成语义合并并通过本地验证。精确独立命令“导入”会启动隔离归档；支持 ChatGPT 数据导出、用户逐字稿、语音转写和显式音频文件，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份。现有 16 条实验注册表和 v2 本机安装状态均已保留；当前归档数为 0，尚待真实文本与语音窗口验收。
+PersonalOS v2.1 已通过 PR `QcRoaming/PersonalOS-v1#2` 合并到 `main`，本机已同步到合并提交 `d45146c`，install、doctor、归档检查、16 条实验注册表检查及 14 项测试全部通过。精确独立命令“导入”会启动隔离归档，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份；当前真实归档数为 0，尚待文本与语音窗口验收。
 
 # Verified Milestones
 
@@ -37,6 +37,7 @@ PersonalOS v2.1 的显式会话归档功能已与当前 v2 状态完成语义合
 - 已新增独立会话归档注册表与 ARCHIVES.md，原始会话不会流入 Lane、个人画像、HANDOFF 或知识索引。
 - 已实现 ChatGPT active branch 还原、在“导入”触发消息前截断、语音转写标记、显式音频复制和完整性哈希校验。
 - v2.1 已在保留 16 条实验记录的前提下通过归档检查、结构检查和全部 14 项测试。
+- PR `#2` 已干净合并；本机 v2.1 install 与 doctor 通过，全局协议和 Skill 已更新。
 
 # Doing
 
@@ -87,3 +88,4 @@ PersonalOS v2.1 的显式会话归档功能已与当前 v2 状态完成语义合
 - 2026-07-15T17:30:17Z — 新增“导入”会话归档协议、conversation_archive.py、空注册表、归档视图和 4 项归档测试；全套 14 项测试通过。
 - 2026-07-15T17:39:31Z — PR `#1` 已合并到 `main`；本机 v2 install 和 doctor 通过。
 - 2026-07-15T17:54:56Z — v2.1 已与 16 条实验状态完成语义合并；归档检查、结构检查和 14 项测试通过，当前真实归档数为 0。
+- 2026-07-15T17:58:29Z — PR `#2` 已合并为 `d45146c`；本机 v2.1 install、doctor 和最终 14 项测试通过。
