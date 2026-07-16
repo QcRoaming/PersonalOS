@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 18
+version: 20
 updated_at: 2026-07-16
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-16T11:26:23Z
+last_activity_at: 2026-07-16T12:24:56Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-16T11:26:23Z
 
 # Current Checkpoint
 
-修复 14900 干净目标机正式实验验收对历史 smoke 产物的隐式依赖：CGO 驱动按 formal/smoke 模式选择测试，操作文档新增现有目标机原地补齐与续跑步骤；正式数据无需重跑。
+完成全实验终审：K230 与 i9-14900 外部结果均已导入，16 项证据统一分级，硬兼容知识可迁移而性能排序需目标校准。
 
 # Verified Milestones
 
@@ -67,19 +67,19 @@ last_activity_at: 2026-07-16T11:26:23Z
 
 # Doing
 
-- 等待目标机补齐 3 类 smoke 小规模产物并用 --skip-build 生成结果归档。
+- 当前实验矩阵已满足论文正文写作边界；10 个实验包共 150 项测试全部通过。
 
 # Next
 
-1. 目标机执行 TARGET_MACHINE_OPERATION_GUIDE.md 第 8.7 节，确认 10 项测试 OK 后返回 thesis-x86-result 归档。
+1. 依据 FINAL_EXPERIMENT_AUDIT.md 与 PAPER_EVIDENCE_CATALOG.md 重写第四至第七章；投稿级扩展再考虑多线程、任意布局和更多独立后端。
 
 # Current Blockers
 
-- 当前本机覆盖单线程、行主序 f32 6x16 与 f64 6x8 两个 Haswell Contract；任意 stride、更多后端 Contract 和跨主机泛化尚未验证。
+- 当前覆盖单线程、行主序 f32 6x16 与 f64 6x8 两个 Haswell Contract，并完成 i7-10750H/i9-14900 两主机验证；任意 stride、更多后端 Contract、线程扩展和普遍跨主机泛化仍未验证。
 - 当前软专家先验没有优于硬 Contract-only B2；论文必须把它表述为本次实现的经验限制和后续规则校准方向，而不是宣称完整专家空间全面获胜。
 - BaCO 3.0 分类参数存在重复回调与 GPy 数值稳定性问题；固定预算以回调计，唯一候选数和兼容兜底触发数必须同时披露。
 - K230 已完成单块 C908 RT-Smart 板端测量，但该结果不能外推为所有 RISC-V 后端的性能或排名泛化。
-- i9-14900 目前只有通过本机校验的完全离线部署包，尚无外部主机归档；在 importer 通过前不能声称 x86 跨主机排名稳定或性能泛化。
+- i9-14900 外部归档已通过 importer；两主机结果只支持硬兼容迁移和低预算趋势，不能外推为所有 x86 主机的稳定排名或性能泛化。
 
 # Decisions
 
@@ -108,9 +108,10 @@ last_activity_at: 2026-07-16T11:26:23Z
 | Transform Dialect 调度链路 | applied | 已跑通基础 lowering 与执行链路 | 在 §4.5 artifact 上复现完整 tuning loop |
 | GEMM blocking 层次 | understood | 已讨论 MC/KC/NC 与 MR/NR 的职责 | 对照 BLIS 配置与源码符号记录证据 |
 | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
-| microkernel contract | applied | f32 6x16 与 f64 6x8 contract 已驱动 36-shape direct/adapt 动态替换与运行时路径计数 | 扩展任意 stride、更多后端和跨主机验证 |
+| microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
 | RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
+| performance prior calibration | verified | budget-5 calibrated policies beat random on both x86 hosts while absolute BLIS-relative ranking reverses across hosts | add multithreaded and further-host evaluation for publication generalization |
 
 # Completion Criteria
 
@@ -121,13 +122,13 @@ last_activity_at: 2026-07-16T11:26:23Z
 
 # Recent Evidence
 
+- 2026-07-16T12:24:56Z — i9-14900: 3132 f64 trials, 6000 fresh online measurements, 1500 unique Optuna measurements; budget-5 online vs Optuna 1.065x [1.044,1.089].
+- 2026-07-16T12:24:56Z — Cross-host generated-pool/BLIS ratio changes from 1.064 on i7-10750H to 0.804 on i9-14900; compatibility prediction agreement remains 100%.
+- 2026-07-16T12:24:56Z — K230: 560 correct rows, best explicit RVV 2.288x and complete OpenBLAS 13.470x versus in-process scalar controls.
+- 2026-07-16T12:24:56Z — All 150 tests across Chapter 3-6, CGO, K230 and x86 cross-host packages pass.
+- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/FINAL_EXPERIMENT_AUDIT.md
+- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/PAPER_EVIDENCE_CATALOG.md
+- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md
 - 2026-07-16T11:26:23Z — combined tests 10/10 PASS; formal mode 7 PASS and 3 expected skips; smoke mode 6 PASS and 4 expected skips; archive sha256=9c1da755ed292465717ddd95e757fd07a6b5911366cb753a0f50749bf9a81721; 277 files verified; 4 package tests PASS
 - 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
 - 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
-- 2026-07-16T11:02:51Z — offline archive sha256=4bf8a11491906e383258c75d2d4532e72fc5eb9694bbf30b12db4317e50f2eb8; 277 verified files; 211 APT packages; 4 tests PASS
-- 2026-07-16T11:02:51Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
-- 2026-07-16T11:02:51Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
-- 2026-07-16T10:05:39Z — Final archive SHA256 9aee2e2ce462f21db1ab52d3178c5f2a54f2cc29225c38fc9ff4125abbd94178; 211 APT packages; 277 verified files; guide-in-archive exact match; 4 tests PASS.
-- 2026-07-16T10:05:39Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
-- 2026-07-16T10:05:39Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
-- 2026-07-16T09:43:00Z — Corrected archive SHA256 9c4c2aa437dcf3a8462bbd27e7fa78673f4a5d90978461be88cc7a6f3d67b0db; 211 local APT packages; 276 verified files; 4 tests PASS.

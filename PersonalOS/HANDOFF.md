@@ -7,15 +7,15 @@
 - Canonical repository: `QcRoaming/PersonalOS-v1`
 - Repository subdirectory: `PersonalOS`
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-16T11:26:48Z
-- Latest successful registered experiment: `thesis.k230_rvv_backend`
-- Experiment completed at: `2026-07-16T09:32:39Z`
+- State watermark: 2026-07-16T12:24:56Z
+- Latest successful registered experiment: `thesis.x86_cross_host`
+- Experiment completed at: `2026-07-16T12:24:10Z`
 
 ## Recent Lane State
 
 | Lane | Last activity | Checkpoint | Doing | Next |
 |---|---|---|---|---|
-| `research.kernel_aware_gemm` | 2026-07-16T11:26:23Z | 修复 14900 干净目标机正式实验验收对历史 smoke 产物的隐式依赖：CGO 驱动按 formal/smoke 模式选择测试，操作文档新增现有目标机原地补齐与续跑步骤；正式数据无需重跑。 | 等待目标机补齐 3 类 smoke 小规模产物并用 --skip-build 生成结果归档。 | 目标机执行 TARGET_MACHINE_OPERATION_GUIDE.md 第 8.7 节，确认 10 项测试 OK 后返回 thesis-x86-result 归档。 |
+| `research.kernel_aware_gemm` | 2026-07-16T12:24:56Z | 完成全实验终审：K230 与 i9-14900 外部结果均已导入，16 项证据统一分级，硬兼容知识可迁移而性能排序需目标校准。 | 当前实验矩阵已满足论文正文写作边界；10 个实验包共 150 项测试全部通过。 | 依据 FINAL_EXPERIMENT_AUDIT.md 与 PAPER_EVIDENCE_CATALOG.md 重写第四至第七章；投稿级扩展再考虑多线程、任意布局和更多独立后端。 |
 | `thesis.writing` | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 | 按最终证据目录重写第四至第六章，并统一摘要、绪论和结论边界。 | 先重写第四章搜索空间、BaCO 与 Transform Dialect 链路；外部板端和跨主机结果返回后再补相应结论。 |
 | `skills.mcp` | 2026-07-15T17:58:29Z | PersonalOS v2.1 已通过 PR `QcRoaming/PersonalOS-v1#2` 合并到 `main`，本机已同步到合并提交 `d45146c`，install、doctor、归档检查、16 条实验注册表检查及 14 项测试全部通过。精确独立命令“导入”会启动隔离归档，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份；当前真实归档数为 0，尚待文本与语音窗口验收。 | 在真实文本窗口和语音窗口验证“导入”触发、会话选择、触发点截断与覆盖级别。 | 重启 Codex CLI 或 VS Code Codex 扩展，使其重新加载 v2.1 协议和 Skill。 |
 | `infra.tooling` | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 | 重新确认当前 Docker 容器、镜像和实验 artifact 的有效状态。 | 为 Transform Dialect 实验建立一条可重复执行的环境检查命令和版本清单。 |

@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -73,9 +73,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5020,
-            "modified_at_utc": "2026-07-16T07:55:38Z",
-            "sha256": "b8b620c2ae816842305dbaa8b98f3a9f4f0a73df5a86bc0871d4a7995c67e89d"
+            "size_bytes": 5468,
+            "modified_at_utc": "2026-07-16T12:21:12Z",
+            "sha256": "2c428ece6363feb19fdf2108a90b6876c840bddff64d03bec2b1a9ba81320532"
           },
           "jlq/thesis/experiments/results/mlir_aot_benchmark.csv": {
             "exists": true,
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -163,9 +163,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5020,
-            "modified_at_utc": "2026-07-16T07:55:38Z",
-            "sha256": "b8b620c2ae816842305dbaa8b98f3a9f4f0a73df5a86bc0871d4a7995c67e89d"
+            "size_bytes": 5468,
+            "modified_at_utc": "2026-07-16T12:21:12Z",
+            "sha256": "2c428ece6363feb19fdf2108a90b6876c840bddff64d03bec2b1a9ba81320532"
           },
           "jlq/thesis/experiments/results/cpu_benchmark_summary.md": {
             "exists": true,
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -287,9 +287,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5020,
-            "modified_at_utc": "2026-07-16T07:55:38Z",
-            "sha256": "b8b620c2ae816842305dbaa8b98f3a9f4f0a73df5a86bc0871d4a7995c67e89d"
+            "size_bytes": 5468,
+            "modified_at_utc": "2026-07-16T12:21:12Z",
+            "sha256": "2c428ece6363feb19fdf2108a90b6876c840bddff64d03bec2b1a9ba81320532"
           },
           "jlq/thesis/experiments/results/qemu_correctness_check.md": {
             "exists": true,
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -378,9 +378,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5020,
-            "modified_at_utc": "2026-07-16T07:55:38Z",
-            "sha256": "b8b620c2ae816842305dbaa8b98f3a9f4f0a73df5a86bc0871d4a7995c67e89d"
+            "size_bytes": 5468,
+            "modified_at_utc": "2026-07-16T12:21:12Z",
+            "sha256": "2c428ece6363feb19fdf2108a90b6876c840bddff64d03bec2b1a9ba81320532"
           },
           "jlq/thesis/experiments/results/rvv_toolchain_check.md": {
             "exists": true,
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -461,9 +461,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5020,
-            "modified_at_utc": "2026-07-16T07:55:38Z",
-            "sha256": "b8b620c2ae816842305dbaa8b98f3a9f4f0a73df5a86bc0871d4a7995c67e89d"
+            "size_bytes": 5468,
+            "modified_at_utc": "2026-07-16T12:21:12Z",
+            "sha256": "2c428ece6363feb19fdf2108a90b6876c840bddff64d03bec2b1a9ba81320532"
           },
           "jlq/thesis/experiments/results/transform_demo_check.md": {
             "exists": true,
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -620,9 +620,9 @@
           }
         ],
         "file_count": 13474,
-        "size_bytes": 391641284,
-        "last_modified_utc": "2026-07-16T11:25:55Z",
-        "tree_fingerprint_sha256": "55ed2333cb11aed7010da08ed512264c9c41a26c3c41e2b8858960879cb224b0",
+        "size_bytes": 391641606,
+        "last_modified_utc": "2026-07-16T11:47:24Z",
+        "tree_fingerprint_sha256": "696d9cfe89f0d73903e57c8530cd35286c8e2511238e454e38275112ea6c3d8c",
         "tracked_files": {
           "jlq/thesis/experiments/cgo_extension/cgo_extension_artifact_index.md": {
             "exists": true,
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1260,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1406,7 +1406,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1523,7 +1523,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1578,10 +1578,10 @@
     },
     {
       "id": "thesis.x86_cross_host",
-      "title": "Intel Core i9-14900-series Offline Cross-host Package",
+      "title": "Intel Core i9-14900 Cross-host Evaluation",
       "chapter": "cross-host extension",
       "category": "thesis_evidence",
-      "status": "ready_pending_external_run",
+      "status": "complete_method_evidence",
       "paths": [
         {
           "role": "experiment_root",
@@ -1590,35 +1590,44 @@
         {
           "role": "deployment_archive",
           "path": "jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz"
+        },
+        {
+          "role": "imported_result",
+          "path": "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z"
         }
       ],
       "artifact_index": "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md",
       "evidence_files": [
-        "jlq/thesis/experiments/x86_cross_host/data/experiment_config.json",
-        "jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900-offline-bundle/bundle_manifest.json",
-        "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md"
+        "jlq/thesis/experiments/x86_cross_host/processed/latest_import.json",
+        "jlq/thesis/experiments/x86_cross_host/processed/cross_host_summary.json",
+        "jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md",
+        "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/host_metadata.json",
+        "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/cgo_extension/processed/cgo_extension_summary.json"
       ],
-      "reproduce_command": "python3 jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py",
-      "claim_boundary": "A fixed-revision fully offline Ubuntu 20.04 deployment and strict result-import package only. No cross-host performance or ranking claim is supported before a 14900/14900K/14900KF archive is returned and imported.",
+      "reproduce_command": "python3 jlq/thesis/experiments/x86_cross_host/scripts/build_cross_host_report.py",
+      "claim_boundary": "A two-host, single-thread row-major x86-64 comparison using the same fixed revisions, f64 BLIS Haswell 6x8 Contract, candidate domains and tuner budgets. It supports hard compatibility transfer and bounded low-budget sample-efficiency claims, but not universal x86 ranking, multithreaded behavior or asymptotic tuner superiority.",
       "automation": {
         "auto_refresh": true,
-        "producer": "jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py"
+        "producer": "jlq/thesis/experiments/x86_cross_host/scripts/import_results.py"
       },
       "paper_use": {
-        "tier": "appendix_only",
-        "body_eligible": false,
+        "tier": "supporting_main_text",
+        "body_eligible": true,
         "recommended_sections": [
-          "Appendix: 14900-series offline deployment package",
-          "Future cross-host evaluation after result import"
+          "Chapter 6 cross-host evaluation",
+          "Chapter 7 conclusions and limitations"
         ],
-        "decision": "Fully offline Ubuntu 20.04 deployment, P-core selection, result collection and strict import evidence only until the 14900/14900K/14900KF archive is returned. Bundle readiness is not a cross-host performance result.",
+        "decision": "Supporting two-host x86 evidence under the same fixed f64 Contract, candidate domains and tuner budgets. Use the replicated compatibility checks, low-budget gains and host-dependent ranking reversal; do not claim universal x86 generalization or budget-25 tuner dominance.",
         "usable_claims": [
-          "The fixed-revision offline bundle contains the complete Ubuntu 20.04 build dependency closure, compiler sources and Python wheels; it builds Buddy, LLVM/Clang and BLIS, pins a P-core, runs the formal protocol and creates a SHA-256 result archive without target-side network access.",
-          "Cross-host ranking stability and performance generalization remain unmeasured until a target archive passes the importer."
+          "The returned Intel Core i9-14900 archive passed SHA-256, revision, CPU-family and formal-status validation.",
+          "Both x86 hosts completed 3132 f64 Contract trials with complete direct/adapt prediction agreement, 6000 fresh true-online subprocess measurements with zero objective-cache hits, and 1500 unique Optuna measurements.",
+          "At budget 5, offline and online calibrated policies were both about 1.060x faster than random on the i9-14900 with 95% intervals above one; online calibration was 1.065x faster than Optuna TPE with interval [1.044, 1.089].",
+          "The generated f64 candidate pool changed from 1.064x relative to complete BLIS on the development host to 0.804x on the i9-14900, showing that absolute performance ranking is not host invariant.",
+          "At budget 25 the online policy did not consistently dominate random or Optuna, so the supported benefit is low-budget guidance rather than asymptotic superiority."
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T11:26:48Z",
+        "refreshed_at_utc": "2026-07-16T12:24:10Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1630,35 +1639,58 @@
             "role": "deployment_archive",
             "path": "jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz",
             "exists": true
+          },
+          {
+            "role": "imported_result",
+            "path": "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z",
+            "exists": true
           }
         ],
-        "file_count": 582,
-        "size_bytes": 1523827913,
-        "last_modified_utc": "2026-07-16T11:24:32Z",
-        "tree_fingerprint_sha256": "5d02f4c1d2cd8dec67b9f8412b6b841c05fc62ee7b6a8969934449e016814963",
+        "file_count": 25018,
+        "size_bytes": 1584028584,
+        "last_modified_utc": "2026-07-16T12:22:36Z",
+        "tree_fingerprint_sha256": "2ed495274c9f887aa4b4e7321f9746485372affb7a24f8ec81f06dfd081c7ead",
         "tracked_files": {
-          "jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900-offline-bundle/bundle_manifest.json": {
+          "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/cgo_extension/processed/cgo_extension_summary.json": {
             "exists": true,
-            "size_bytes": 35938,
-            "modified_at_utc": "2026-07-16T11:23:44Z",
-            "sha256": "31ab12a2ef621b74dcc3b96942ab631cbf7930979062f7be0ed7f7a68a62ba24"
+            "size_bytes": 6735,
+            "modified_at_utc": "2026-07-16T11:38:10Z",
+            "sha256": "e5fd36248036375cd9c3686db9f5230fd803b4c5f9331c41e1d2366ceddc4ab4"
           },
-          "jlq/thesis/experiments/x86_cross_host/data/experiment_config.json": {
+          "jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/host_metadata.json": {
             "exists": true,
-            "size_bytes": 1238,
-            "modified_at_utc": "2026-07-16T07:47:11Z",
-            "sha256": "d865b56a27ceb7704e4385dc182ee335a97ab763cd667d86617050a39d4a02ce"
+            "size_bytes": 4284,
+            "modified_at_utc": "2026-07-16T11:50:27Z",
+            "sha256": "494c388f79c3cf3d7142e2dfeeead0cad6784a4e89c111cb57a03e17244be0e2"
+          },
+          "jlq/thesis/experiments/x86_cross_host/processed/cross_host_summary.json": {
+            "exists": true,
+            "size_bytes": 4258,
+            "modified_at_utc": "2026-07-16T12:22:36Z",
+            "sha256": "1c6ffe610bbf5092997bb4f6cba2d6c2743657ba81bbf7af02f1d34751f653a9"
+          },
+          "jlq/thesis/experiments/x86_cross_host/processed/latest_import.json": {
+            "exists": true,
+            "size_bytes": 941,
+            "modified_at_utc": "2026-07-16T12:15:17Z",
+            "sha256": "b920a8ec46b92e147851f439b65a898303329b996e19b2fac2e8832f240383a2"
+          },
+          "jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md": {
+            "exists": true,
+            "size_bytes": 3404,
+            "modified_at_utc": "2026-07-16T12:22:36Z",
+            "sha256": "c1511cb0534ad9c487e7c1dcca4685474c0055df9c4e65e4871b748144c8c343"
           },
           "jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md": {
             "exists": true,
-            "size_bytes": 1062,
-            "modified_at_utc": "2026-07-16T09:59:13Z",
-            "sha256": "7a49d46e0b8e85f6b51ac46a9e2dabfea29dcc6edbb504bdc000f1cbb4968c16"
+            "size_bytes": 1139,
+            "modified_at_utc": "2026-07-16T12:22:36Z",
+            "sha256": "c48d96ab64ae76868e226009be17c0d7eecc43ffb485bd3298eac760a6ff23e9"
           }
         },
-        "last_successful_run_utc": null
+        "last_successful_run_utc": "2026-07-16T12:24:10Z"
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-16T11:26:48Z"
+  "last_refreshed_at_utc": "2026-07-16T12:24:10Z"
 }

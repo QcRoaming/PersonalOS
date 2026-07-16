@@ -7,9 +7,10 @@
 | `research.kernel_aware_gemm` | Transform Dialect 调度链路 | applied | 已跑通基础 lowering 与执行链路 | 在 §4.5 artifact 上复现完整 tuning loop |
 | `research.kernel_aware_gemm` | GEMM blocking 层次 | understood | 已讨论 MC/KC/NC 与 MR/NR 的职责 | 对照 BLIS 配置与源码符号记录证据 |
 | `research.kernel_aware_gemm` | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
-| `research.kernel_aware_gemm` | microkernel contract | applied | f32 6x16 与 f64 6x8 contract 已驱动 36-shape direct/adapt 动态替换与运行时路径计数 | 扩展任意 stride、更多后端和跨主机验证 |
+| `research.kernel_aware_gemm` | microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | `research.kernel_aware_gemm` | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
 | `research.kernel_aware_gemm` | RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
+| `research.kernel_aware_gemm` | performance prior calibration | verified | budget-5 calibrated policies beat random on both x86 hosts while absolute BLIS-relative ranking reverses across hosts | add multithreaded and further-host evaluation for publication generalization |
 | `thesis.writing` | 学位论文格式约束 | applied | NWPU 2025 模板完整编译为 90 页 PDF，第三章页面已检查 | 在后续章节重写后持续回归 |
 | `thesis.writing` | 摘要与绪论边界 | understood | 已多轮讨论目的、方法、结果和意义 | 结合最终实验结果重写定稿 |
 | `thesis.writing` | 方法与实验章节边界 | applied | 第三章已按 Fact/Contract/Rule、证据边界和贯穿案例落稿 | 用同一对象链重写第四至第六章 |

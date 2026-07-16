@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-16T11:26:48Z`
+- Last refreshed: `2026-07-16T12:24:10Z`
 - Registered experiments: 16
 - Fully available paths: 16/16
 - Runner-maintained entries: 15/16
-- Main-text eligible entries: 10/16
+- Main-text eligible entries: 11/16
 
 ## Overview
 
@@ -32,7 +32,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
-| `thesis.x86_cross_host` | cross-host extension | thesis_evidence | ready_pending_external_run | appendix_only | available | 582 | 1.4 GiB | not recorded |
+| `thesis.x86_cross_host` | cross-host extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 25018 | 1.5 GiB | 2026-07-16T12:24:10Z |
 
 ## Entries
 
@@ -146,7 +146,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/cgo_extension/scripts/run_local_extension.py` succeeds
 - Claim boundary: Single-thread local x86 evidence for f32/f64 BLIS Haswell Contracts, fresh-process online tuning, Optuna TPE and source-labelled soft-prior ranking. It does not establish cross-host or cross-architecture generalization.
-- Observed: 13474 files, 373.5 MiB, tree fingerprint `55ed2333cb11aed7010da08ed512264c9c41a26c3c41e2b8858960879cb224b0`
+- Observed: 13474 files, 373.5 MiB, tree fingerprint `696d9cfe89f0d73903e57c8530cd35286c8e2511238e454e38275112ea6c3d8c`
 
 ### Chapter 3 BLIS and OpenBLAS Multi-source Expert Facts (`thesis.chapter3_multisource`)
 
@@ -276,18 +276,18 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Claim boundary: Physical K230 C908 RT-Smart results are available for the recorded scalar, explicit-RVV and complete OpenBLAS binaries across eight workloads. Claims are limited to this board, toolchain, runtime and harness; they do not establish universal RISC-V performance generalization.
 - Observed: 46 files, 4.4 MiB, tree fingerprint `8577a5eb40f10c0d4207a6bd96cb5cc684bffa33928ea1c2a3370e71811f85c5`
 
-### Intel Core i9-14900-series Offline Cross-host Package (`thesis.x86_cross_host`)
+### Intel Core i9-14900 Cross-host Evaluation (`thesis.x86_cross_host`)
 
 - Chapter/scope: cross-host extension
 - Category: `thesis_evidence`
-- Status: `ready_pending_external_run`
-- Paper use: `appendix_only`; main-text eligible: `false`
-- Recommended sections: Appendix: 14900-series offline deployment package; Future cross-host evaluation after result import
-- Writing decision: Fully offline Ubuntu 20.04 deployment, P-core selection, result collection and strict import evidence only until the 14900/14900K/14900KF archive is returned. Bundle readiness is not a cross-host performance result.
-- Paths: experiment_root=`jlq/thesis/experiments/x86_cross_host`; deployment_archive=`jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz`
+- Status: `complete_method_evidence`
+- Paper use: `supporting_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 cross-host evaluation; Chapter 7 conclusions and limitations
+- Writing decision: Supporting two-host x86 evidence under the same fixed f64 Contract, candidate domains and tuner budgets. Use the replicated compatibility checks, low-budget gains and host-dependent ranking reversal; do not claim universal x86 generalization or budget-25 tuner dominance.
+- Paths: experiment_root=`jlq/thesis/experiments/x86_cross_host`; deployment_archive=`jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz`; imported_result=`jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z`
 - Artifact index: `jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md`
-- Evidence: `jlq/thesis/experiments/x86_cross_host/data/experiment_config.json`, `jlq/thesis/experiments/x86_cross_host/build/bundle_stage/thesis-x86-14900-offline-bundle/bundle_manifest.json`, `jlq/thesis/experiments/x86_cross_host/x86_cross_host_artifact_index.md`
-- Reproduction: `python3 jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py`
-- Registry maintenance: automatic after `jlq/thesis/experiments/x86_cross_host/scripts/make_bundle.py` succeeds
-- Claim boundary: A fixed-revision fully offline Ubuntu 20.04 deployment and strict result-import package only. No cross-host performance or ranking claim is supported before a 14900/14900K/14900KF archive is returned and imported.
-- Observed: 582 files, 1.4 GiB, tree fingerprint `5d02f4c1d2cd8dec67b9f8412b6b841c05fc62ee7b6a8969934449e016814963`
+- Evidence: `jlq/thesis/experiments/x86_cross_host/processed/latest_import.json`, `jlq/thesis/experiments/x86_cross_host/processed/cross_host_summary.json`, `jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md`, `jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/host_metadata.json`, `jlq/thesis/experiments/x86_cross_host/imported/thesis-x86-result--20260716T115026Z/cgo_extension/processed/cgo_extension_summary.json`
+- Reproduction: `python3 jlq/thesis/experiments/x86_cross_host/scripts/build_cross_host_report.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/x86_cross_host/scripts/import_results.py` succeeds
+- Claim boundary: A two-host, single-thread row-major x86-64 comparison using the same fixed revisions, f64 BLIS Haswell 6x8 Contract, candidate domains and tuner budgets. It supports hard compatibility transfer and bounded low-budget sample-efficiency claims, but not universal x86 ranking, multithreaded behavior or asymptotic tuner superiority.
+- Observed: 25018 files, 1.5 GiB, tree fingerprint `2ed495274c9f887aa4b4e7321f9746485372affb7a24f8ec81f06dfd081c7ead`
