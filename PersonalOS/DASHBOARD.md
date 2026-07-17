@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-16T12:24:56Z
+- State watermark: 2026-07-17T08:13:09Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS-v1`
 
@@ -13,7 +13,7 @@
 
 | Lane | Role | Priority | Status | Last activity | Current checkpoint |
 |---|---|---:|---|---|---|
-| `research.kernel_aware_gemm` | main | P0 | active | 2026-07-16T12:24:56Z | 完成全实验终审：K230 与 i9-14900 外部结果均已导入，16 项证据统一分级，硬兼容知识可迁移而性能排序需目标校准。 |
+| `research.kernel_aware_gemm` | main | P0 | active | 2026-07-17T08:13:09Z | 完成优化后的 Transformer QKV/Gate-Up fan-out shared-packing go/no-go：160/160 正确，结果为 NO_GO_STRONG_BASELINE_NOT_BEATEN；共享A相对重复packing为1.006x [0.906,1.121]，相对拼接BLIS为0.720x [0.510,0.972]，packing-only理想上限最大1.032x。 |
 | `infra.tooling` | supporting | P1 | active | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 |
 | `thesis.writing` | branch | P1 | active | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
@@ -23,11 +23,11 @@
 ## Experiment Registry
 
 - Human-readable index: `EXPERIMENTS.md`
-- Registered experiments: 16
-- Fully available paths: 16/16
-- Runner-maintained entries: 15/16
-- Main-text eligible entries: 11/16
-- Last refreshed: `2026-07-16T12:24:10Z`
+- Registered experiments: 17
+- Fully available paths: 17/17
+- Runner-maintained entries: 16/17
+- Main-text eligible entries: 11/17
+- Last refreshed: `2026-07-17T08:11:29Z`
 
 ## Conversation Archive
 
@@ -37,7 +37,7 @@
 
 ## Main-line Next Actions
 
-1. 依据 FINAL_EXPERIMENT_AUDIT.md 与 PAPER_EVIDENCE_CATALOG.md 重写第四至第七章；投稿级扩展再考虑多线程、任意布局和更多独立后端。
+1. 若继续投稿级扩展，优先设计不能被权重拼接替代的 Gate/Up epilogue 融合或 prefill/decode phase-specific kernel portfolio 小型 go/no-go；同时按证据目录写作 Chapters 4-6。
 
 ## Active Blockers
 

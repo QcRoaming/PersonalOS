@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1260,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1406,7 +1406,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1523,7 +1523,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1577,6 +1577,102 @@
       }
     },
     {
+      "id": "thesis.transformer_region_go_nogo",
+      "title": "Transformer Fan-out Shared-packing Go/No-go",
+      "chapter": "post-thesis publication-direction probe",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/transformer_region_go_nogo"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/transformer_region_go_nogo/go_nogo_artifact_index.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json",
+        "jlq/thesis/experiments/transformer_region_go_nogo/processed/case_summary.csv",
+        "jlq/thesis/experiments/transformer_region_go_nogo/raw/region_trials.csv",
+        "jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md",
+        "jlq/thesis/experiments/transformer_region_go_nogo/provenance/manifest.json"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/transformer_region_go_nogo/scripts/run_go_nogo.py",
+      "claim_boundary": "A single-host WSL2, single-thread, row-major f32 mechanism probe using Qwen2.5-0.5B QKV and Gate/Up dimensions, complete BLIS paths, persistent packed weights, and the real BLIS Haswell 6x16 microkernel. It rejects shared activation packing as a standalone local mainline under this Contract; it does not evaluate an MLIR graph planner, low-precision kernels, fused epilogues, complete Transformer blocks, or cross-host generalization.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/transformer_region_go_nogo/scripts/run_go_nogo.py"
+      },
+      "paper_use": {
+        "tier": "appendix_only",
+        "body_eligible": false,
+        "recommended_sections": [
+          "Appendix: post-thesis publication-direction probes",
+          "Future work: Transformer region planning"
+        ],
+        "decision": "Local go/no-go evidence rejects shared activation packing as a standalone main contribution under the measured f32 BLIS Contract. Preserve it as a negative-result boundary; future region planning must obtain value from additional mechanisms such as fusion, heterogeneous layouts/dtypes, or phase-specific kernel portfolios.",
+        "usable_claims": [
+          "All 160 formal rows across QKV and Gate/Up fan-out regions passed correctness with real BLIS complete calls and the real Haswell 6x16 microkernel.",
+          "Shared activation packing was 1.006x relative to the otherwise identical repacked-A microkernel path, with a 95% case-bootstrap interval spanning one.",
+          "Shared activation packing reached only 0.720x relative to concatenated complete BLIS and 0.665x relative to the faster complete-BLIS path selected per paired trial.",
+          "Measured activation-pack savings imply a packing-only ideal speedup of 1.010x geometric mean and at most 1.032x, below the frozen 1.05x go threshold."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/transformer_region_go_nogo",
+            "exists": true
+          }
+        ],
+        "file_count": 23,
+        "size_bytes": 2101366,
+        "last_modified_utc": "2026-07-17T08:09:27Z",
+        "tree_fingerprint_sha256": "2cc418cbbafda77d08b8fc46564804c1d64f083429a275e0fde304279bae271b",
+        "tracked_files": {
+          "jlq/thesis/experiments/transformer_region_go_nogo/go_nogo_artifact_index.md": {
+            "exists": true,
+            "size_bytes": 842,
+            "modified_at_utc": "2026-07-17T08:09:27Z",
+            "sha256": "15758263c3f629ce721dde8018183f8f09b6f8513bb3856225af3745aea99e1f"
+          },
+          "jlq/thesis/experiments/transformer_region_go_nogo/processed/case_summary.csv": {
+            "exists": true,
+            "size_bytes": 3783,
+            "modified_at_utc": "2026-07-17T08:09:27Z",
+            "sha256": "1af98bd05ac9129e4385a3918ec4dbf4997b6735393adc3c75dc4fd734fd5dd1"
+          },
+          "jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json": {
+            "exists": true,
+            "size_bytes": 17299,
+            "modified_at_utc": "2026-07-17T08:09:27Z",
+            "sha256": "5a1120f12a3dda92a9c0d7f8ad75bb8e670b63a899e365a5a188aef0f88f382c"
+          },
+          "jlq/thesis/experiments/transformer_region_go_nogo/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 4607,
+            "modified_at_utc": "2026-07-17T08:09:27Z",
+            "sha256": "0dbe98edd7395b8d96d53a805b94a3ec042738c5c8f09c334067e1b26a9c8be3"
+          },
+          "jlq/thesis/experiments/transformer_region_go_nogo/raw/region_trials.csv": {
+            "exists": true,
+            "size_bytes": 32317,
+            "modified_at_utc": "2026-07-17T08:06:09Z",
+            "sha256": "9dc5da51fb73a391efcd3f1556cc12847cd307615cc0f10a5c480ebad3bec1e2"
+          },
+          "jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md": {
+            "exists": true,
+            "size_bytes": 3026,
+            "modified_at_utc": "2026-07-17T08:09:27Z",
+            "sha256": "d35532556309c7daa29f74156c0eb1141406080a636a469962f0f3a186313490"
+          }
+        },
+        "last_successful_run_utc": "2026-07-17T08:11:29Z"
+      }
+    },
+    {
       "id": "thesis.x86_cross_host",
       "title": "Intel Core i9-14900 Cross-host Evaluation",
       "chapter": "cross-host extension",
@@ -1627,7 +1723,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-16T12:24:10Z",
+        "refreshed_at_utc": "2026-07-17T08:11:29Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1692,5 +1788,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-16T12:24:10Z"
+  "last_refreshed_at_utc": "2026-07-17T08:11:29Z"
 }

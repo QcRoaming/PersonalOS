@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-16T12:24:10Z`
-- Registered experiments: 16
-- Fully available paths: 16/16
-- Runner-maintained entries: 15/16
-- Main-text eligible entries: 11/16
+- Last refreshed: `2026-07-17T08:11:29Z`
+- Registered experiments: 17
+- Fully available paths: 17/17
+- Runner-maintained entries: 16/17
+- Main-text eligible entries: 11/17
 
 ## Overview
 
@@ -32,6 +32,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
+| `thesis.transformer_region_go_nogo` | post-thesis publication-direction probe | thesis_evidence | complete_method_evidence | appendix_only | available | 23 | 2.0 MiB | 2026-07-17T08:11:29Z |
 | `thesis.x86_cross_host` | cross-host extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 25018 | 1.5 GiB | 2026-07-16T12:24:10Z |
 
 ## Entries
@@ -275,6 +276,22 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Registry maintenance: automatic after `jlq/thesis/experiments/k230_rvv_backend/scripts/import_board_results.py` succeeds
 - Claim boundary: Physical K230 C908 RT-Smart results are available for the recorded scalar, explicit-RVV and complete OpenBLAS binaries across eight workloads. Claims are limited to this board, toolchain, runtime and harness; they do not establish universal RISC-V performance generalization.
 - Observed: 46 files, 4.4 MiB, tree fingerprint `8577a5eb40f10c0d4207a6bd96cb5cc684bffa33928ea1c2a3370e71811f85c5`
+
+### Transformer Fan-out Shared-packing Go/No-go (`thesis.transformer_region_go_nogo`)
+
+- Chapter/scope: post-thesis publication-direction probe
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `appendix_only`; main-text eligible: `false`
+- Recommended sections: Appendix: post-thesis publication-direction probes; Future work: Transformer region planning
+- Writing decision: Local go/no-go evidence rejects shared activation packing as a standalone main contribution under the measured f32 BLIS Contract. Preserve it as a negative-result boundary; future region planning must obtain value from additional mechanisms such as fusion, heterogeneous layouts/dtypes, or phase-specific kernel portfolios.
+- Paths: experiment_root=`jlq/thesis/experiments/transformer_region_go_nogo`
+- Artifact index: `jlq/thesis/experiments/transformer_region_go_nogo/go_nogo_artifact_index.md`
+- Evidence: `jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json`, `jlq/thesis/experiments/transformer_region_go_nogo/processed/case_summary.csv`, `jlq/thesis/experiments/transformer_region_go_nogo/raw/region_trials.csv`, `jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md`, `jlq/thesis/experiments/transformer_region_go_nogo/provenance/manifest.json`
+- Reproduction: `python3 jlq/thesis/experiments/transformer_region_go_nogo/scripts/run_go_nogo.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/transformer_region_go_nogo/scripts/run_go_nogo.py` succeeds
+- Claim boundary: A single-host WSL2, single-thread, row-major f32 mechanism probe using Qwen2.5-0.5B QKV and Gate/Up dimensions, complete BLIS paths, persistent packed weights, and the real BLIS Haswell 6x16 microkernel. It rejects shared activation packing as a standalone local mainline under this Contract; it does not evaluate an MLIR graph planner, low-precision kernels, fused epilogues, complete Transformer blocks, or cross-host generalization.
+- Observed: 23 files, 2.0 MiB, tree fingerprint `2cc418cbbafda77d08b8fc46564804c1d64f083429a275e0fde304279bae271b`
 
 ### Intel Core i9-14900 Cross-host Evaluation (`thesis.x86_cross_host`)
 

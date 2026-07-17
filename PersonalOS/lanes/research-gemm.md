@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 20
-updated_at: 2026-07-16
+version: 21
+updated_at: 2026-07-17
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-16T12:24:56Z
+last_activity_at: 2026-07-17T08:13:09Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-16T12:24:56Z
 
 # Current Checkpoint
 
-完成全实验终审：K230 与 i9-14900 外部结果均已导入，16 项证据统一分级，硬兼容知识可迁移而性能排序需目标校准。
+完成优化后的 Transformer QKV/Gate-Up fan-out shared-packing go/no-go：160/160 正确，结果为 NO_GO_STRONG_BASELINE_NOT_BEATEN；共享A相对重复packing为1.006x [0.906,1.121]，相对拼接BLIS为0.720x [0.510,0.972]，packing-only理想上限最大1.032x。
 
 # Verified Milestones
 
@@ -67,11 +67,11 @@ last_activity_at: 2026-07-16T12:24:56Z
 
 # Doing
 
-- 当前实验矩阵已满足论文正文写作边界；10 个实验包共 150 项测试全部通过。
+- 当前学位论文冻结实验矩阵保持不变；新 go/no-go 已作为 appendix-only 负结果登记，停止把 shared activation packing 单独作为投稿主贡献。
 
 # Next
 
-1. 依据 FINAL_EXPERIMENT_AUDIT.md 与 PAPER_EVIDENCE_CATALOG.md 重写第四至第七章；投稿级扩展再考虑多线程、任意布局和更多独立后端。
+1. 若继续投稿级扩展，优先设计不能被权重拼接替代的 Gate/Up epilogue 融合或 prefill/decode phase-specific kernel portfolio 小型 go/no-go；同时按证据目录写作 Chapters 4-6。
 
 # Current Blockers
 
@@ -112,6 +112,7 @@ last_activity_at: 2026-07-16T12:24:56Z
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
 | RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
 | performance prior calibration | verified | budget-5 calibrated policies beat random on both x86 hosts while absolute BLIS-relative ranking reverses across hosts | add multithreaded and further-host evaluation for publication generalization |
+| Transformer fan-out shared packing | verified | Optimized QKV and Gate-Up formal probe shows packing-count reduction but no stable latency gain against repeated packing and a significant loss against complete-BLIS portfolio. | Test fused epilogue or phase-specific portfolio mechanisms that cannot be reduced to weight concatenation. |
 
 # Completion Criteria
 
@@ -122,6 +123,9 @@ last_activity_at: 2026-07-16T12:24:56Z
 
 # Recent Evidence
 
+- 2026-07-17T08:13:09Z — Formal local probe: 160 rows all PASS; shared/repacked 1.006x CI [0.906,1.121]; shared/concat 0.720x CI [0.510,0.972]; shared/best-complete 0.665x CI [0.472,0.894]; packing-only ideal geomean/max 1.010x/1.032x.
+- 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md
+- 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json
 - 2026-07-16T12:24:56Z — i9-14900: 3132 f64 trials, 6000 fresh online measurements, 1500 unique Optuna measurements; budget-5 online vs Optuna 1.065x [1.044,1.089].
 - 2026-07-16T12:24:56Z — Cross-host generated-pool/BLIS ratio changes from 1.064 on i7-10750H to 0.804 on i9-14900; compatibility prediction agreement remains 100%.
 - 2026-07-16T12:24:56Z — K230: 560 correct rows, best explicit RVV 2.288x and complete OpenBLAS 13.470x versus in-process scalar controls.
@@ -129,6 +133,3 @@ last_activity_at: 2026-07-16T12:24:56Z
 - 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/FINAL_EXPERIMENT_AUDIT.md
 - 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/PAPER_EVIDENCE_CATALOG.md
 - 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md
-- 2026-07-16T11:26:23Z — combined tests 10/10 PASS; formal mode 7 PASS and 3 expected skips; smoke mode 6 PASS and 4 expected skips; archive sha256=9c1da755ed292465717ddd95e757fd07a6b5911366cb753a0f50749bf9a81721; 277 files verified; 4 package tests PASS
-- 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/TARGET_MACHINE_OPERATION_GUIDE.md
-- 2026-07-16T11:26:23Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/dist/thesis-x86-14900-offline-bundle.tar.gz
