@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-17T08:13:09Z
+- State watermark: 2026-07-18T16:37:53Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS-v1`
 
@@ -17,7 +17,7 @@
 | `infra.tooling` | supporting | P1 | active | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 |
 | `thesis.writing` | branch | P1 | active | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
-| `skills.mcp` | supporting | P2 | active | 2026-07-15T17:58:29Z | PersonalOS v2.1 已通过 PR `QcRoaming/PersonalOS-v1#2` 合并到 `main`，本机已同步到合并提交 `d45146c`，install、doctor、归档检查、16 条实验注册表检查及 14 项测试全部通过。精确独立命令“导入”会启动隔离归档，并用覆盖级别与 SHA-256 防止把不完整上下文冒充完整备份；当前真实归档数为 0，尚待文本与语音窗口验收。 |
+| `skills.mcp` | supporting | P2 | active | 2026-07-18T16:37:53Z | 完成 PersonalOS 项目文档整理：仓库首页、详细手册与 START_HERE 已对齐 v2.1 当前能力、事实源边界、首跑环境变量、PowerShell、Lane version 冲突保护和只读网页连接器限制。 |
 | `markets.ai_infrastructure` | independent | P3 | paused | 2026-07-10 | 已完成 AI → 存储 → 半导体 → 光模块/CPO → 电力与基础设施的初步讨论；当前没有明确持续任务，支线暂停。 |
 
 ## Experiment Registry

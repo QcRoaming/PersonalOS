@@ -24,8 +24,9 @@
 ~~~bash
 git clone https://github.com/QcRoaming/PersonalOS-v1.git ~/personal-os
 cd ~/personal-os
-python3 PersonalOS/scripts/personal_os.py install PersonalOS
-python3 PersonalOS/scripts/personal_os.py doctor PersonalOS
+export PERSONAL_OS_ROOT="$PWD/PersonalOS"
+python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" install "$PERSONAL_OS_ROOT"
+python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" doctor "$PERSONAL_OS_ROOT"
 ~~~
 
 安装命令会写入：
@@ -35,6 +36,8 @@ python3 PersonalOS/scripts/personal_os.py doctor PersonalOS
 - ~/.agents/skills/personal-os/SKILL.md：Codex CLI/IDE 可发现的全局 Skill。
 
 完成后重启 Codex CLI 或 VS Code 的 Codex 扩展。
+
+`install` 会写根目录指针，但不会替当前 shell 设置环境变量；上面的 `export` 用于保证后续命令可以立即执行。若要跨终端持久化，可将同一变量写入 shell 配置。
 
 ## 每次工作的闭环
 
@@ -47,8 +50,11 @@ python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" start "$PERSONAL_OS_ROOT" --p
 产生稳定任务进度、实验结果、决策、阻塞或知识阶段变化后：
 
 ~~~bash
+read -r -p "输入 start 输出的当前 version: " LANE_BASE_VERSION
+
 python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" checkpoint "$PERSONAL_OS_ROOT" \
   --lane research.kernel_aware_gemm \
+  --base-version "$LANE_BASE_VERSION" \
   --summary "当前已经推进到的准确位置" \
   --evidence "可验证结果或测试" \
   --artifact "仓库@commit:相对路径" \
@@ -64,7 +70,7 @@ python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" sync "$PERSONAL_OS_ROOT" \
 
 当用户消息的全部内容恰好为“导入”时，启动当前窗口归档流程。归档只保存触发消息之前的对话，并写入 archives/conversations/，不得混入 Lane 或个人画像。
 
-完整备份必须来自 ChatGPT 数据导出或用户提供的逐字稿；模型应先把实际可见消息保存为 visible_context_only 临时归档，再请求文件升级，且不能声称临时归档完整。语音窗口默认归档聊天历史中的转写，原始音频只有在用户另外提供音频文件时才归档。
+完整备份必须来自 ChatGPT 数据导出或用户提供的逐字稿。当前执行环境具有权威仓库写权限时，模型可先把实际可见消息保存为 visible_context_only 临时归档；只读 GitHub 连接器必须转交本地 CLI。随后再请求文件升级，且不能声称临时归档完整。语音窗口默认归档聊天历史中的转写，原始音频只有在用户另外提供音频文件时才归档。
 
 导入后运行：
 
