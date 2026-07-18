@@ -4,11 +4,11 @@ title: Skills, MCP, and Agent Tooling
 role: supporting
 priority: P2
 status: active
-version: 13
+version: 14
 updated_at: 2026-07-18
 keywords: Skill|Skills|MCP|Codex|Agent|Plugin|nature-skills|CDP|slock|IDEA|VSCode|personal-os
 imports: none
-last_activity_at: 2026-07-18T16:37:53Z
+last_activity_at: 2026-07-18T16:41:09Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-07-18T16:37:53Z
 
 # Current Checkpoint
 
-完成 PersonalOS 项目文档整理：仓库首页、详细手册与 START_HERE 已对齐 v2.1 当前能力、事实源边界、首跑环境变量、PowerShell、Lane version 冲突保护和只读网页连接器限制。
+完成 PersonalOS 仓库迁移对齐：GitHub 已将项目从 QcRoaming/PersonalOS-v1 重命名为 QcRoaming/PersonalOS，origin、ROUTES、README、START_HERE、AGENTS 与便携 Skill 均已更新到新权威地址。
 
 # Verified Milestones
 
@@ -75,13 +75,13 @@ last_activity_at: 2026-07-18T16:37:53Z
 
 # Recent Evidence
 
+- 2026-07-18T16:41:09Z — 旧地址推送成功时 GitHub 返回仓库迁移提示；新地址 refs/heads/main 与本地已推送提交一致。
+- 2026-07-18T16:41:09Z — artifact: QcRoaming/PersonalOS:README.md
+- 2026-07-18T16:41:09Z — artifact: QcRoaming/PersonalOS:PersonalOS/ROUTES.md
+- 2026-07-18T16:41:09Z — artifact: QcRoaming/PersonalOS:PersonalOS/START_HERE.md
 - 2026-07-18T16:37:53Z — 结构检查、doctor、17 条实验注册表、0 条真实会话归档和 14 项单元测试均通过；独立 README 读者复测结论为可发布。
-- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS-v1:README.md
-- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/README.md
-- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/START_HERE.md
+- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS:README.md
+- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS:PersonalOS/README.md
+- 2026-07-18T16:37:53Z — artifact: QcRoaming/PersonalOS:PersonalOS/START_HERE.md
 - 2026-07-15T16:08:39Z — 远程最新第六章实验注册表得到保留；11 个实验条目结构检查通过。
 - 2026-07-15T16:08:39Z — personal_os.py 的 start、checkpoint、install、views、doctor 与 Git sync 闭环已验证。
-- 2026-07-15T16:08:39Z — 10 项单元测试全部通过，另以本地 bare remote 验证 commit、rebase、push。
-- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/START_HERE.md
-- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/HANDOFF.md
-- 2026-07-15T16:08:39Z — artifact: QcRoaming/PersonalOS-v1:PersonalOS/KNOWLEDGE.md

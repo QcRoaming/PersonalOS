@@ -14,7 +14,7 @@ Use this order:
 1. PERSONAL_OS_ROOT.
 2. The path stored in ~/.personal-os-root.
 3. The current directory or nearest parent containing PERSONAL.md, ROUTES.md, and lanes/.
-4. With an authorized GitHub connector, repository QcRoaming/PersonalOS-v1, subdirectory PersonalOS/.
+4. With an authorized GitHub connector, repository QcRoaming/PersonalOS, subdirectory PersonalOS/.
 
 If the canonical source is unavailable, report the blocker. Do not silently promote a local mirror or chat memory.
 

@@ -4,7 +4,7 @@
 
 ## 唯一事实源
 
-- GitHub 私有仓库：QcRoaming/PersonalOS-v1
+- GitHub 私有仓库：QcRoaming/PersonalOS
 - PersonalOS 根目录：PersonalOS/
 - 权威状态：远程仓库默认分支的最新提交
 - 聊天记忆、旧账号 Library、本地未推送文件都不是跨账号事实源
@@ -13,16 +13,16 @@
 
 ## 新账号的第一条消息
 
-先在新账号中安装并授权 GitHub 连接器访问 QcRoaming/PersonalOS-v1，再发送：
+先在新账号中安装并授权 GitHub 连接器访问 QcRoaming/PersonalOS，再发送：
 
-> 请把 GitHub 私有仓库 QcRoaming/PersonalOS-v1 的 PersonalOS/ 作为我的唯一个人状态源。先读取 PersonalOS/START_HERE.md、PersonalOS/HANDOFF.md、PersonalOS/PERSONAL.md 和 PersonalOS/ROUTES.md；根据我的本次请求只选择一个 Lane，再读取该 Lane 及 ROUTES.md 明确声明的依赖小节。不要依赖旧聊天记忆，不要加载无关 Lane。先告诉我当前检查点、正在做什么、下一步和最近实验状态，再继续任务。
+> 请把 GitHub 私有仓库 QcRoaming/PersonalOS 的 PersonalOS/ 作为我的唯一个人状态源。先读取 PersonalOS/START_HERE.md、PersonalOS/HANDOFF.md、PersonalOS/PERSONAL.md 和 PersonalOS/ROUTES.md；根据我的本次请求只选择一个 Lane，再读取该 Lane 及 ROUTES.md 明确声明的依赖小节。不要依赖旧聊天记忆，不要加载无关 Lane。先告诉我当前检查点、正在做什么、下一步和最近实验状态，再继续任务。
 
 如果新账号没有仓库权限，必须先授权；不要让模型用猜测补全状态。
 
 ## 新设备的第一次操作
 
 ~~~bash
-git clone https://github.com/QcRoaming/PersonalOS-v1.git ~/personal-os
+git clone https://github.com/QcRoaming/PersonalOS.git ~/personal-os
 cd ~/personal-os
 export PERSONAL_OS_ROOT="$PWD/PersonalOS"
 python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" install "$PERSONAL_OS_ROOT"

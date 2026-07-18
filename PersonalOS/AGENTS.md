@@ -4,7 +4,7 @@ Treat this directory as structured state, not as a note dump.
 
 ## Canonical recovery protocol
 
-- The newest default-branch commit in QcRoaming/PersonalOS-v1, subdirectory PersonalOS/, is the only cross-account source of truth.
+- The newest default-branch commit in QcRoaming/PersonalOS, subdirectory PersonalOS/, is the only cross-account source of truth.
 - A local CLI/IDE session starts with: python3 scripts/personal_os.py start . --pull --query "<request>" when its worktree is clean.
 - A web or new-account session reads START_HERE.md, HANDOFF.md, PERSONAL.md, and ROUTES.md from the authorized GitHub repository before selecting one Lane.
 - Chat memory, an old account's Library, generated views, and unpushed local files are never authoritative.

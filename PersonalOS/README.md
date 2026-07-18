@@ -51,7 +51,7 @@ GitHub 私有仓库（唯一事实源）
 
 ## 当前权威配置
 
-- 仓库：QcRoaming/PersonalOS-v1
+- 仓库：QcRoaming/PersonalOS
 - PersonalOS 根目录：仓库中的 PersonalOS/
 - 权威源：private_git
 - 本地同步：语义检查点 → 生成视图 → 校验 → commit → rebase → push
@@ -91,7 +91,7 @@ v2 将 GitHub 私有仓库设为唯一事实源，并把“开始、检查点、
 Linux、WSL 或容器：
 
 ~~~bash
-git clone https://github.com/QcRoaming/PersonalOS-v1.git ~/personal-os
+git clone https://github.com/QcRoaming/PersonalOS.git ~/personal-os
 cd ~/personal-os
 export PERSONAL_OS_ROOT="$PWD/PersonalOS"
 python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" install "$PERSONAL_OS_ROOT"
@@ -115,7 +115,7 @@ echo 'export PERSONAL_OS_ROOT="$HOME/personal-os/PersonalOS"' >> ~/.bashrc
 PowerShell（同时设置当前进程和后续进程）：
 
 ~~~powershell
-git clone https://github.com/QcRoaming/PersonalOS-v1.git "$HOME\personal-os"
+git clone https://github.com/QcRoaming/PersonalOS.git "$HOME\personal-os"
 Set-Location "$HOME\personal-os"
 python PersonalOS\scripts\personal_os.py install PersonalOS
 python PersonalOS\scripts\personal_os.py doctor PersonalOS
@@ -158,11 +158,11 @@ python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" start \
 旧账号的聊天记录、Memory、Library 和个人 Skill 不会自动迁移。恢复流程必须从外部事实源开始：
 
 1. 新账号安装或启用 GitHub 连接器。
-2. 授权它读取私有仓库 QcRoaming/PersonalOS-v1。若使用另一个 GitHub 身份，先让该身份获得仓库读取权限。
+2. 授权它读取私有仓库 QcRoaming/PersonalOS。若使用另一个 GitHub 身份，先让该身份获得仓库读取权限。
 3. 最小授权范围只选择这个仓库。
 4. 在新对话发送下面的启动消息。
 
-> 请把 GitHub 私有仓库 QcRoaming/PersonalOS-v1 的 PersonalOS/ 作为我的唯一个人状态源。先读取 PersonalOS/START_HERE.md、PersonalOS/HANDOFF.md、PersonalOS/PERSONAL.md 和 PersonalOS/ROUTES.md；根据我的本次请求只选择一个 Lane，再读取该 Lane及 ROUTES.md 明确声明的依赖小节。不要依赖旧聊天记忆，不要加载无关 Lane。先告诉我当前检查点、正在做什么、下一步和最近实验状态，再继续任务。
+> 请把 GitHub 私有仓库 QcRoaming/PersonalOS 的 PersonalOS/ 作为我的唯一个人状态源。先读取 PersonalOS/START_HERE.md、PersonalOS/HANDOFF.md、PersonalOS/PERSONAL.md 和 PersonalOS/ROUTES.md；根据我的本次请求只选择一个 Lane，再读取该 Lane及 ROUTES.md 明确声明的依赖小节。不要依赖旧聊天记忆，不要加载无关 Lane。先告诉我当前检查点、正在做什么、下一步和最近实验状态，再继续任务。
 
 若连接器提示无权访问，先修复授权；不要让新账号根据 README 或旧对话猜测当前实验状态。
 

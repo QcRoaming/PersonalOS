@@ -1,10 +1,10 @@
 ---
 id: personal.routes
-version: 7
-updated_at: 2026-07-16
+version: 8
+updated_at: 2026-07-18
 main_lane: research.kernel_aware_gemm
 canonical_store: private_git
-git_repository: QcRoaming/PersonalOS-v1
+git_repository: QcRoaming/PersonalOS
 repository_subdir: PersonalOS
 sync_method: git_checkpoint
 web_access: github_connector
@@ -63,7 +63,7 @@ conversation_archive: opt_in_private_git
 
 ## Active Sync Configuration
 
-- 权威仓库：`QcRoaming/PersonalOS-v1`。
+- 权威仓库：`QcRoaming/PersonalOS`。
 - PersonalOS 根目录：仓库内 `PersonalOS/`。
 - 本地同步方式：语义检查点 → 校验生成视图 → Git commit → rebase → push。
 - 网页读取方式：GitHub 连接器读取权威仓库；不依赖旧账号聊天记录。
