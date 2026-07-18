@@ -29,7 +29,7 @@ PersonalOS 是一个面向长期协作的、文件驱动的个人状态系统。
 ## 新设备快速开始
 
 ~~~bash
-git clone https://github.com/QcRoaming/PersonalOS-v1.git ~/personal-os
+git clone https://github.com/QcRoaming/PersonalOS.git ~/personal-os
 cd ~/personal-os
 export PERSONAL_OS_ROOT="$PWD/PersonalOS"
 python3 "$PERSONAL_OS_ROOT/scripts/personal_os.py" install "$PERSONAL_OS_ROOT"
@@ -40,7 +40,7 @@ install 会配置本机根目录指针、全局 ~/.codex/AGENTS.md 和用户级 
 
 ## 新账号快速开始
 
-1. 在新账号中授权 GitHub 连接器读取私有仓库 QcRoaming/PersonalOS-v1。
+1. 在新账号中授权 GitHub 连接器读取私有仓库 QcRoaming/PersonalOS。
 2. 让新对话先读取 PersonalOS/START_HERE.md、HANDOFF.md、PERSONAL.md 和 ROUTES.md。
 3. 根据本次请求只选择一个 Lane，不使用旧聊天记忆猜测状态。
 
