@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1260,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1406,7 +1406,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1524,7 +1524,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1649,7 +1649,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1659,9 +1659,9 @@
           }
         ],
         "file_count": 926,
-        "size_bytes": 18490364,
-        "last_modified_utc": "2026-07-19T10:41:09Z",
-        "tree_fingerprint_sha256": "9d8a0ff30e9cdd62c78bd86f386ed2f41e19fe1d064d594c559e478de0120519",
+        "size_bytes": 18491295,
+        "last_modified_utc": "2026-07-19T11:06:31Z",
+        "tree_fingerprint_sha256": "c994d62c5770e86e446a86249042a10e1a1684bd8b5e0f6195afed54cb124346",
         "tracked_files": {
           "jlq/thesis/experiments/chapter6_termination_validation/README.md": {
             "exists": true,
@@ -1678,53 +1678,53 @@
           "jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json": {
             "exists": true,
             "size_bytes": 1102,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "modified_at_utc": "2026-07-19T11:06:31Z",
             "sha256": "d98897a270eb8a8041663ceab63b13f89e7e556b03227db1c24211ae540615a6"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/processed/calibration_costs.csv": {
             "exists": true,
-            "size_bytes": 1203,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
-            "sha256": "db9d0cd50c40b65cc45335fca72715f37b158b4dd93d912b1bb024577b08d518"
+            "size_bytes": 1206,
+            "modified_at_utc": "2026-07-19T11:06:31Z",
+            "sha256": "9be23e20af62045eb411553431973e44597a6f3dbece70f64ac147171fe99c88"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/processed/paired_comparisons.csv": {
             "exists": true,
             "size_bytes": 780,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "modified_at_utc": "2026-07-19T11:06:31Z",
             "sha256": "7d6f3a03ed8e8834bfda860602e20925dca7b3da6e913b41cf6bd9da507c1601"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/processed/second_microkernel_audit.json": {
             "exists": true,
-            "size_bytes": 1881,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
-            "sha256": "daa328e27136acd68efce0d5c302d7bcd5c6dbba78ede57a870d6c1f54e1fece"
+            "size_bytes": 2170,
+            "modified_at_utc": "2026-07-19T11:06:31Z",
+            "sha256": "9552c93e8b2ac4cc2c8c8352418da03c8458d6ca43e352a617903a8861fc80d5"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/processed/time_to_95_summary.csv": {
             "exists": true,
             "size_bytes": 472,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "modified_at_utc": "2026-07-19T11:06:31Z",
             "sha256": "844767d59885e3de15602f598de4d3267ca51ed86680b905843d835410361590"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/provenance/manifest.json": {
             "exists": true,
             "size_bytes": 2983,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
-            "sha256": "fd065437a6a8d78e2ac6064349b042f6f896b12545c97f6b8447204dd870945c"
+            "modified_at_utc": "2026-07-19T11:06:31Z",
+            "sha256": "60bc6644771fd77b806b12b74907262d234981e2419c186235e39e9c7261fe74"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/raw/termination_traces.csv": {
             "exists": true,
             "size_bytes": 1297574,
-            "modified_at_utc": "2026-07-19T10:41:04Z",
+            "modified_at_utc": "2026-07-19T11:06:23Z",
             "sha256": "889caf7724adb510f3955ffee478de71c8e98d1e821bf4768f65b78453c70793"
           },
           "jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md": {
             "exists": true,
-            "size_bytes": 3021,
-            "modified_at_utc": "2026-07-19T10:41:09Z",
-            "sha256": "8c66363849a4b819acbae34f404be5e427a4396f2daea6e902959c30e5b59204"
+            "size_bytes": 3305,
+            "modified_at_utc": "2026-07-19T11:06:31Z",
+            "sha256": "7017361c1b42c7f2125188f1ebb2b8eefd4a1ff6710df1857343182b4aa6a7c9"
           }
         },
-        "last_successful_run_utc": "2026-07-19T11:03:12Z"
+        "last_successful_run_utc": "2026-07-19T11:07:56Z"
       }
     },
     {
@@ -1772,7 +1772,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1867,7 +1867,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1972,7 +1972,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:03:12Z",
+        "refreshed_at_utc": "2026-07-19T11:07:56Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2037,5 +2037,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-19T11:03:12Z"
+  "last_refreshed_at_utc": "2026-07-19T11:07:56Z"
 }

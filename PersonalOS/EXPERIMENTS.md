@@ -7,7 +7,7 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-19T11:03:12Z`
+- Last refreshed: `2026-07-19T11:07:56Z`
 - Registered experiments: 19
 - Fully available paths: 19/19
 - Runner-maintained entries: 18/19
@@ -32,7 +32,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
 | `thesis.chapter6_same_pool_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 2709 | 18.0 MiB | 2026-07-18T17:31:42Z |
-| `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T11:03:12Z |
+| `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T11:07:56Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
 | `thesis.transformer_region_go_nogo` | post-thesis publication-direction probe | thesis_evidence | complete_method_evidence | appendix_only | available | 23 | 2.0 MiB | 2026-07-17T08:11:29Z |
 | `thesis.x86_cross_host` | cross-host extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 25018 | 1.5 GiB | 2026-07-16T12:24:10Z |
@@ -293,7 +293,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py` succeeds
 - Claim boundary: A single-host i7-10750H f64 same-pool termination study. It establishes target-data low-budget gains, rejects demonstrated incremental value for the current BLIS-derived soft performance features, measures non-amortization over 12 holdouts, and validates a second BLIS Haswell microkernel Contract with the unchanged core generator. It does not establish an independent backend or broad practical calibration benefit.
-- Observed: 926 files, 17.6 MiB, tree fingerprint `9d8a0ff30e9cdd62c78bd86f386ed2f41e19fe1d064d594c559e478de0120519`
+- Observed: 926 files, 17.6 MiB, tree fingerprint `c994d62c5770e86e446a86249042a10e1a1684bd8b5e0f6195afed54cb124346`
 
 ### K230 C908 RVV and OpenBLAS Deployment ELF Package (`thesis.k230_rvv_backend`)
 
