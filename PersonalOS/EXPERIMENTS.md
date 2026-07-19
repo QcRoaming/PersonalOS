@@ -7,7 +7,7 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-19T10:53:50Z`
+- Last refreshed: `2026-07-19T11:03:12Z`
 - Registered experiments: 19
 - Fully available paths: 19/19
 - Runner-maintained entries: 18/19
@@ -32,7 +32,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
 | `thesis.chapter6_same_pool_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 2709 | 18.0 MiB | 2026-07-18T17:31:42Z |
-| `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T10:53:50Z |
+| `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T11:03:12Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
 | `thesis.transformer_region_go_nogo` | post-thesis publication-direction probe | thesis_evidence | complete_method_evidence | appendix_only | available | 23 | 2.0 MiB | 2026-07-17T08:11:29Z |
 | `thesis.x86_cross_host` | cross-host extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 25018 | 1.5 GiB | 2026-07-16T12:24:10Z |
