@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1260,7 +1260,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1406,7 +1406,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1479,6 +1479,255 @@
       }
     },
     {
+      "id": "thesis.chapter6_same_pool_prior",
+      "title": "Chapter 6 Strict Same-pool Calibrated-prior Evaluation",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_same_pool_prior"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_same_pool_prior/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_same_pool_prior/data/experiment_config.json",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/processed/acceptance_summary.json",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/processed/parameter_liveness.csv",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/processed/same_pool_audit.csv",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/processed/fixed_budget_results.csv",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/processed/paired_comparisons.csv",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/raw/holdout_traces.csv",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md",
+        "jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json"
+      ],
+      "reproduce_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py --environment i7_10750h_wsl2 --force",
+      "claim_boundary": "A formal single-thread i7-10750H replay over existing complete f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, shared-oracle invariance, and local calibrated-prior gains at budgets 5 and 10. It does not satisfy the planned two-environment replication gate and makes no i9 or K230 claim.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 strict same-pool low-budget evaluation",
+          "Chapter 7 conclusions and limitations"
+        ],
+        "decision": "Primary single-host evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports a local calibrated-prior gain at budgets 5 and 10; it must not be presented as satisfying the planned two-environment replication gate.",
+        "usable_claims": [
+          "The canonical pool contains 23-26 unique active schedules per workload after removing the inactive vectorize alias; tile_m, tile_n, and tile_k pass measured liveness checks.",
+          "B2, B3, and B4 replay the same complete candidate pool with no-replacement budgets, zero duplicate objective callbacks, no holdout target reads, and an invariant common-pool oracle.",
+          "On the i7-10750H holdout, calibrated B4 improves over no-prior B2 by 1.058x at budget 5 and 1.035x at budget 10, with workload-cluster bootstrap intervals wholly above one.",
+          "The static B3 prior is inconclusive against B2 at both checkpoints, separating source-derived ranking from target-calibrated performance knowledge."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_same_pool_prior",
+            "exists": true
+          }
+        ],
+        "file_count": 2709,
+        "size_bytes": 18923728,
+        "last_modified_utc": "2026-07-18T17:19:16Z",
+        "tree_fingerprint_sha256": "cdb8531ed86251d65bf428235f090e7680158b7a20227809f95915dce7f2a8a6",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_same_pool_prior/README.md": {
+            "exists": true,
+            "size_bytes": 2231,
+            "modified_at_utc": "2026-07-18T16:58:28Z",
+            "sha256": "2e79c1e4d8d430913c22109ccb44515ea11d8ed110cf45fbcb87ab7499661305"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 3261,
+            "modified_at_utc": "2026-07-18T16:58:28Z",
+            "sha256": "78ce0461e6959e3f6faf57aa981a1696c03c13a0770055df6d4297de91e94231"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/processed/acceptance_summary.json": {
+            "exists": true,
+            "size_bytes": 1113,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "0e795972fbec27a2e046336ae0939a06d1214e1c926d7aafb5bfc7ab702922be"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/processed/fixed_budget_results.csv": {
+            "exists": true,
+            "size_bytes": 657,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "a7898a82e74dc522203fead9ec5384378ef06ad65d4aa3de211c16534a5ece7f"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/processed/paired_comparisons.csv": {
+            "exists": true,
+            "size_bytes": 913,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "af423b1bbd5963c0556f071879a74a4f52e378380a4fe2b273fa6839f3ca0955"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/processed/parameter_liveness.csv": {
+            "exists": true,
+            "size_bytes": 311,
+            "modified_at_utc": "2026-07-18T17:11:22Z",
+            "sha256": "25401bc960c0fbd3fd7b75c7bb0d326daa78ba56f5d0f840d595c9f87f53cdc8"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/processed/same_pool_audit.csv": {
+            "exists": true,
+            "size_bytes": 4851,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "f2aec194000ebe61760e4c78a615df06e2ed60820202f6ffe48b7f6e1dd4cd95"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 3615,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "2f6152e84f46a34f1fbf3fd1ae0d242ac036c6667796cbd162e2ff5062a5668b"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/raw/holdout_traces.csv": {
+            "exists": true,
+            "size_bytes": 502190,
+            "modified_at_utc": "2026-07-18T17:19:15Z",
+            "sha256": "36627db7f537d4d741796bc9668ca89a09a68de2c30180ca94701d7adbd1bf36"
+          },
+          "jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md": {
+            "exists": true,
+            "size_bytes": 2664,
+            "modified_at_utc": "2026-07-18T17:19:16Z",
+            "sha256": "7308b0e268ef8623158681e8f4a5b14973ff2cb60d50f451a4fe705917c2c980"
+          }
+        },
+        "last_successful_run_utc": "2026-07-18T17:31:42Z"
+      }
+    },
+    {
+      "id": "thesis.chapter6_termination_validation",
+      "title": "Chapter 6 Prior and Extensibility Termination Validation",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_termination_validation"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_termination_validation/README.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_termination_validation/data/experiment_config.json",
+        "jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json",
+        "jlq/thesis/experiments/chapter6_termination_validation/processed/paired_comparisons.csv",
+        "jlq/thesis/experiments/chapter6_termination_validation/processed/time_to_95_summary.csv",
+        "jlq/thesis/experiments/chapter6_termination_validation/processed/calibration_costs.csv",
+        "jlq/thesis/experiments/chapter6_termination_validation/processed/second_microkernel_audit.json",
+        "jlq/thesis/experiments/chapter6_termination_validation/raw/termination_traces.csv",
+        "jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md",
+        "jlq/thesis/experiments/chapter6_termination_validation/provenance/manifest.json"
+      ],
+      "reproduce_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py",
+      "claim_boundary": "A single-host i7-10750H f64 same-pool termination study. It establishes target-data low-budget gains, rejects demonstrated incremental value for the current BLIS-derived soft performance features, measures non-amortization over 12 holdouts, and validates a second BLIS Haswell microkernel Contract with the unchanged core generator. It does not establish an independent backend or broad practical calibration benefit.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py"
+      },
+      "paper_use": {
+        "tier": "primary_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 termination validation and calibration economics",
+          "Chapter 7 conclusions and limitations"
+        ],
+        "decision": "Primary same-pool termination evidence separating target-data calibration from BLIS-derived soft performance features. Use the significant Data-only gain over no-prior, the absence of a significant Expert+Data increment, the measured non-amortization boundary, and the second f64 Contract extension. Do not call the f64 kernel an independent backend.",
+        "usable_claims": [
+          "Under identical pools, seeds and unique budgets, Data-only improves over no-prior BaCO by 1.049x at budget 5 and 1.035x at budget 10, with workload-cluster confidence intervals above one.",
+          "Expert+Data does not significantly improve over Data-only: the budget-5 interval crosses one and the budget-10 result is effectively identical.",
+          "The calibrated methods reduce mean time-to-95%-oracle from 7.90 to 3.08 candidate evaluations, but the 591-row calibration cost does not amortize within the 12 frozen holdout workloads.",
+          "The unchanged core space generator selects the f64 6x8 Contract for all 36 workloads, creates direct/adapt schedules, and passes fresh direct/fringe runtime checks plus full-pool search without duplicate objectives.",
+          "The extension result establishes a second BLIS Haswell microkernel Contract, not an independent library, ISA, or backend."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_termination_validation",
+            "exists": true
+          }
+        ],
+        "file_count": 926,
+        "size_bytes": 18490364,
+        "last_modified_utc": "2026-07-19T10:41:09Z",
+        "tree_fingerprint_sha256": "9d8a0ff30e9cdd62c78bd86f386ed2f41e19fe1d064d594c559e478de0120519",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_termination_validation/README.md": {
+            "exists": true,
+            "size_bytes": 969,
+            "modified_at_utc": "2026-07-19T10:06:06Z",
+            "sha256": "31406ab09f51692824f83ee948061a9d5a88e62a97384450ab46e859f96962f0"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 2950,
+            "modified_at_utc": "2026-07-19T10:06:06Z",
+            "sha256": "d8b94dfc02238364a98a159e0f394444eb4b78bb5b7a34acde869b5fb0390aca"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json": {
+            "exists": true,
+            "size_bytes": 1102,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "d98897a270eb8a8041663ceab63b13f89e7e556b03227db1c24211ae540615a6"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/processed/calibration_costs.csv": {
+            "exists": true,
+            "size_bytes": 1203,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "db9d0cd50c40b65cc45335fca72715f37b158b4dd93d912b1bb024577b08d518"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/processed/paired_comparisons.csv": {
+            "exists": true,
+            "size_bytes": 780,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "7d6f3a03ed8e8834bfda860602e20925dca7b3da6e913b41cf6bd9da507c1601"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/processed/second_microkernel_audit.json": {
+            "exists": true,
+            "size_bytes": 1881,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "daa328e27136acd68efce0d5c302d7bcd5c6dbba78ede57a870d6c1f54e1fece"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/processed/time_to_95_summary.csv": {
+            "exists": true,
+            "size_bytes": 472,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "844767d59885e3de15602f598de4d3267ca51ed86680b905843d835410361590"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/provenance/manifest.json": {
+            "exists": true,
+            "size_bytes": 2983,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "fd065437a6a8d78e2ac6064349b042f6f896b12545c97f6b8447204dd870945c"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/raw/termination_traces.csv": {
+            "exists": true,
+            "size_bytes": 1297574,
+            "modified_at_utc": "2026-07-19T10:41:04Z",
+            "sha256": "889caf7724adb510f3955ffee478de71c8e98d1e821bf4768f65b78453c70793"
+          },
+          "jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md": {
+            "exists": true,
+            "size_bytes": 3021,
+            "modified_at_utc": "2026-07-19T10:41:09Z",
+            "sha256": "8c66363849a4b819acbae34f404be5e427a4396f2daea6e902959c30e5b59204"
+          }
+        },
+        "last_successful_run_utc": "2026-07-19T10:53:50Z"
+      }
+    },
+    {
       "id": "thesis.k230_rvv_backend",
       "title": "K230 C908 RVV and OpenBLAS Deployment ELF Package",
       "chapter": "cross-architecture extension",
@@ -1523,7 +1772,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1618,7 +1867,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1723,7 +1972,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-17T08:11:29Z",
+        "refreshed_at_utc": "2026-07-19T10:53:50Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1788,5 +2037,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-17T08:11:29Z"
+  "last_refreshed_at_utc": "2026-07-19T10:53:50Z"
 }

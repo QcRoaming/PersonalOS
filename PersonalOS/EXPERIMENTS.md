@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-17T08:11:29Z`
-- Registered experiments: 17
-- Fully available paths: 17/17
-- Runner-maintained entries: 16/17
-- Main-text eligible entries: 11/17
+- Last refreshed: `2026-07-19T10:53:50Z`
+- Registered experiments: 19
+- Fully available paths: 19/19
+- Runner-maintained entries: 18/19
+- Main-text eligible entries: 13/19
 
 ## Overview
 
@@ -31,6 +31,8 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter5_blis_adapter` | 5 | thesis_evidence | complete_method_evidence | primary_main_text | available | 122 | 8.9 MiB | 2026-07-14T08:04:14Z |
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
+| `thesis.chapter6_same_pool_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 2709 | 18.0 MiB | 2026-07-18T17:31:42Z |
+| `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T10:53:50Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
 | `thesis.transformer_region_go_nogo` | post-thesis publication-direction probe | thesis_evidence | complete_method_evidence | appendix_only | available | 23 | 2.0 MiB | 2026-07-17T08:11:29Z |
 | `thesis.x86_cross_host` | cross-host extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 25018 | 1.5 GiB | 2026-07-16T12:24:10Z |
@@ -260,6 +262,38 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_online_prior/scripts/run_online_prior.py` succeeds
 - Claim boundary: A same-host f32 study over a 1008-case real measurement corpus. It evaluates static, offline-calibrated, online-calibrated and misleading priors under fixed replay budgets; it does not yet establish cross-host or cross-architecture transfer.
 - Observed: 19 files, 2.7 MiB, tree fingerprint `63d1513b2e467ef5e499cbb193df1334e082676be939daf183401f15de258197`
+
+### Chapter 6 Strict Same-pool Calibrated-prior Evaluation (`thesis.chapter6_same_pool_prior`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 strict same-pool low-budget evaluation; Chapter 7 conclusions and limitations
+- Writing decision: Primary single-host evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports a local calibrated-prior gain at budgets 5 and 10; it must not be presented as satisfying the planned two-environment replication gate.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_same_pool_prior`
+- Artifact index: `jlq/thesis/experiments/chapter6_same_pool_prior/README.md`
+- Evidence: `jlq/thesis/experiments/chapter6_same_pool_prior/data/experiment_config.json`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/acceptance_summary.json`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/parameter_liveness.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/same_pool_audit.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/fixed_budget_results.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/paired_comparisons.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/raw/holdout_traces.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md`, `jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json`
+- Reproduction: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py --environment i7_10750h_wsl2 --force`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py` succeeds
+- Claim boundary: A formal single-thread i7-10750H replay over existing complete f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, shared-oracle invariance, and local calibrated-prior gains at budgets 5 and 10. It does not satisfy the planned two-environment replication gate and makes no i9 or K230 claim.
+- Observed: 2709 files, 18.0 MiB, tree fingerprint `cdb8531ed86251d65bf428235f090e7680158b7a20227809f95915dce7f2a8a6`
+
+### Chapter 6 Prior and Extensibility Termination Validation (`thesis.chapter6_termination_validation`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 termination validation and calibration economics; Chapter 7 conclusions and limitations
+- Writing decision: Primary same-pool termination evidence separating target-data calibration from BLIS-derived soft performance features. Use the significant Data-only gain over no-prior, the absence of a significant Expert+Data increment, the measured non-amortization boundary, and the second f64 Contract extension. Do not call the f64 kernel an independent backend.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_termination_validation`
+- Artifact index: `jlq/thesis/experiments/chapter6_termination_validation/README.md`
+- Evidence: `jlq/thesis/experiments/chapter6_termination_validation/data/experiment_config.json`, `jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json`, `jlq/thesis/experiments/chapter6_termination_validation/processed/paired_comparisons.csv`, `jlq/thesis/experiments/chapter6_termination_validation/processed/time_to_95_summary.csv`, `jlq/thesis/experiments/chapter6_termination_validation/processed/calibration_costs.csv`, `jlq/thesis/experiments/chapter6_termination_validation/processed/second_microkernel_audit.json`, `jlq/thesis/experiments/chapter6_termination_validation/raw/termination_traces.csv`, `jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md`, `jlq/thesis/experiments/chapter6_termination_validation/provenance/manifest.json`
+- Reproduction: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_termination_validation/scripts/run_termination_validation.py` succeeds
+- Claim boundary: A single-host i7-10750H f64 same-pool termination study. It establishes target-data low-budget gains, rejects demonstrated incremental value for the current BLIS-derived soft performance features, measures non-amortization over 12 holdouts, and validates a second BLIS Haswell microkernel Contract with the unchanged core generator. It does not establish an independent backend or broad practical calibration benefit.
+- Observed: 926 files, 17.6 MiB, tree fingerprint `9d8a0ff30e9cdd62c78bd86f386ed2f41e19fe1d064d594c559e478de0120519`
 
 ### K230 C908 RVV and OpenBLAS Deployment ELF Package (`thesis.k230_rvv_backend`)
 

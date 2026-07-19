@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 21
-updated_at: 2026-07-17
+version: 23
+updated_at: 2026-07-19
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-17T08:13:09Z
+last_activity_at: 2026-07-19T10:55:16Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-17T08:13:09Z
 
 # Current Checkpoint
 
-完成优化后的 Transformer QKV/Gate-Up fan-out shared-packing go/no-go：160/160 正确，结果为 NO_GO_STRONG_BASELINE_NOT_BEATEN；共享A相对重复packing为1.006x [0.906,1.121]，相对拼接BLIS为0.720x [0.510,0.972]，packing-only理想上限最大1.032x。
+完成i7三项终止验证：软专家增量STOP、校准经济性STOP、第二BLIS微内核Contract扩展GO
 
 # Verified Milestones
 
@@ -67,11 +67,11 @@ last_activity_at: 2026-07-17T08:13:09Z
 
 # Doing
 
-- 当前学位论文冻结实验矩阵保持不变；新 go/no-go 已作为 appendix-only 负结果登记，停止把 shared activation packing 单独作为投稿主贡献。
+- 按终止验证结果收紧论文主张并保留硬兼容知识与系统扩展性贡献
 
 # Next
 
-1. 若继续投稿级扩展，优先设计不能被权重拼接替代的 Gate/Up epilogue 融合或 prefill/decode phase-specific kernel portfolio 小型 go/no-go；同时按证据目录写作 Chapters 4-6。
+1. 重写第六章和结论：区分Data-only收益、专家软规则无增量、校准摊销边界及独立后端未验证
 
 # Current Blockers
 
@@ -111,7 +111,7 @@ last_activity_at: 2026-07-17T08:13:09Z
 | microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
 | RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
-| performance prior calibration | verified | budget-5 calibrated policies beat random on both x86 hosts while absolute BLIS-relative ranking reverses across hosts | add multithreaded and further-host evaluation for publication generalization |
+| performance prior calibration | verified | 严格同池终止消融显示Data-only显著优于无先验，但当前BLIS软性能特征不显著优于Data-only且校准成本未在12个holdout内摊销 | 正文停止宣称专家性能规则有额外价值；独立后端作为后续扩展 |
 | Transformer fan-out shared packing | verified | Optimized QKV and Gate-Up formal probe shows packing-count reduction but no stable latency gain against repeated packing and a significant loss against complete-BLIS portfolio. | Test fused epilogue or phase-specific portfolio mechanisms that cannot be reduced to weight concatenation. |
 
 # Completion Criteria
@@ -123,13 +123,13 @@ last_activity_at: 2026-07-17T08:13:09Z
 
 # Recent Evidence
 
+- 2026-07-19T10:55:16Z — i7同池60对/检查点：Expert+Data/Data-only在budget5为1.009x[0.999,1.027]、budget10约1.000x[1.000,1.000]；time-to-95从7.90降至3.08次但591行校准在12个holdout内不摊销；f64 6x8第二Contract门槛通过
+- 2026-07-19T10:55:16Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md
+- 2026-07-19T10:55:16Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json
+- 2026-07-18T17:34:57Z — i7 B4/B2: budget5 1.058x [1.027,1.092], budget10 1.035x [1.011,1.064]; 1800 unique reads, zero duplicate callbacks and zero holdout target reads
+- 2026-07-18T17:34:57Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md
 - 2026-07-17T08:13:09Z — Formal local probe: 160 rows all PASS; shared/repacked 1.006x CI [0.906,1.121]; shared/concat 0.720x CI [0.510,0.972]; shared/best-complete 0.665x CI [0.472,0.894]; packing-only ideal geomean/max 1.010x/1.032x.
 - 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md
 - 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json
 - 2026-07-16T12:24:56Z — i9-14900: 3132 f64 trials, 6000 fresh online measurements, 1500 unique Optuna measurements; budget-5 online vs Optuna 1.065x [1.044,1.089].
 - 2026-07-16T12:24:56Z — Cross-host generated-pool/BLIS ratio changes from 1.064 on i7-10750H to 0.804 on i9-14900; compatibility prediction agreement remains 100%.
-- 2026-07-16T12:24:56Z — K230: 560 correct rows, best explicit RVV 2.288x and complete OpenBLAS 13.470x versus in-process scalar controls.
-- 2026-07-16T12:24:56Z — All 150 tests across Chapter 3-6, CGO, K230 and x86 cross-host packages pass.
-- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/FINAL_EXPERIMENT_AUDIT.md
-- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/PAPER_EVIDENCE_CATALOG.md
-- 2026-07-16T12:24:56Z — artifact: /buddy-mlir/jlq/thesis/experiments/x86_cross_host/reports/cross_host_results.md
