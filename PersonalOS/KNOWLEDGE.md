@@ -9,8 +9,8 @@
 | `research.kernel_aware_gemm` | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
 | `research.kernel_aware_gemm` | microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | `research.kernel_aware_gemm` | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
-| `research.kernel_aware_gemm` | RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
-| `research.kernel_aware_gemm` | performance prior calibration | verified | 严格同池终止消融显示Data-only显著优于无先验，但当前BLIS软性能特征不显著优于Data-only且校准成本未在12个holdout内摊销 | 正文停止宣称专家性能规则有额外价值；独立后端作为后续扩展 |
+| `research.kernel_aware_gemm` | RVV 后端 | applied | K230 物理板完成既有560条后端测量、45条MLIR闭环和429条完整候选池测量；10-shape adapter/OpenBLAS为0.6730 [0.6193,0.7253] | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
+| `research.kernel_aware_gemm` | performance prior calibration | verified | i7 的低预算校准收益未在 i9 显著复制；当前专家软性能特征相对 Data-only 无显著增量 | 正文报告环境依赖与停止条件，扩展前先证明校准可摊销 |
 | `research.kernel_aware_gemm` | Transformer fan-out shared packing | verified | Optimized QKV and Gate-Up formal probe shows packing-count reduction but no stable latency gain against repeated packing and a significant loss against complete-BLIS portfolio. | Test fused epilogue or phase-specific portfolio mechanisms that cannot be reduced to weight concatenation. |
 | `thesis.writing` | 学位论文格式约束 | applied | NWPU 2025 模板完整编译为 90 页 PDF，第三章页面已检查 | 在后续章节重写后持续回归 |
 | `thesis.writing` | 摘要与绪论边界 | understood | 已多轮讨论目的、方法、结果和意义 | 结合最终实验结果重写定稿 |

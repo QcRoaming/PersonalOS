@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-19T11:07:56Z`
-- Registered experiments: 19
-- Fully available paths: 19/19
-- Runner-maintained entries: 18/19
-- Main-text eligible entries: 13/19
+- Last refreshed: `2026-07-23T08:37:12Z`
+- Registered experiments: 21
+- Fully available paths: 21/21
+- Runner-maintained entries: 20/21
+- Main-text eligible entries: 15/21
 
 ## Overview
 
@@ -25,13 +25,15 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `paper.transform_dialect_section_4_5` | 4.5 alignment | paper_reproduction_material | reference_extraction_only | reference_only | available | 7 | 44.6 KiB | not recorded |
 | `thesis.cgo_local_extension` | 6 extension | thesis_evidence | complete_method_evidence | primary_main_text | available | 13474 | 373.5 MiB | 2026-07-15T17:01:04Z |
 | `thesis.chapter3_multisource` | 3 | thesis_evidence | complete_method_evidence | primary_main_text | available | 18 | 118.2 KiB | 2026-07-15T13:27:26Z |
-| `thesis.chapter3_rules` | 3 | thesis_evidence | complete_method_evidence | primary_main_text | available | 796 | 121.1 MiB | 2026-07-15T01:06:58Z |
+| `thesis.chapter3_rules` | 3 | thesis_evidence | complete_method_evidence | primary_main_text | available | 801 | 121.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter4_5_integrated` | 4-5 integration | thesis_evidence | complete_method_evidence | primary_main_text | available | 101 | 7.4 MiB | 2026-07-14T08:51:51Z |
 | `thesis.chapter4_space` | 4 | thesis_evidence | complete_method_evidence | primary_main_text | available | 216 | 56.6 MiB | not recorded |
 | `thesis.chapter5_blis_adapter` | 5 | thesis_evidence | complete_method_evidence | primary_main_text | available | 122 | 8.9 MiB | 2026-07-14T08:04:14Z |
+| `thesis.chapter6_application_validation` | 6 | thesis_evidence | complete_method_evidence | supporting_main_text | available | 3927 | 118.3 MiB | 2026-07-22T01:19:03Z |
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
+| `thesis.chapter6_external_validation` | 6 | thesis_evidence | complete_method_evidence | supporting_main_text | available | 1953 | 195.1 MiB | 2026-07-19T14:08:01Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
-| `thesis.chapter6_same_pool_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 2709 | 18.0 MiB | 2026-07-18T17:31:42Z |
+| `thesis.chapter6_same_pool_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 3155 | 21.5 MiB | 2026-07-18T17:31:42Z |
 | `thesis.chapter6_termination_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 926 | 17.6 MiB | 2026-07-19T11:07:56Z |
 | `thesis.k230_rvv_backend` | cross-architecture extension | thesis_evidence | complete_method_evidence | supporting_main_text | available | 46 | 4.4 MiB | 2026-07-16T09:32:39Z |
 | `thesis.transformer_region_go_nogo` | post-thesis publication-direction probe | thesis_evidence | complete_method_evidence | appendix_only | available | 23 | 2.0 MiB | 2026-07-17T08:11:29Z |
@@ -181,7 +183,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py` succeeds
 - Claim boundary: Automated artifacts, the preliminary MLIR AOT path, and all 16 source-backed thesis-author signoffs are complete. All correct Transform candidates were still observed fallback rather than BLIS replacement.
-- Observed: 796 files, 121.1 MiB, tree fingerprint `be2641b60b02e7c74c61b57b93dbe463ee2003bf6a5deb037bbcb02971a18721`
+- Observed: 801 files, 121.1 MiB, tree fingerprint `f2aff1428bacf931533fe0c899f860788bc5418a223099968932b306e4813a37`
 
 ### Chapter 4 Candidate Space to Chapter 5 BLIS Evaluator Integration (`thesis.chapter4_5_integrated`)
 
@@ -213,7 +215,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Reproduction: `python3 jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py` succeeds
 - Claim boundary: The method and tuner loop are complete. Predicted direct/adapt paths remain observed fallback because no real BLIS packing or library-call adapter is present.
-- Observed: 216 files, 56.6 MiB, tree fingerprint `ef59871c1510a184c215a4dc872794a52a65a0e40ff48346e065de03089df3d3`
+- Observed: 216 files, 56.6 MiB, tree fingerprint `8cb6d6a45e155985aaa3928fc9f85d38678023f21f6fade7795b4bb397763937`
 
 ### Chapter 5 Real BLIS Packing and Microkernel Call Adapter (`thesis.chapter5_blis_adapter`)
 
@@ -231,6 +233,22 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Claim boundary: Rank-2 row-major f32 static direct, M/N/K fringe adapt, and one-binary dynamic-shape execution now perform real BLIS-compatible packing and call bli_sgemm_haswell_asm_6x16. Multi-shape speedups use a scalar-loop dynamic fallback; arbitrary layouts, additional dtypes/contracts, optimized dynamic baselines, parallel execution, and cross-host statistics remain outside this evidence.
 - Observed: 122 files, 8.9 MiB, tree fingerprint `39a207b0c3dc741f7c5a69c09d44c939535c5b4cd6f35b5b8ff776bc82814d42`
 
+### Chapter 6 Qwen Trace and K230 MLIR Application Validation (`thesis.chapter6_application_validation`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `supporting_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 application trace and deployment closure; Chapter 7 limitations and external-validity boundary
+- Writing decision: Supporting evidence for model-code workload relevance, physical-K230 MLIR-to-RV64GCV library-adapter closure, and trace-weighted projection over completed K230 and i9-14900 exact-shape pools. The local WSL timing pool remains excluded, and all weighted values are measured-GEMM projections rather than end-to-end model latency.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_application_validation`; k230_deployment_archive=`jlq/thesis/experiments/chapter6_application_validation/build/packages/chapter6-k230-mlir-closure-validation.tar.gz`
+- Artifact index: `jlq/thesis/experiments/chapter6_application_validation/APPLICATION_VALIDATION_ARTIFACT_INDEX.md`
+- Evidence: `jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_summary.json`, `jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_workloads.csv`, `jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_manifest.json`, `jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_deployment.json`, `jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.json`, `jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.csv`, `jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_aggregates.csv`, `jlq/thesis/experiments/chapter6_application_validation/reports/k230_mlir_closure_results.md`, `jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_summary.json`, `jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_policy_summary.csv`, `jlq/thesis/experiments/chapter6_application_validation/processed/guarded_prior_comparisons.csv`, `jlq/thesis/experiments/chapter6_application_validation/reports/trace_weighted_results.md`, `jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/processed/summary.json`, `jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/qualification/processed/summary.json`, `jlq/thesis/experiments/chapter6_application_validation/reports/application_validation_status.md`
+- Reproduction: `python3 jlq/thesis/experiments/chapter6_application_validation/scripts/analyze_trace_weighted_results.py --i9-root jlq/thesis/experiments/chapter6_external_validation --k230-root jlq/thesis/experiments/chapter6_external_validation`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_application_validation/scripts/analyze_trace_weighted_results.py` succeeds
+- Claim boundary: The real Qwen trace, physical MLIR-to-RV64GCV wrapper closure, physical K230 pool and native i9-14900 exact-shape pool are complete. Trace weighting projects measured GEMM times over the frozen call trace and is not end-to-end model latency. The i7 WSL pool remains diagnostic-only; no hardware run remains pending inside the frozen thesis boundary.
+- Observed: 3927 files, 118.3 MiB, tree fingerprint `7b3e8aff144080d57c80324e6cdebf08100c693c37cfe98309764441d59d6980`
+
 ### Chapter 6 Formal Kernel-aware GEMM Evaluation (`thesis.chapter6_evaluation`)
 
 - Chapter/scope: 6
@@ -246,6 +264,22 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_evaluation/scripts/run_chapter6.py` succeeds
 - Claim boundary: Formal B1-B4 equal-budget, five-seed evaluation over 36 predeclared row-major f32 shapes on one single-thread x86-64 AVX2/FMA host, with optimized dynamic MLIR and complete BLIS references, ablations, shape holdout, and overhead. BaCO uses offline replay over real measured candidates. Confidence intervals do not represent cross-host variation; additional dtype/architecture performance remains outside this completed run. Chapter 3 author signoff is complete and separately recorded.
 - Observed: 14923 files, 823.1 MiB, tree fingerprint `10038479a0fdb6a7a97854b3a1f131b2d33b5eaa894ed352b52ea7adc2ea153a`
+
+### Chapter 6 i9 and K230 Frozen External Validation Packages (`thesis.chapter6_external_validation`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `supporting_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 6 independent-backend extensibility and target-library boundary; Appendix reproducibility and external validation protocol
+- Writing decision: The physical K230 and native i9-14900 exact-shape pools are complete. Use them as claim-eligible supporting evidence for independent OpenBLAS/RV64GCV backend integration, cross-host Contract legality, and negative complete-library performance boundaries; do not claim generated schedules outperform the complete libraries.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_external_validation`; i9_deployment_archive=`jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz`; k230_deployment_archive=`jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz`; k230_result_summary=`jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json`; i9_result_summary=`jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json`
+- Artifact index: `jlq/thesis/experiments/chapter6_external_validation/EXTERNAL_VALIDATION_ARTIFACT_INDEX.md`
+- Evidence: `jlq/thesis/experiments/chapter6_external_validation/data/experiment_config.json`, `jlq/thesis/experiments/chapter6_external_validation/data/transformer_workloads.json`, `jlq/thesis/experiments/chapter6_external_validation/processed/k230_candidate_matrix.csv`, `jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json`, `jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.csv`, `jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_aggregates.csv`, `jlq/thesis/experiments/chapter6_external_validation/reports/k230_external_results.md`, `jlq/thesis/experiments/chapter6_external_validation/provenance/generator_freeze.json`, `jlq/thesis/experiments/chapter6_external_validation/provenance/k230_external_manifest.json`, `jlq/thesis/experiments/chapter6_external_validation/provenance/k230_deployment_manifest.json`, `jlq/thesis/experiments/chapter6_external_validation/provenance/i9_deployment_manifest.json`, `jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz`, `jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz`, `jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json`, `jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.csv`, `jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_aggregates.csv`, `jlq/thesis/experiments/chapter6_external_validation/processed/i9_sparse_summary.json`, `jlq/thesis/experiments/chapter6_external_validation/reports/i9_external_results.md`, `jlq/thesis/experiments/chapter6_external_validation/provenance/i9_external_import_manifest.json`, `jlq/thesis/experiments/chapter6_external_validation/returned/i9/chapter6-i9-result-20260722T085806Z.tar.gz`
+- Reproduction: `python3 jlq/thesis/experiments/chapter6_external_validation/scripts/import_i9_external_results.py jlq/thesis/experiments/chapter6_external_validation/returned/i9/chapter6-i9-result-20260722T085806Z.tar.gz && python3 jlq/thesis/experiments/chapter6_external_validation/scripts/import_k230_external_results.py jlq/thesis/experiments/chapter6_external_validation/board_results`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_external_validation/scripts/import_k230_external_results.py` succeeds
+- Claim boundary: The native i9 and physical K230 ten-workload pools are complete. The i9 run passes 870 correctness rows and reaches 0.5448 geometric relative performance versus complete BLIS with 95% CI [0.4833,0.6104]; the K230 run passes 429 rows and reaches 0.6730 versus complete OpenBLAS with 95% CI [0.6193,0.7253]. Both generated pools win 0/10 workloads. This supports cross-host legality, independent-backend extensibility and negative complete-library performance boundaries, not end-to-end model latency or universal x86/RISC-V generalization.
+- Observed: 1953 files, 195.1 MiB, tree fingerprint `da751632dc88b5e53051a5ca075851054bc6211ec7ed4b1a611428345c13a497`
 
 ### Chapter 6 Online-calibrated Soft Prior Evaluation (`thesis.chapter6_online_prior`)
 
@@ -270,14 +304,14 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Status: `complete_method_evidence`
 - Paper use: `primary_main_text`; main-text eligible: `true`
 - Recommended sections: Chapter 6 strict same-pool low-budget evaluation; Chapter 7 conclusions and limitations
-- Writing decision: Primary single-host evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports a local calibrated-prior gain at budgets 5 and 10; it must not be presented as satisfying the planned two-environment replication gate.
+- Writing decision: Primary same-pool evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports local calibrated-prior gains at budgets 5 and 10, while the completed i9 replication is inconclusive; the preregistered two-environment acceptance gate therefore fails.
 - Paths: experiment_root=`jlq/thesis/experiments/chapter6_same_pool_prior`
 - Artifact index: `jlq/thesis/experiments/chapter6_same_pool_prior/README.md`
 - Evidence: `jlq/thesis/experiments/chapter6_same_pool_prior/data/experiment_config.json`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/acceptance_summary.json`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/parameter_liveness.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/same_pool_audit.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/fixed_budget_results.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/processed/paired_comparisons.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/raw/holdout_traces.csv`, `jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md`, `jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json`
-- Reproduction: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py --environment i7_10750h_wsl2 --force`
+- Reproduction: `OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py`
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py` succeeds
-- Claim boundary: A formal single-thread i7-10750H replay over existing complete f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, shared-oracle invariance, and local calibrated-prior gains at budgets 5 and 10. It does not satisfy the planned two-environment replication gate and makes no i9 or K230 claim.
-- Observed: 2709 files, 18.0 MiB, tree fingerprint `cdb8531ed86251d65bf428235f090e7680158b7a20227809f95915dce7f2a8a6`
+- Claim boundary: A formal single-thread replay over complete i7-10750H and i9-14900 f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, and shared-oracle invariance. Calibrated-prior gains are significant on i7 but inconclusive on i9, so the planned two-environment replication gate fails. It makes no K230 or non-x86 prior-transfer claim.
+- Observed: 3155 files, 21.5 MiB, tree fingerprint `b369b0a2bd4cbe66d21e4f86bb7b26f6bbe6b7e4009d9c06003029b68f0116a9`
 
 ### Chapter 6 Prior and Extensibility Termination Validation (`thesis.chapter6_termination_validation`)
 

@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 23
-updated_at: 2026-07-19
+version: 29
+updated_at: 2026-07-23
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-19T10:55:16Z
+last_activity_at: 2026-07-23T08:35:42Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-19T10:55:16Z
 
 # Current Checkpoint
 
-完成i7三项终止验证：软专家增量STOP、校准经济性STOP、第二BLIS微内核Contract扩展GO
+完成 i9/K230 最终外部验证与 21 项实验总整理：冻结硬件边界闭合，同池两环境收益门槛失败如实保留
 
 # Verified Milestones
 
@@ -64,14 +64,22 @@ last_activity_at: 2026-07-19T10:55:16Z
 - 已固定 Optuna 4.9.0 TPE，在同一有限候选池和 25 个唯一测量预算下完成 1500 次新进程目标测量；2035 个 callback 中 535 个重复建议被剪枝且不消耗有效预算。在线校准相对 TPE 在预算 5/25 的区间均跨 1，不宣称显著优于现有 tuner。
 - 多来源消融保持 BLIS/OpenBLAS 不兼容硬 ABI 分离，仅比较同一 BLIS-hard-valid 池上的软排序。预算 5 时 BLIS-only 和校准先验相对 naive merge 分别为 1.063 倍 [1.029, 1.103] 和 1.067 倍 [1.018, 1.125]；校准与 BLIS-only 为 1.003 倍且区间跨 1，说明盲目增加来源会伤害排序，校准主要恢复而非必然超越可靠单源。
 - 已生成面向 Ubuntu 20.04 x86_64 的 14900/14900K/14900KF 完全离线包，固定 Buddy `d7bb40c`、LLVM `09b849a`、BLIS `36df51a` 和 mimalloc `81a7711`。针对目标机 Buddy DIP 配置暴露的 JPEG 缺失，依赖闭包已补入 `libjpeg-dev`、`libpng-dev` 及头文件预检，并隔离 Conda Python 环境变量。修正版归档包含 211 个本地 APT 包、CMake 3.28.6、Python 3.10.14 源码、离线 wheels、完整目标机操作指南和全部实验源码；469 MiB 归档通过 SHA-256、277 文件清单和 4 项测试，当前状态仍为 `ready_pending_external_run`。
+- 已执行 Hugging Face `Qwen2ForCausalLM` 真实控制流 shape trace：338 次原始 Linear、336 次核心 projection、192 次规范化融合 projection，映射为 8 个冻结 workload，覆盖 24 层核心 projection 调用与 FLOP 的 100%；`lm_head` 明确排除。
+- 已完成 3 个预声明 K230 应用闭环案例：`linalg.generic -> transform.annotate -> convert-linalg-to-std -> LLVM IR -> RV64GCV ELF -> OpenBLAS packing/sgemm_kernel adapter`。Host ABI smoke 为 `PASS cases=3 adapter_calls=3`；静态 ELF 入口为 `0x200000000`、含 452 条 RVV 指令匹配，且未修改冻结的 Chapter 4 generator、未新增 compiler pass。
+- 上述闭环已在物理 K230 RT-Smart 上完成 3 案例 x 3 variant x 5 repetition 共 45 条正确测量，direct/adapt 路径逐条匹配。C-adapter/MLIR-adapter 几何时间比为 0.9887，shape-cluster bootstrap 95% CI 为 [0.9765, 1.0009]，满足预注册 parity 门槛；MLIR adapter 相对完整 OpenBLAS 的几何性能比例为 0.7518，仅作为代表性闭环边界。
+- i7 WSL 的 2088 进程确认性测量完成但状态为 `FAIL_UNSTABLE`：232 个 workload/variant 组仅 15.95% 通过 robust-CV 门槛。随后冻结并执行 120 进程的 6-CPU 测量资格测试，所有 CPU 均未使四组诊断全部通过，状态为 `FAIL_UNQUALIFIED`。旧 pilot 加权收益已撤出正式输出，本机 timing 仅作负向测量质量证据。
+- 应用验证已登记为第 21 个论文证据条目和 PersonalOS 实验；13 项应用测试、17 项外部验证测试、53 项 Chapter 4 回归均通过。按实测 `/sdcard` 路径重建的 K230 包 SHA-256 为 `642272d2ebc564ce2689757f0fdf600734a39a1bb6990022e8f67410acc9d0d9`。
+- K230 external-validation 完整池已冻结为 10 个 shape、160 个矩阵行、133 个可执行候选（104 direct、29 adapt）；串口协议要求 399 条 adapter 与 30 条完整 OpenBLAS 基线结果，并逐项核对 trial、shape、tile、path 和 correctness。18/18 项测试通过，新归档 SHA-256 为 `7a6fd7a754bbe07c7f513d998e8fe853e459166f1f4992ef32b41cc320301848`。
+- K230 external-validation 在物理板上完成 429/429 条正确测量，覆盖 10 个 workload、133 个可执行候选和 10 个完整 OpenBLAS 基线；pool oracle 选出 8 direct、2 adapt。生成 adapter 相对完整 OpenBLAS 的 workload 几何性能为 0.6730，bootstrap 95% CI [0.6193,0.7253]，10 个 workload 无一获胜；8 个精确 Qwen shape 为 0.6653。
+- 143 个板端测量组的中位 trial CV 为 0.158%，仅一个非最优候选超过 5%；最佳 adapter 最大 CV 为 0.300%，OpenBLAS 最大 CV 为 0.280%，最大投影误差 5.99e-6。Qwen trace-weighted 分析覆盖 decode/prefill 两场景；library guard 恢复到完整库基线，但因为 adapter 不产生运行收益，调优成本没有正的 break-even。
 
 # Doing
 
-- 按终止验证结果收紧论文主张并保留硬兼容知识与系统扩展性贡献
+- 按硬兼容知识、目标数据校准和完整库性能边界三层叙事整理第四至六章，不再宣称当前 BLIS 软性能规则有额外价值
 
 # Next
 
-1. 重写第六章和结论：区分Data-only收益、专家软规则无增量、校准摊销边界及独立后端未验证
+1. 依据 EXPERIMENTS_DETAILED_GUIDE.md 与 PAPER_EVIDENCE_CATALOG.md 重写第四至六章和结论；vector fallback 作为可选系统完整性扩展
 
 # Current Blockers
 
@@ -80,6 +88,7 @@ last_activity_at: 2026-07-19T10:55:16Z
 - BaCO 3.0 分类参数存在重复回调与 GPy 数值稳定性问题；固定预算以回调计，唯一候选数和兼容兜底触发数必须同时披露。
 - K230 已完成单块 C908 RT-Smart 板端测量，但该结果不能外推为所有 RISC-V 后端的性能或排名泛化。
 - i9-14900 外部归档已通过 importer；两主机结果只支持硬兼容迁移和低预算趋势，不能外推为所有 x86 主机的稳定排名或性能泛化。
+- i7-10750H WSL 对 decode 亚毫秒完整 BLIS 基线的跨进程波动未通过预注册门槛；该环境不得用于新的应用级性能或搜索收益主张。
 
 # Decisions
 
@@ -110,8 +119,8 @@ last_activity_at: 2026-07-19T10:55:16Z
 | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
 | microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
-| RVV 后端 | applied | K230 物理板完成 560 条正确测量，包含 scalar、显式 RVV、完整 OpenBLAS 与八个 shape | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
-| performance prior calibration | verified | 严格同池终止消融显示Data-only显著优于无先验，但当前BLIS软性能特征不显著优于Data-only且校准成本未在12个holdout内摊销 | 正文停止宣称专家性能规则有额外价值；独立后端作为后续扩展 |
+| RVV 后端 | applied | K230 物理板完成既有560条后端测量、45条MLIR闭环和429条完整候选池测量；10-shape adapter/OpenBLAS为0.6730 [0.6193,0.7253] | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
+| performance prior calibration | verified | i7 的低预算校准收益未在 i9 显著复制；当前专家软性能特征相对 Data-only 无显著增量 | 正文报告环境依赖与停止条件，扩展前先证明校准可摊销 |
 | Transformer fan-out shared packing | verified | Optimized QKV and Gate-Up formal probe shows packing-count reduction but no stable latency gain against repeated packing and a significant loss against complete-BLIS portfolio. | Test fused epilogue or phase-specific portfolio mechanisms that cannot be reduced to weight concatenation. |
 
 # Completion Criteria
@@ -123,13 +132,13 @@ last_activity_at: 2026-07-19T10:55:16Z
 
 # Recent Evidence
 
-- 2026-07-19T10:55:16Z — i7同池60对/检查点：Expert+Data/Data-only在budget5为1.009x[0.999,1.027]、budget10约1.000x[1.000,1.000]；time-to-95从7.90降至3.08次但591行校准在12个holdout内不摊销；f64 6x8第二Contract门槛通过
-- 2026-07-19T10:55:16Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_termination_validation/reports/termination_validation_report.md
-- 2026-07-19T10:55:16Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_termination_validation/processed/acceptance_summary.json
-- 2026-07-18T17:34:57Z — i7 B4/B2: budget5 1.058x [1.027,1.092], budget10 1.035x [1.011,1.064]; 1800 unique reads, zero duplicate callbacks and zero holdout target reads
-- 2026-07-18T17:34:57Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md
-- 2026-07-17T08:13:09Z — Formal local probe: 160 rows all PASS; shared/repacked 1.006x CI [0.906,1.121]; shared/concat 0.720x CI [0.510,0.972]; shared/best-complete 0.665x CI [0.472,0.894]; packing-only ideal geomean/max 1.010x/1.032x.
-- 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/reports/go_nogo_results.md
-- 2026-07-17T08:13:09Z — artifact: /buddy-mlir/jlq/thesis/experiments/transformer_region_go_nogo/processed/go_nogo_summary.json
-- 2026-07-16T12:24:56Z — i9-14900: 3132 f64 trials, 6000 fresh online measurements, 1500 unique Optuna measurements; budget-5 online vs Optuna 1.065x [1.044,1.089].
-- 2026-07-16T12:24:56Z — Cross-host generated-pool/BLIS ratio changes from 1.064 on i7-10750H to 0.804 on i9-14900; compatibility prediction agreement remains 100%.
+- 2026-07-23T08:35:42Z — i9-14900 exact-shape 严格导入 PASS：870 条正确结果；生成池/完整 BLIS 0.5448，95% CI [0.4833,0.6104]，0/10 workload 获胜
+- 2026-07-23T08:35:42Z — K230 external pool 429/429 正确；adapter/OpenBLAS 0.6730，95% CI [0.6193,0.7253]；MLIR wrapper closure 45/45 正确
+- 2026-07-23T08:35:42Z — 严格同池审计、唯一预算、无泄漏和公共 oracle 均 PASS；B4/B2 在 i7 显著获益而 i9 区间跨 1，因此预注册两环境 acceptance 为 FAIL
+- 2026-07-23T08:35:42Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/EXPERIMENTS_DETAILED_GUIDE.md
+- 2026-07-23T08:35:42Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_external_validation/reports/i9_external_results.md
+- 2026-07-23T08:35:42Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md
+- 2026-07-22T06:00:19Z — K230完整external池429/429条正确，10 workload中8 direct/2 adapt；adapter/OpenBLAS几何性能0.6730、95% CI [0.6193,0.7253]、0/10获胜；143组中位CV 0.158%，trace-weighted guard回到库基线但无正break-even
+- 2026-07-22T06:00:19Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json
+- 2026-07-22T06:00:19Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_application_validation/reports/trace_weighted_results.md
+- 2026-07-22T03:40:28Z — K230 external完整池包与严格串口协议就绪：10 shape、133可执行候选、429预期正确行，18/18测试通过，归档SHA-256为7a6fd7a754bbe07c7f513d998e8fe853e459166f1f4992ef32b41cc320301848；待复制到/sdcard后执行

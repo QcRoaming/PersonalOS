@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -73,9 +73,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5867,
-            "modified_at_utc": "2026-07-19T11:02:46Z",
-            "sha256": "0b459d993d03f416a8f1fd081a13a220a86dc8d2c355d570fa33f2381b3f76c1"
+            "size_bytes": 6587,
+            "modified_at_utc": "2026-07-23T08:21:31Z",
+            "sha256": "82284fe08add5db179330e5b32b09cebf77289003f36cf5e6588e16b72926ca2"
           },
           "jlq/thesis/experiments/results/mlir_aot_benchmark.csv": {
             "exists": true,
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -163,9 +163,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5867,
-            "modified_at_utc": "2026-07-19T11:02:46Z",
-            "sha256": "0b459d993d03f416a8f1fd081a13a220a86dc8d2c355d570fa33f2381b3f76c1"
+            "size_bytes": 6587,
+            "modified_at_utc": "2026-07-23T08:21:31Z",
+            "sha256": "82284fe08add5db179330e5b32b09cebf77289003f36cf5e6588e16b72926ca2"
           },
           "jlq/thesis/experiments/results/cpu_benchmark_summary.md": {
             "exists": true,
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -287,9 +287,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5867,
-            "modified_at_utc": "2026-07-19T11:02:46Z",
-            "sha256": "0b459d993d03f416a8f1fd081a13a220a86dc8d2c355d570fa33f2381b3f76c1"
+            "size_bytes": 6587,
+            "modified_at_utc": "2026-07-23T08:21:31Z",
+            "sha256": "82284fe08add5db179330e5b32b09cebf77289003f36cf5e6588e16b72926ca2"
           },
           "jlq/thesis/experiments/results/qemu_correctness_check.md": {
             "exists": true,
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -378,9 +378,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5867,
-            "modified_at_utc": "2026-07-19T11:02:46Z",
-            "sha256": "0b459d993d03f416a8f1fd081a13a220a86dc8d2c355d570fa33f2381b3f76c1"
+            "size_bytes": 6587,
+            "modified_at_utc": "2026-07-23T08:21:31Z",
+            "sha256": "82284fe08add5db179330e5b32b09cebf77289003f36cf5e6588e16b72926ca2"
           },
           "jlq/thesis/experiments/results/rvv_toolchain_check.md": {
             "exists": true,
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -461,9 +461,9 @@
         "tracked_files": {
           "jlq/thesis/experiments/README.md": {
             "exists": true,
-            "size_bytes": 5867,
-            "modified_at_utc": "2026-07-19T11:02:46Z",
-            "sha256": "0b459d993d03f416a8f1fd081a13a220a86dc8d2c355d570fa33f2381b3f76c1"
+            "size_bytes": 6587,
+            "modified_at_utc": "2026-07-23T08:21:31Z",
+            "sha256": "82284fe08add5db179330e5b32b09cebf77289003f36cf5e6588e16b72926ca2"
           },
           "jlq/thesis/experiments/results/transform_demo_check.md": {
             "exists": true,
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -827,10 +827,10 @@
             "exists": true
           }
         ],
-        "file_count": 796,
-        "size_bytes": 126935614,
-        "last_modified_utc": "2026-07-16T03:26:22Z",
-        "tree_fingerprint_sha256": "be2641b60b02e7c74c61b57b93dbe463ee2003bf6a5deb037bbcb02971a18721",
+        "file_count": 801,
+        "size_bytes": 126992588,
+        "last_modified_utc": "2026-07-20T02:40:47Z",
+        "tree_fingerprint_sha256": "f2aff1428bacf931533fe0c899f860788bc5418a223099968932b306e4813a37",
         "tracked_files": {
           "jlq/thesis/experiments/chapter3_rules/chapter3_artifact_index.md": {
             "exists": true,
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1022,9 +1022,9 @@
           }
         ],
         "file_count": 216,
-        "size_bytes": 59329713,
-        "last_modified_utc": "2026-07-15T00:59:19Z",
-        "tree_fingerprint_sha256": "ef59871c1510a184c215a4dc872794a52a65a0e40ff48346e065de03089df3d3",
+        "size_bytes": 59329944,
+        "last_modified_utc": "2026-07-19T12:39:28Z",
+        "tree_fingerprint_sha256": "8cb6d6a45e155985aaa3928fc9f85d38678023f21f6fade7795b4bb397763937",
         "tracked_files": {
           "jlq/thesis/experiments/chapter4_space/chapter4_artifact_index.md": {
             "exists": true,
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1212,6 +1212,186 @@
       }
     },
     {
+      "id": "thesis.chapter6_application_validation",
+      "title": "Chapter 6 Qwen Trace and K230 MLIR Application Validation",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_application_validation"
+        },
+        {
+          "role": "k230_deployment_archive",
+          "path": "jlq/thesis/experiments/chapter6_application_validation/build/packages/chapter6-k230-mlir-closure-validation.tar.gz"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_application_validation/APPLICATION_VALIDATION_ARTIFACT_INDEX.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_summary.json",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_workloads.csv",
+        "jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_manifest.json",
+        "jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_deployment.json",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.json",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.csv",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_aggregates.csv",
+        "jlq/thesis/experiments/chapter6_application_validation/reports/k230_mlir_closure_results.md",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_summary.json",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_policy_summary.csv",
+        "jlq/thesis/experiments/chapter6_application_validation/processed/guarded_prior_comparisons.csv",
+        "jlq/thesis/experiments/chapter6_application_validation/reports/trace_weighted_results.md",
+        "jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/processed/summary.json",
+        "jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/qualification/processed/summary.json",
+        "jlq/thesis/experiments/chapter6_application_validation/reports/application_validation_status.md"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter6_application_validation/scripts/analyze_trace_weighted_results.py --i9-root jlq/thesis/experiments/chapter6_external_validation --k230-root jlq/thesis/experiments/chapter6_external_validation",
+      "claim_boundary": "The real Qwen trace, physical MLIR-to-RV64GCV wrapper closure, physical K230 pool and native i9-14900 exact-shape pool are complete. Trace weighting projects measured GEMM times over the frozen call trace and is not end-to-end model latency. The i7 WSL pool remains diagnostic-only; no hardware run remains pending inside the frozen thesis boundary.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_application_validation/scripts/analyze_trace_weighted_results.py"
+      },
+      "paper_use": {
+        "tier": "supporting_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 application trace and deployment closure",
+          "Chapter 7 limitations and external-validity boundary"
+        ],
+        "decision": "Supporting evidence for model-code workload relevance, physical-K230 MLIR-to-RV64GCV library-adapter closure, and trace-weighted projection over completed K230 and i9-14900 exact-shape pools. The local WSL timing pool remains excluded, and all weighted values are measured-GEMM projections rather than end-to-end model latency.",
+        "usable_claims": [
+          "Executing the Hugging Face Qwen2ForCausalLM control flow with stateless shape-preserving modules records 338 raw Linear calls, 336 core projection calls and 192 canonical fused projection calls across two frozen scenarios.",
+          "The eight frozen Qwen workload rows cover 100 percent of the 24-block core projection calls and FLOPs represented by the canonical trace; lm_head is explicitly excluded.",
+          "All 24 per-workload tile-parameter audits are accounted for: 20 are active and four decode tile_m dimensions are conditionally eliminated by static legality.",
+          "Three predeclared direct/fringe cases lower from linalg and Transform parameters to LLVM IR, link the existing OpenBLAS packing/sgemm_kernel adapter into a static RV64GCV ELF, and pass both the host ABI smoke and a 45-row physical K230 correctness/path run without modifying the frozen Chapter 4 generator or adding a compiler pass.",
+          "On the physical K230, the C-adapter/MLIR-adapter geometric time ratio is 0.9887 with a cluster-bootstrap 95 percent interval of [0.9765, 1.0009], satisfying the preregistered wrapper-parity criterion.",
+          "The eight exact Qwen shapes complete their physical K230 candidate pools; the best generated adapter reaches 0.6653 geometric relative performance versus complete OpenBLAS on those shapes.",
+          "For both frozen trace scenarios, a library guard restores projected GEMM latency to the complete-OpenBLAS baseline, but no generated candidate beats the library and the one-time tuning cost therefore has no positive break-even point.",
+          "The 2088-process i7 confirmation and 120-process WSL qualification are retained as negative measurement-quality evidence; neither supports a local performance or search-benefit claim.",
+          "The trace-weighted analysis consumes both the completed native i9-14900 and physical K230 exact-shape pools; no hardware run remains pending within the frozen thesis boundary."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_application_validation",
+            "exists": true
+          },
+          {
+            "role": "k230_deployment_archive",
+            "path": "jlq/thesis/experiments/chapter6_application_validation/build/packages/chapter6-k230-mlir-closure-validation.tar.gz",
+            "exists": true
+          }
+        ],
+        "file_count": 3927,
+        "size_bytes": 124029597,
+        "last_modified_utc": "2026-07-23T08:20:15Z",
+        "tree_fingerprint_sha256": "7b3e8aff144080d57c80324e6cdebf08100c693c37cfe98309764441d59d6980",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_application_validation/APPLICATION_VALIDATION_ARTIFACT_INDEX.md": {
+            "exists": true,
+            "size_bytes": 2500,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "d918e650bf0422ec1d4415812c7794980138c1b898b00e9be56ef8cd26b092ad"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/guarded_prior_comparisons.csv": {
+            "exists": true,
+            "size_bytes": 1759,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "8292af264239d7e40b5e1e4a87e0ea5e1c111d37aee770c8e3088402e702a946"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_aggregates.csv": {
+            "exists": true,
+            "size_bytes": 1993,
+            "modified_at_utc": "2026-07-22T03:21:47Z",
+            "sha256": "3dbb0545c1fe7a46373e54b551c837af042e53b41ad066bd31cc6f8160cd6071"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.csv": {
+            "exists": true,
+            "size_bytes": 749,
+            "modified_at_utc": "2026-07-22T03:21:47Z",
+            "sha256": "8082edcc056d208c3825b3e1602c3fa421c1d0ddc953783c95c3774e8ad73737"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/k230_mlir_closure_summary.json": {
+            "exists": true,
+            "size_bytes": 908,
+            "modified_at_utc": "2026-07-22T03:21:47Z",
+            "sha256": "3aae50a1408b7e0c0c70a82bbb931c9cfbee08fa66eecbffc1f1e43b0c80ca73"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_summary.json": {
+            "exists": true,
+            "size_bytes": 1114,
+            "modified_at_utc": "2026-07-22T01:18:44Z",
+            "sha256": "85babe669ae5fbde400f788aed327165d50d1ec2cb96f9498d32fa8a91076a6d"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/qwen_trace_workloads.csv": {
+            "exists": true,
+            "size_bytes": 708,
+            "modified_at_utc": "2026-07-22T01:18:44Z",
+            "sha256": "b2d1eabc85e9d868d83bf018fe8e1fb26773cea7cbd613467a2de5d21a7a8074"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_policy_summary.csv": {
+            "exists": true,
+            "size_bytes": 5852,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "d70b7da8d2393f7df0cef9f5eea83198adc7740d43a89aaf53f2041475970b7f"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/processed/trace_weighted_summary.json": {
+            "exists": true,
+            "size_bytes": 466,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "031f72d7371bea2baf898e85d1833618c86ec07f36edd9951b16588b4aaeeb83"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_deployment.json": {
+            "exists": true,
+            "size_bytes": 1833,
+            "modified_at_utc": "2026-07-22T03:25:23Z",
+            "sha256": "1cacf4e0839cfc12828d97d86523e79627312eb4c650cefca96e643ac092b750"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/provenance/k230_mlir_closure_manifest.json": {
+            "exists": true,
+            "size_bytes": 20650,
+            "modified_at_utc": "2026-07-22T03:25:23Z",
+            "sha256": "6a2072b640a454e368bab1f1f2e78c57ede07f127b1b6467462222f8e8520ba1"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/reports/application_validation_status.md": {
+            "exists": true,
+            "size_bytes": 2176,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "6ea20f84e19b40dcf9b6d72e4305057c7ea1a63da22f621d62887085fe60fc24"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/reports/k230_mlir_closure_results.md": {
+            "exists": true,
+            "size_bytes": 793,
+            "modified_at_utc": "2026-07-22T03:24:50Z",
+            "sha256": "8c8ff601c130c52af58f6e75a3b923b587438919fc16f9138a21a5566f9aa877"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/reports/trace_weighted_results.md": {
+            "exists": true,
+            "size_bytes": 5355,
+            "modified_at_utc": "2026-07-23T08:20:15Z",
+            "sha256": "afd10a1d12465f373baf29c6fe818f02b2b358fe9630d06101f0cdb3c4f77c1c"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/processed/summary.json": {
+            "exists": true,
+            "size_bytes": 1477,
+            "modified_at_utc": "2026-07-19T17:34:38Z",
+            "sha256": "f0add725af4cf5832edd0ad50375c0fa5eec70bdc8b090826d343c250bccd7e2"
+          },
+          "jlq/thesis/experiments/chapter6_application_validation/targets/i7_10750h/qualification/processed/summary.json": {
+            "exists": true,
+            "size_bytes": 618,
+            "modified_at_utc": "2026-07-22T01:08:36Z",
+            "sha256": "9e57aa351cae610850972adce34270e1d541a87a14b5104b55ec6a32c90e2a0c"
+          }
+        },
+        "last_successful_run_utc": "2026-07-22T01:19:03Z"
+      }
+    },
+    {
       "id": "thesis.chapter6_evaluation",
       "title": "Chapter 6 Formal Kernel-aware GEMM Evaluation",
       "chapter": "6",
@@ -1260,7 +1440,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1363,6 +1543,248 @@
       }
     },
     {
+      "id": "thesis.chapter6_external_validation",
+      "title": "Chapter 6 i9 and K230 Frozen External Validation Packages",
+      "chapter": "6",
+      "category": "thesis_evidence",
+      "status": "complete_method_evidence",
+      "paths": [
+        {
+          "role": "experiment_root",
+          "path": "jlq/thesis/experiments/chapter6_external_validation"
+        },
+        {
+          "role": "i9_deployment_archive",
+          "path": "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz"
+        },
+        {
+          "role": "k230_deployment_archive",
+          "path": "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz"
+        },
+        {
+          "role": "k230_result_summary",
+          "path": "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json"
+        },
+        {
+          "role": "i9_result_summary",
+          "path": "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json"
+        }
+      ],
+      "artifact_index": "jlq/thesis/experiments/chapter6_external_validation/EXTERNAL_VALIDATION_ARTIFACT_INDEX.md",
+      "evidence_files": [
+        "jlq/thesis/experiments/chapter6_external_validation/data/experiment_config.json",
+        "jlq/thesis/experiments/chapter6_external_validation/data/transformer_workloads.json",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/k230_candidate_matrix.csv",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.csv",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_aggregates.csv",
+        "jlq/thesis/experiments/chapter6_external_validation/reports/k230_external_results.md",
+        "jlq/thesis/experiments/chapter6_external_validation/provenance/generator_freeze.json",
+        "jlq/thesis/experiments/chapter6_external_validation/provenance/k230_external_manifest.json",
+        "jlq/thesis/experiments/chapter6_external_validation/provenance/k230_deployment_manifest.json",
+        "jlq/thesis/experiments/chapter6_external_validation/provenance/i9_deployment_manifest.json",
+        "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz",
+        "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.csv",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_aggregates.csv",
+        "jlq/thesis/experiments/chapter6_external_validation/processed/i9_sparse_summary.json",
+        "jlq/thesis/experiments/chapter6_external_validation/reports/i9_external_results.md",
+        "jlq/thesis/experiments/chapter6_external_validation/provenance/i9_external_import_manifest.json",
+        "jlq/thesis/experiments/chapter6_external_validation/returned/i9/chapter6-i9-result-20260722T085806Z.tar.gz"
+      ],
+      "reproduce_command": "python3 jlq/thesis/experiments/chapter6_external_validation/scripts/import_i9_external_results.py jlq/thesis/experiments/chapter6_external_validation/returned/i9/chapter6-i9-result-20260722T085806Z.tar.gz && python3 jlq/thesis/experiments/chapter6_external_validation/scripts/import_k230_external_results.py jlq/thesis/experiments/chapter6_external_validation/board_results",
+      "claim_boundary": "The native i9 and physical K230 ten-workload pools are complete. The i9 run passes 870 correctness rows and reaches 0.5448 geometric relative performance versus complete BLIS with 95% CI [0.4833,0.6104]; the K230 run passes 429 rows and reaches 0.6730 versus complete OpenBLAS with 95% CI [0.6193,0.7253]. Both generated pools win 0/10 workloads. This supports cross-host legality, independent-backend extensibility and negative complete-library performance boundaries, not end-to-end model latency or universal x86/RISC-V generalization.",
+      "automation": {
+        "auto_refresh": true,
+        "producer": "jlq/thesis/experiments/chapter6_external_validation/scripts/import_k230_external_results.py"
+      },
+      "paper_use": {
+        "tier": "supporting_main_text",
+        "body_eligible": true,
+        "recommended_sections": [
+          "Chapter 6 independent-backend extensibility and target-library boundary",
+          "Appendix reproducibility and external validation protocol"
+        ],
+        "decision": "The physical K230 and native i9-14900 exact-shape pools are complete. Use them as claim-eligible supporting evidence for independent OpenBLAS/RV64GCV backend integration, cross-host Contract legality, and negative complete-library performance boundaries; do not claim generated schedules outperform the complete libraries.",
+        "usable_claims": [
+          "The i9 and K230 measurement protocols and immutable deployment archives were frozen before external execution.",
+          "The OpenBLAS RV64GCV extension preserves the frozen core generator hash and adds a Contract, candidate data, explicit packing/call adapter, and deployment code.",
+          "The static K230 ELF contains the real cblas_sgemm and sgemm_kernel symbols, and 429 of 429 physical-board rows pass strict candidate-coverage, path and correctness checks over ten workloads.",
+          "The per-workload pool oracle selects eight direct and two adapt schedules, demonstrating automatic legal scheduling and fringe handling without changing the frozen core generator.",
+          "The best generated adapter reaches 0.6730 geometric relative performance versus complete OpenBLAS with a workload-bootstrap 95 percent interval of [0.6193, 0.7253] and wins zero of ten workloads; this is a measured negative performance boundary rather than a library-speedup claim.",
+          "Across 143 timing groups, median trial CV is 0.158 percent; the maximum CV among selected best adapters is 0.300 percent and maximum numerical projection error is 5.99e-6.",
+          "The native i9-14900 import passes archive integrity, executable and manifest verification, candidate completeness, path agreement and correctness checks for 870 rows over ten workloads.",
+          "On the i9-14900, the best generated Contract pool reaches 0.5448 geometric relative performance versus complete BLIS with workload-bootstrap 95 percent interval [0.4833, 0.6104] and wins zero of ten workloads.",
+          "The i9 sparse Data-only versus Expert+Data ablation finds zero significant benefits and two significant harms, so the incremental BLIS-derived soft performance-feature claim remains stopped."
+        ]
+      },
+      "observed": {
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
+        "all_paths_exist": true,
+        "path_status": [
+          {
+            "role": "experiment_root",
+            "path": "jlq/thesis/experiments/chapter6_external_validation",
+            "exists": true
+          },
+          {
+            "role": "i9_deployment_archive",
+            "path": "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz",
+            "exists": true
+          },
+          {
+            "role": "k230_deployment_archive",
+            "path": "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz",
+            "exists": true
+          },
+          {
+            "role": "k230_result_summary",
+            "path": "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json",
+            "exists": true
+          },
+          {
+            "role": "i9_result_summary",
+            "path": "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json",
+            "exists": true
+          }
+        ],
+        "file_count": 1953,
+        "size_bytes": 204560531,
+        "last_modified_utc": "2026-07-22T09:28:18Z",
+        "tree_fingerprint_sha256": "da751632dc88b5e53051a5ca075851054bc6211ec7ed4b1a611428345c13a497",
+        "tracked_files": {
+          "jlq/thesis/experiments/chapter6_external_validation/EXTERNAL_VALIDATION_ARTIFACT_INDEX.md": {
+            "exists": true,
+            "size_bytes": 2711,
+            "modified_at_utc": "2026-07-22T05:53:33Z",
+            "sha256": "0378a1823c6c142b728171842b43e0fa17625240ed8bcbfdfe997405f489a5d1"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-i9-14900-external-validation.tar.gz": {
+            "exists": true,
+            "size_bytes": 28970,
+            "modified_at_utc": "2026-07-19T13:41:51Z",
+            "sha256": "a89b6e4c8c0e9c1bc44e9b02a48a83d59b2a72558a52fc109e7b369ffbc8f132"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/build/packages/chapter6-k230-openblas-external-validation.tar.gz": {
+            "exists": true,
+            "size_bytes": 123957,
+            "modified_at_utc": "2026-07-22T03:37:28Z",
+            "sha256": "7a6fd7a754bbe07c7f513d998e8fe853e459166f1f4992ef32b41cc320301848"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/data/experiment_config.json": {
+            "exists": true,
+            "size_bytes": 3316,
+            "modified_at_utc": "2026-07-19T12:41:04Z",
+            "sha256": "068dbd126eb1636ee1fe46b48111e08c07b1bfba8f9c009b2534c954eebb9f70"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/data/transformer_workloads.json": {
+            "exists": true,
+            "size_bytes": 2129,
+            "modified_at_utc": "2026-07-19T12:41:04Z",
+            "sha256": "71130b1a574896914563df6f21f5c4225f844258e9869661a8ddcabc75640314"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_aggregates.csv": {
+            "exists": true,
+            "size_bytes": 64509,
+            "modified_at_utc": "2026-07-22T09:00:02Z",
+            "sha256": "e3f15480185831210884cd18ab96d170d2a27a3d670ea7b12ae25a7ef69f38e7"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.csv": {
+            "exists": true,
+            "size_bytes": 1728,
+            "modified_at_utc": "2026-07-22T09:27:05Z",
+            "sha256": "35ed860ba9c4082001db8704a357048b73123735630d7e22dd8ef660e1df8dab"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/i9_external_summary.json": {
+            "exists": true,
+            "size_bytes": 3013,
+            "modified_at_utc": "2026-07-22T09:27:05Z",
+            "sha256": "e517ab372e54e193d62d528b58beca4fef460e0078702b7ec22af2ba343bca36"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/i9_sparse_summary.json": {
+            "exists": true,
+            "size_bytes": 17745,
+            "modified_at_utc": "2026-07-22T08:58:08Z",
+            "sha256": "bfe1aab76324afb1373154df9d4dd9bcecaa733545d83611f80dd1c93cd26656"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/k230_candidate_matrix.csv": {
+            "exists": true,
+            "size_bytes": 23890,
+            "modified_at_utc": "2026-07-22T03:37:27Z",
+            "sha256": "515f9516b048c9dacd44a485b286fff5696eb18a5922fdf984e4ba6d51751a3d"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_aggregates.csv": {
+            "exists": true,
+            "size_bytes": 32868,
+            "modified_at_utc": "2026-07-22T05:51:59Z",
+            "sha256": "1cde0cb6032d97829ba64138b489b3d83a4c48f56ee24906650472ea58e6eea4"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.csv": {
+            "exists": true,
+            "size_bytes": 2435,
+            "modified_at_utc": "2026-07-22T05:51:59Z",
+            "sha256": "6b1400ec7e57e8d3c3b8c077c9bddf68e899597ff7445df0ed4879a9a0bb5e83"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/processed/k230_external_summary.json": {
+            "exists": true,
+            "size_bytes": 1122,
+            "modified_at_utc": "2026-07-22T05:51:59Z",
+            "sha256": "d692b5ffcb91f3237ef1efbf0d29f831f538363ed81241d42bbfe6ea88d64951"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/provenance/generator_freeze.json": {
+            "exists": true,
+            "size_bytes": 627,
+            "modified_at_utc": "2026-07-19T13:09:14Z",
+            "sha256": "8dc35d6f9c12092c8d8a3d7bae07a2230c2dd6f9989217d938728ad3a01e6d0b"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/provenance/i9_deployment_manifest.json": {
+            "exists": true,
+            "size_bytes": 3304,
+            "modified_at_utc": "2026-07-19T13:41:51Z",
+            "sha256": "3a6d577a6a934012c77252d375aaa5778bf4a51a323ab302983c24f102af54a6"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/provenance/i9_external_import_manifest.json": {
+            "exists": true,
+            "size_bytes": 532,
+            "modified_at_utc": "2026-07-22T09:27:05Z",
+            "sha256": "b4cdbc5034943ceb1f2fbea15251162bf621c985cf7609342c50f22df46edfe4"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/provenance/k230_deployment_manifest.json": {
+            "exists": true,
+            "size_bytes": 1081,
+            "modified_at_utc": "2026-07-22T03:37:28Z",
+            "sha256": "4aee52221e5092b622442ad7780d6bd70cfc684860abf304810449b4976c4390"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/provenance/k230_external_manifest.json": {
+            "exists": true,
+            "size_bytes": 5188,
+            "modified_at_utc": "2026-07-22T03:37:28Z",
+            "sha256": "360511066792a6ae71807d915135ae076b1ae7d16f11ab2fba92a48cac33dd2d"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/reports/i9_external_results.md": {
+            "exists": true,
+            "size_bytes": 2171,
+            "modified_at_utc": "2026-07-22T09:27:05Z",
+            "sha256": "d3a8a19d373b0f93484b649e837ec2f6d62a62b8b1630c309dfe8a1ca593c700"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/reports/k230_external_results.md": {
+            "exists": true,
+            "size_bytes": 1518,
+            "modified_at_utc": "2026-07-22T05:51:59Z",
+            "sha256": "9d2bd0d932bef40f231821dc659d41953b9e5b006f3c985fe942520cca3d5cde"
+          },
+          "jlq/thesis/experiments/chapter6_external_validation/returned/i9/chapter6-i9-result-20260722T085806Z.tar.gz": {
+            "exists": true,
+            "size_bytes": 41474383,
+            "modified_at_utc": "2026-07-22T01:00:06Z",
+            "sha256": "4d3dc241b12e26bb7da20ee18b07613f8cf38ab449b219194196044d1f21b8c5"
+          }
+        },
+        "last_successful_run_utc": "2026-07-19T14:08:01Z"
+      }
+    },
+    {
       "id": "thesis.chapter6_online_prior",
       "title": "Chapter 6 Online-calibrated Soft Prior Evaluation",
       "chapter": "6",
@@ -1406,7 +1828,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1502,8 +1924,8 @@
         "jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md",
         "jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json"
       ],
-      "reproduce_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py --environment i7_10750h_wsl2 --force",
-      "claim_boundary": "A formal single-thread i7-10750H replay over existing complete f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, shared-oracle invariance, and local calibrated-prior gains at budgets 5 and 10. It does not satisfy the planned two-environment replication gate and makes no i9 or K230 claim.",
+      "reproduce_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py",
+      "claim_boundary": "A formal single-thread replay over complete i7-10750H and i9-14900 f64 Contract corpora. It establishes strict same-pool controls, liveness, unique-budget and leakage safeguards, and shared-oracle invariance. Calibrated-prior gains are significant on i7 but inconclusive on i9, so the planned two-environment replication gate fails. It makes no K230 or non-x86 prior-transfer claim.",
       "automation": {
         "auto_refresh": true,
         "producer": "jlq/thesis/experiments/chapter6_same_pool_prior/scripts/run_experiment.py"
@@ -1515,16 +1937,17 @@
           "Chapter 6 strict same-pool low-budget evaluation",
           "Chapter 7 conclusions and limitations"
         ],
-        "decision": "Primary single-host evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports a local calibrated-prior gain at budgets 5 and 10; it must not be presented as satisfying the planned two-environment replication gate.",
+        "decision": "Primary same-pool evidence that repairs the B2/B3/B4 comparison with a canonical common pool, active-parameter audit, unique-measurement budgets, holdout-safe calibration, and a shared oracle. The i7 result supports local calibrated-prior gains at budgets 5 and 10, while the completed i9 replication is inconclusive; the preregistered two-environment acceptance gate therefore fails.",
         "usable_claims": [
           "The canonical pool contains 23-26 unique active schedules per workload after removing the inactive vectorize alias; tile_m, tile_n, and tile_k pass measured liveness checks.",
           "B2, B3, and B4 replay the same complete candidate pool with no-replacement budgets, zero duplicate objective callbacks, no holdout target reads, and an invariant common-pool oracle.",
           "On the i7-10750H holdout, calibrated B4 improves over no-prior B2 by 1.058x at budget 5 and 1.035x at budget 10, with workload-cluster bootstrap intervals wholly above one.",
-          "The static B3 prior is inconclusive against B2 at both checkpoints, separating source-derived ranking from target-calibrated performance knowledge."
+          "The static B3 prior is inconclusive against B2 at both checkpoints, separating source-derived ranking from target-calibrated performance knowledge.",
+          "On the i9-14900 holdout, calibrated B4 versus no-prior B2 is 0.992x at budget 5 and 0.999x at budget 10, with both confidence intervals crossing one; the requested two-environment significance condition is not satisfied."
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1533,10 +1956,10 @@
             "exists": true
           }
         ],
-        "file_count": 2709,
-        "size_bytes": 18923728,
-        "last_modified_utc": "2026-07-18T17:19:16Z",
-        "tree_fingerprint_sha256": "cdb8531ed86251d65bf428235f090e7680158b7a20227809f95915dce7f2a8a6",
+        "file_count": 3155,
+        "size_bytes": 22546280,
+        "last_modified_utc": "2026-07-23T08:29:36Z",
+        "tree_fingerprint_sha256": "b369b0a2bd4cbe66d21e4f86bb7b26f6bbe6b7e4009d9c06003029b68f0116a9",
         "tracked_files": {
           "jlq/thesis/experiments/chapter6_same_pool_prior/README.md": {
             "exists": true,
@@ -1552,51 +1975,51 @@
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/processed/acceptance_summary.json": {
             "exists": true,
-            "size_bytes": 1113,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "0e795972fbec27a2e046336ae0939a06d1214e1c926d7aafb5bfc7ab702922be"
+            "size_bytes": 1257,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "ff425de8b1336a1b726974d312956ca7fd4a6af781dab94b77cda4bb53860db3"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/processed/fixed_budget_results.csv": {
             "exists": true,
-            "size_bytes": 657,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "a7898a82e74dc522203fead9ec5384378ef06ad65d4aa3de211c16534a5ece7f"
+            "size_bytes": 1238,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "ba7105db8872b980628e2a95eecc9749495dcc35da2fc2fecb9c23eb7ea430ca"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/processed/paired_comparisons.csv": {
             "exists": true,
-            "size_bytes": 913,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "af423b1bbd5963c0556f071879a74a4f52e378380a4fe2b273fa6839f3ca0955"
+            "size_bytes": 1705,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "275c9bd2349f01aba46b956f7709db4f3d8d965484a32716e969521c0d63e10f"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/processed/parameter_liveness.csv": {
             "exists": true,
-            "size_bytes": 311,
-            "modified_at_utc": "2026-07-18T17:11:22Z",
-            "sha256": "25401bc960c0fbd3fd7b75c7bb0d326daa78ba56f5d0f840d595c9f87f53cdc8"
+            "size_bytes": 363,
+            "modified_at_utc": "2026-07-22T09:29:39Z",
+            "sha256": "e4059a385d1d2a99475e0193a8e52d8c8a6a8b03f9a43eec465f8a3ab1aea9ba"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/processed/same_pool_audit.csv": {
             "exists": true,
-            "size_bytes": 4851,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "f2aec194000ebe61760e4c78a615df06e2ed60820202f6ffe48b7f6e1dd4cd95"
+            "size_bytes": 9624,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "6dcff0d648d4103f57f2bb7e8fa0bc0a3bbdb10ff8da0516ae4983c853929197"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/provenance/manifest.json": {
             "exists": true,
-            "size_bytes": 3615,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "2f6152e84f46a34f1fbf3fd1ae0d242ac036c6667796cbd162e2ff5062a5668b"
+            "size_bytes": 3862,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "6f9a9089a60f4b5986d1d553df192d7469ced46701aa79a74b3587b1763c8db0"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/raw/holdout_traces.csv": {
             "exists": true,
-            "size_bytes": 502190,
-            "modified_at_utc": "2026-07-18T17:19:15Z",
-            "sha256": "36627db7f537d4d741796bc9668ca89a09a68de2c30180ca94701d7adbd1bf36"
+            "size_bytes": 1002641,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "3ebc2e239503b716a8fb2506319a462dcb61427022d8ccd96deb3929c50d5ffc"
           },
           "jlq/thesis/experiments/chapter6_same_pool_prior/reports/acceptance_report.md": {
             "exists": true,
-            "size_bytes": 2664,
-            "modified_at_utc": "2026-07-18T17:19:16Z",
-            "sha256": "7308b0e268ef8623158681e8f4a5b14973ff2cb60d50f451a4fe705917c2c980"
+            "size_bytes": 3198,
+            "modified_at_utc": "2026-07-22T09:32:00Z",
+            "sha256": "8a3d828588e71d94df0e559584ec0df76f66659e32538030d80ecae97480221c"
           }
         },
         "last_successful_run_utc": "2026-07-18T17:31:42Z"
@@ -1649,7 +2072,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1772,7 +2195,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1867,7 +2290,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1972,7 +2395,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-19T11:07:56Z",
+        "refreshed_at_utc": "2026-07-23T08:37:12Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2037,5 +2460,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-19T11:07:56Z"
+  "last_refreshed_at_utc": "2026-07-23T08:37:12Z"
 }
