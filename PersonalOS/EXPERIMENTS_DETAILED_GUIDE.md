@@ -1,6 +1,6 @@
 # 全部实验详细说明
 
-> 更新时间：2026-07-24。本文覆盖 PersonalOS 注册表中的 22 个条目，其中包括 21 组本地实验和 1 组论文参考材料，作为实验链路、设备、协议、结果和证据路径的统一入口。
+> 更新时间：2026-07-24。本文覆盖 PersonalOS 注册表中的 22 个条目，其中包括 21 组本地实验和 1 组论文参考材料，作为实验链路、设备、协议、结果和证据路径的统一入口。本次更新已纳入规范化 Contract 候选池上的冻结离线 BaCO replay。
 
 ## 1. 阅读与路径约定
 
@@ -18,10 +18,11 @@
 3. 输入 GEMM 的 dtype、M/N/K、布局和目标设备，生成 Generic、Contract-only、Expert-core、Expert+Shell 等候选池。
 4. Compatibility Checker 将候选判定为 direct、adapt、fallback 或 reject，并记录每条判定的来源。
 5. 调优器在固定候选池和唯一测量预算下选择 tile_m、tile_n、tile_k、packing 等参数；Transform Dialect 将参数物化到 linalg 变换链。
-6. 合法候选经 packing/call adapter 调用 BLIS 或 OpenBLAS 微内核；不整除 M/N/K 通过 fringe adapt 处理，不满足 Contract 的候选进入 fallback。
-7. IR 继续 lowering 到 LLVM IR，链接运行时或目标库，生成 x86 可执行文件或 RV64GCV ELF。
-8. 目标机运行 correctness、path、wall-time、GFLOP/s 和稳定性测量；返回包经过 SHA-256、清单、可执行文件和结果覆盖审计。
-9. 固定预算比较、bootstrap 置信区间、消融、time-to-95%-oracle 和校准成本分析生成论文证据。
+6. 对不被目标执行路径消费的参数进行规范化；离线 replay 只从冻结实测表读取 BaCO 已选择 token 的目标值，不重新编译或进行硬件测量，并按预先冻结协议报告所有结果方向。
+7. 合法候选经 packing/call adapter 调用 BLIS 或 OpenBLAS 微内核；不整除 M/N/K 通过 fringe adapt 处理，不满足 Contract 的候选进入 fallback。
+8. IR 继续 lowering 到 LLVM IR，链接运行时或目标库，生成 x86 可执行文件或 RV64GCV ELF。
+9. 目标机运行 correctness、path、wall-time、GFLOP/s 和稳定性测量；返回包经过 SHA-256、清单、可执行文件和结果覆盖审计。
+10. 固定预算比较、D90、time-to-90/95%-oracle、bootstrap 置信区间、消融和校准成本分析生成论文证据。
 
 ## 3. 设备与环境矩阵
 
@@ -405,8 +406,8 @@
 
 - **实验覆盖**：PersonalOS 注册表包含 22 个实验 ID，本文件第 5 节包含 22 个实验 ID；两组 ID 完全一致，无遗漏或额外条目。
 - **字段完整性**：22 个实验均给出目的、实验链路、设备或执行环境、协议与细节、结果、结果路径和复现入口；文献型 4.5 条目明确标记为非性能实验。
-- **路径有效性**：除路径格式占位符 `jlq/thesis/...` 外，作为配置、结果、报告或 provenance 单独列出的 103 个唯一 `jlq/thesis/` 工作区路径全部存在。复现命令中由脚本新建的输出目录，以及部署介质上的 `/sdcard/...` 和 `/sharefs/...`，不纳入主机证据文件存在性检查。
-- **关键数值**：i9 的 870 条 correctness 与 0.5448 BLIS 比值、K230 的 429 条 correctness 与 0.6730 OpenBLAS 比值、K230 MLIR closure 的 45 条 correctness 与 0.9887 parity 比值，均与对应 `processed/*.json` 一致。
+- **路径有效性**：除路径格式占位符 `jlq/thesis/...` 外，作为配置、结果、报告或 provenance 单独列出的 108 个唯一 `jlq/thesis/` 工作区路径全部存在。复现命令中由脚本新建的输出目录，以及部署介质上的 `/sdcard/...` 和 `/sharefs/...`，不纳入主机证据文件存在性检查。
+- **关键数值**：i9 的 870 条 correctness 与 0.5448 BLIS 比值、K230 的 429 条 correctness 与 0.6730 OpenBLAS 比值、K230 MLIR closure 的 45 条 correctness 与 0.9887 parity 比值，以及规范化 C 池 replay 的 D90=0.1875、time-to-90%-pool-best=8.0，均与对应 `processed/*.json` 一致；旧 0.1964/11.5 只标记为规范化前消融。
 - **科学边界**：同池两环境 acceptance 保留为 `FAIL`，终止验证保留为 `MIXED`；文中没有把生成候选写成超过完整 BLIS/OpenBLAS，也没有把 trace-weighted projection 写成端到端模型加速。
 - **存储边界**：本文件只索引实验脚本、原始结果、机器可读摘要、报告和 provenance。编译缓存、工具链、重复解压目录以及可重建离线依赖包不属于论文结论的最小证据。
 
