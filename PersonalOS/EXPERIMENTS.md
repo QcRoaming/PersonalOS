@@ -7,11 +7,11 @@
 PersonalOS stores experiment metadata, evidence pointers, hashes, and run state only. Raw data and build outputs remain in the workspace named by `workspace_root_hint`.
 
 - Workspace root hint: `/buddy-mlir`
-- Last refreshed: `2026-07-23T08:37:12Z`
-- Registered experiments: 21
-- Fully available paths: 21/21
-- Runner-maintained entries: 20/21
-- Main-text eligible entries: 15/21
+- Last refreshed: `2026-07-24T01:41:34Z`
+- Registered experiments: 22
+- Fully available paths: 22/22
+- Runner-maintained entries: 21/22
+- Main-text eligible entries: 16/22
 
 ## Overview
 
@@ -30,6 +30,7 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 | `thesis.chapter4_space` | 4 | thesis_evidence | complete_method_evidence | primary_main_text | available | 216 | 56.6 MiB | not recorded |
 | `thesis.chapter5_blis_adapter` | 5 | thesis_evidence | complete_method_evidence | primary_main_text | available | 122 | 8.9 MiB | 2026-07-14T08:04:14Z |
 | `thesis.chapter6_application_validation` | 6 | thesis_evidence | complete_method_evidence | supporting_main_text | available | 3927 | 118.3 MiB | 2026-07-22T01:19:03Z |
+| `thesis.chapter6_contract_space_validation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 22 | 242.2 KiB | 2026-07-24T01:41:34Z |
 | `thesis.chapter6_evaluation` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 14923 | 823.1 MiB | 2026-07-15T01:06:58Z |
 | `thesis.chapter6_external_validation` | 6 | thesis_evidence | complete_method_evidence | supporting_main_text | available | 1953 | 195.1 MiB | 2026-07-19T14:08:01Z |
 | `thesis.chapter6_online_prior` | 6 | thesis_evidence | complete_method_evidence | primary_main_text | available | 19 | 2.7 MiB | 2026-07-15T13:27:26Z |
@@ -248,6 +249,22 @@ PersonalOS stores experiment metadata, evidence pointers, hashes, and run state 
 - Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_application_validation/scripts/analyze_trace_weighted_results.py` succeeds
 - Claim boundary: The real Qwen trace, physical MLIR-to-RV64GCV wrapper closure, physical K230 pool and native i9-14900 exact-shape pool are complete. Trace weighting projects measured GEMM times over the frozen call trace and is not end-to-end model latency. The i7 WSL pool remains diagnostic-only; no hardware run remains pending inside the frozen thesis boundary.
 - Observed: 3927 files, 118.3 MiB, tree fingerprint `7b3e8aff144080d57c80324e6cdebf08100c693c37cfe98309764441d59d6980`
+
+### Chapter 6 Contract and Schedule-space Validation (`thesis.chapter6_contract_space_validation`)
+
+- Chapter/scope: 6
+- Category: `thesis_evidence`
+- Status: `complete_method_evidence`
+- Paper use: `primary_main_text`; main-text eligible: `true`
+- Recommended sections: Chapter 4 compatibility checker and schedule-space construction; Chapter 6 extensibility and economic analysis; Chapter 7 conclusions and limitations
+- Writing decision: Primary audit evidence for Contract mutation safety, intrinsic schedule-space statistics, package reuse boundaries and horizon-aware search economics. Use the positive safety/density results together with the residual inactive-parameter, partial cross-library reuse and complete-library no-break-even boundaries.
+- Paths: experiment_root=`jlq/thesis/experiments/chapter6_contract_space_validation`
+- Artifact index: `jlq/thesis/experiments/chapter6_contract_space_validation/README.md`
+- Evidence: `jlq/thesis/experiments/chapter6_contract_space_validation/processed/summary.json`, `jlq/thesis/experiments/chapter6_contract_space_validation/processed/e1_mutation_results.csv`, `jlq/thesis/experiments/chapter6_contract_space_validation/processed/e2_space_classification.csv`, `jlq/thesis/experiments/chapter6_contract_space_validation/processed/e3_reuse_audit.csv`, `jlq/thesis/experiments/chapter6_contract_space_validation/processed/e4_break_even_summary.csv`, `jlq/thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md`, `jlq/thesis/experiments/chapter6_contract_space_validation/provenance/manifest.json`
+- Reproduction: `python3 jlq/thesis/experiments/chapter6_contract_space_validation/scripts/run_all.py`
+- Registry maintenance: automatic after `jlq/thesis/experiments/chapter6_contract_space_validation/scripts/run_all.py` succeeds
+- Claim boundary: Static and replay-based validation over three frozen Contract packages. It supports mutation safety, callable-density and bounded reuse/economic claims; it does not turn manifest replay into fresh compilation, prove universal zero-core-change onboarding, or claim that generated schedules outperform complete BLIS/OpenBLAS.
+- Observed: 22 files, 242.2 KiB, tree fingerprint `cec680b685ecfdd2629d7b56ab14d3126d25a46421661300b2d0253b40e36b07`
 
 ### Chapter 6 Formal Kernel-aware GEMM Evaluation (`thesis.chapter6_evaluation`)
 
