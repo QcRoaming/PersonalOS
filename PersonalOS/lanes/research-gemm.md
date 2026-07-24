@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 32
+version: 33
 updated_at: 2026-07-24
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-24T03:03:24Z
+last_activity_at: 2026-07-24T06:04:50Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-24T03:03:24Z
 
 # Current Checkpoint
 
-完成 E2 vectorize 规范化、E3 schema 复用量化与 E4 经济性口径补强
+完成规范化 C 候选池离线 BaCO replay并冻结最终 E2 性能口径
 
 # Verified Milestones
 
@@ -73,17 +73,17 @@ last_activity_at: 2026-07-24T03:03:24Z
 - K230 external-validation 在物理板上完成 429/429 条正确测量，覆盖 10 个 workload、133 个可执行候选和 10 个完整 OpenBLAS 基线；pool oracle 选出 8 direct、2 adapt。生成 adapter 相对完整 OpenBLAS 的 workload 几何性能为 0.6730，bootstrap 95% CI [0.6193,0.7253]，10 个 workload 无一获胜；8 个精确 Qwen shape 为 0.6653。
 - 143 个板端测量组的中位 trial CV 为 0.158%，仅一个非最优候选超过 5%；最佳 adapter 最大 CV 为 0.300%，OpenBLAS 最大 CV 为 0.280%，最大投影误差 5.99e-6。Qwen trace-weighted 分析覆盖 decode/prefill 两场景；library guard 恢复到完整库基线，但因为 adapter 不产生运行收益，调优成本没有正的 break-even。
 - Contract 独立负例实验覆盖 BLIS f32、BLIS f64 和 OpenBLAS RVV 三个 package 的 30 个案例；24 个危险变异全部被拒绝或安全降级，false accept/false reject 均为 0，路径、拒绝阶段和诊断字段准确率均为 100%。
-- 对 36 个 workload 的 2600 点空间完成 93,600 次静态分类，并将 direct/adapt 微内核路径不活跃的 `vectorize` 规范为 false。G0/G1/C 平均唯一候选为 2600.0/951.9/104.4，C 的规范化 IR 重复率由 0.500 降至 0；既有 D90 与 time-to-90% 明确保留为规范化前历史测量。
+- 对 36 个 workload 的 2600 点空间完成 93,600 次静态分类，并将 direct/adapt 微内核路径不活跃的 `vectorize` 规范为 false。G0/G1/C 平均唯一候选为 2600.0/951.9/104.4，C 的规范化 IR 重复率由 0.500 降至 0。随后按冻结协议在 8 个 28 点规范化 C 池上完成 40 条离线 BaCO replay：最终 D90=0.1875、time-to-90%-pool-best=8.0、达到率=0.925；旧 0.1964/11.5 仅保留为规范化前消融，且 replay 未重新编译或进行硬件测量。
 - Package 复用审计确认三个 Contract 的 schema 交集/并集为 31/34、IoU 为 0.912，共享核心中 package-ID 特判为 0；BLIS f64 复用核心生成器，而 OpenBLAS RVV 仍使用 package-local 生成路径，因此只支持“共享 Contract 语义与 checker”，不支持“通用生成器已完全复用”。
 - 搜索经济性实验将 i7 成本拆为 `C_c=58.239 ms` 与聚合 `sum C_s,j=531895.625 ms`。事后 winning-shape 上点估计/LCB95 break-even 为 165865/741587 个等频合成 deployment cycles，只是描述性上界；i9 和 K230 exact traces 相对完整库均无有限 break-even。
 
 # Doing
 
-- 按修正后的唯一空间、部分复用和 LCB95 break-even 口径整理第四至六章
+- 按最终规范化 D90/time-to-90、部分复用和 LCB95 break-even 口径整理第四至六章
 
 # Next
 
-1. 使用规范化后 C=104.4、schema IoU=0.912 与 E4 成本分解更新论文正文
+1. 在论文正文中并列报告最终 D90=0.1875、time-to-90=8.0 与规范化前消融 0.1964/11.5
 
 # Current Blockers
 
@@ -138,6 +138,8 @@ last_activity_at: 2026-07-24T03:03:24Z
 
 # Recent Evidence
 
+- 2026-07-24T06:04:50Z — 冻结 replay：8 workload x 5 seed x budget 25，共 40 run/1000 callback；最终 D90=0.1875、time-to-90=8.0、reached=0.925；旧 0.1964/11.5 保留为规范化前消融；无编译、无硬件重测
+- 2026-07-24T06:04:50Z — artifact: /buddy-mlir/jlq/thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
 - 2026-07-24T03:03:24Z — E2 C mean 208.7 to 104.4 and IR duplicates 0.500 to 0; E3 schema 31 intersection/34 union; E4 Cc=58.239 ms, sum Cs=531895.625 ms, LCB95 break-even=741587 cycles
 - 2026-07-24T03:03:24Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
 - 2026-07-24T01:48:46Z — E1: 24/24 dangerous mutations handled with zero false accepts/rejects; E2: 93600 static classifications; E3: partial package reuse boundary; E4: no finite break-even on i9/K230 exact shapes
@@ -146,5 +148,3 @@ last_activity_at: 2026-07-24T03:03:24Z
 - 2026-07-24T01:46:35Z — E2 修复前口径完成 93,600 次静态分类；G0/G1/C 平均候选 2600.0/1056.2/208.7，后由 version 32 checkpoint 的 vectorize 规范化结果取代
 - 2026-07-24T01:46:35Z — E3 复用审计：共享 31 个 schema 叶字段、核心 package-ID 特判 0；BLIS f64 复用核心生成器，OpenBLAS RVV 仍为 package-local 生成路径
 - 2026-07-24T01:46:35Z — E4 搜索经济性：i7 仅有后验描述性正 break-even；i9/K230 exact shapes 相对完整库无有限正成本 break-even
-- 2026-07-24T01:46:35Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
-- 2026-07-23T08:35:42Z — i9-14900 exact-shape 严格导入 PASS：870 条正确结果；生成池/完整 BLIS 0.5448，95% CI [0.4833,0.6104]，0/10 workload 获胜

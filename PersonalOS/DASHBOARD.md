@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-07-24T03:03:24Z
+- State watermark: 2026-07-24T06:04:50Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS`
 
@@ -13,7 +13,7 @@
 
 | Lane | Role | Priority | Status | Last activity | Current checkpoint |
 |---|---|---:|---|---|---|
-| `research.kernel_aware_gemm` | main | P0 | active | 2026-07-24T03:03:24Z | 完成 E2 vectorize 规范化、E3 schema 复用量化与 E4 经济性口径补强 |
+| `research.kernel_aware_gemm` | main | P0 | active | 2026-07-24T06:04:50Z | 完成规范化 C 候选池离线 BaCO replay并冻结最终 E2 性能口径 |
 | `infra.tooling` | supporting | P1 | active | 2026-07-10 | 需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。 |
 | `thesis.writing` | branch | P1 | active | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
@@ -27,7 +27,7 @@
 - Fully available paths: 22/22
 - Runner-maintained entries: 21/22
 - Main-text eligible entries: 16/22
-- Last refreshed: `2026-07-24T03:02:55Z`
+- Last refreshed: `2026-07-24T06:03:58Z`
 
 ## Conversation Archive
 
@@ -37,7 +37,7 @@
 
 ## Main-line Next Actions
 
-1. 使用规范化后 C=104.4、schema IoU=0.912 与 E4 成本分解更新论文正文
+1. 在论文正文中并列报告最终 D90=0.1875、time-to-90=8.0 与规范化前消融 0.1964/11.5
 
 ## Active Blockers
 
