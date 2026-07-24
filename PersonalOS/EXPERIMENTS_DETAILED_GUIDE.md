@@ -45,7 +45,7 @@
 - K230 exact-shape 池通过严格导入：429 条 correctness；生成 adapter/完整 OpenBLAS 几何比为 0.6730，95% CI [0.6193, 0.7253]，0/10 workload 获胜。
 - K230 MLIR wrapper closure 有 45 条正确结果，C adapter/MLIR adapter 几何时间比为 0.9887，95% CI [0.9765, 1.0009]。
 - 校准使平均 time-to-95%-oracle 从 7.90 次候选测量降至 3.08 次，但 591 条校准样本的成本无法在 12 个 holdout workload 内摊销。
-- 新增 Contract/空间补充审计：30 个独立 gold case 中 24 个危险变异全部被拒绝或安全降级；36x2600 静态分类显示 Contract 空间平均保留 208.7 个候选、callable density 为 1.000，但仍有约 50% 的规范化 IR 重复。
+- 新增 Contract/空间补充审计：30 个独立 gold case 中 24 个危险变异全部被拒绝或安全降级；36x2600 静态分类后，将微内核路径不活跃的 `vectorize` 规范为 false，Contract 空间由平均 208.7 个候选降至 104.4 个、callable density 为 1.000、规范化 IR 重复率为 0。
 
 ## 5. 逐项实验说明
 
@@ -378,13 +378,13 @@
 - **E1 协议**：独立 oracle 为每个 package 固定 1 个 direct、1 个 adapt 和 8 个单字段危险变异，共 30 case；报告 predicted/expected path、首次拒绝阶段和诊断字段。另在隔离进程中注入 packed-B 顺序错误和 beta/tail 累加错误，由 reference GEMM 检查结果；不执行错误 ISA 或破坏真实函数 ABI。
 - **E1 结果**：24/24 个危险变异被拒绝或安全降级，Mutation Score=1.000，false accept=0、false reject=0，path/phase/field accuracy 均为 1.000；两个 buffer fault 均产生可检测的错误结果。静态 checker 不能检测“descriptor 正确但 buffer 内容已损坏”的运行时内存错误。
 - **E2 协议**：对 36 个冻结 workload 的 2600 点原始域完成 93,600 次分类；G0 为原始笛卡尔积，G1 为 B1 通用合法空间，C 为 B2 hard-Contract callable 空间。记录 path 比例、callable density、不活跃参数等价率、规范化 Transform schedule 哈希、checker median/p95 和随机顺序首次命中 callable 的试验数。
-- **E2 编译证据**：8 个代表 workload x 3 空间 x 32 项=768 条记录均映射到既有真实成功编译 manifest，失败率为 0；这是历史真实二进制清单重放，不是 768 次新编译，也不外推到未编译的 G0 候选。
-- **E2 结果**：G0/G1/C 的平均保留数为 2600.0/1056.2/208.7，平均缩减率为 0/0.594/0.920，callable density 为 0.080/0.190/1.000，随机顺序的 workload-median 首次 callable 为 10.0/4.0/1.0 次。C 的 D90 为 0.1964，高于 G1 的 0.0268，但既有 time-to-90%-pool-best 为 11.5/10.5 次，说明合法候选密度提高不保证更快达到高性能点。
-- **参数活性边界**：C 空间仍有约 50% 的规范化 IR 重复，原因是 `vectorize` 在 microkernel 路径不活跃；Contract 负责合法性，仍需 canonicalization 移除等价参数。G0 未进入既有性能池，因此不补写 D90 或 time-to-target。
-- **E3 审计**：三个 package 共享 31 个 schema leaf path，共享 Chapter 4/6 核心中的 package-ID 特判数为 0。既有 before/after 哈希证明 BLIS f64 加入时核心 generator 不变；OpenBLAS RVV 已完成独立库/ISA 的 Contract、adapter 和物理执行，但当前使用 package-local 生成路径。
+- **E2 编译证据**：8 个代表 workload x 3 空间 x 32 项=768 条记录均映射到既有真实成功编译 manifest，失败率为 0；这是规范化前的历史真实二进制清单重放，不是 768 次新编译，也不表示每个 stratum 有 32 个唯一规范化候选，更不外推到未编译的 G0 候选。
+- **E2 规范化与结果**：`vectorize` 在 G1/C 的 direct/adapt 微内核路径不被消费，因此统一规范为 false；generic/raw Transform 路径仍保留该参数。G0/G1/C 的平均候选数由规范化前 2600.0/1056.2/208.7 变为 2600.0/951.9/104.4，平均缩减率为 0/0.634/0.960，callable density 为 0.080/0.105/1.000，随机顺序的 workload-median 首次 callable 为 10.0/7.0/1.0 次。C 的 IR 重复率由 0.500 降至 0。
+- **性能指标边界**：候选数、path、密度、IR 哈希和首次 callable 均按规范化空间离线重算；C/G1 的 D90 0.1964/0.0268 与 time-to-90%-pool-best 11.5/10.5 次仍是规范化前历史真实测量。未重新运行 tuner，不能把它们表述为规范化后反事实性能。G0 没有既有性能池。
+- **E3 审计**：三个 package 的 schema leaf path 交集/并集为 31/34，intersection-over-union 为 0.912；BLIS f32、BLIS f64、OpenBLAS RVV 的共享字段覆盖率分别为 0.969、0.969、0.939。共享 Chapter 4/6 核心中的 package-ID 特判数为 0。既有 before/after 哈希证明 BLIS f64 加入时核心 generator 不变；OpenBLAS RVV 已完成独立库/ISA 的 Contract、adapter 和物理执行，但当前使用 package-local 生成路径。
 - **E3 结论**：支持共享 schema 和同一 BLIS 后端第二 dtype 的核心复用，不支持“任意新 package 均零核心修改”的强主张。adapter/config 报告当前树 LOC；由于缺少干净 onboarding commit 和工时日志，不事后估算历史新增 LOC 或人工耗时。
-- **E4 协议**：净价值按 `V(H)=sum_j H_j(t_b,j-t_o,j)-C_c-sum_j C_s,j` 计算，只有 `LCB95(V(H))>0` 才判定搜索值得；严格区分 tuning-task、deployment-cycle 和 model-inference horizon。
-- **E4 结果**：i7 f64 的事后 winning-shape 上界场景每 deployment cycle 节省 3.207 ms，95% CI [0.717,4.067]，点估计 break-even 为 165,865 cycles，保守下界为 741,587 cycles。i9/K230 冻结 Qwen exact-shape trace 每 inference 的生成路径净节省分别为 -275.16 ms 和 -5527.75 ms，即使把搜索成本设为 0 也没有有限 break-even，应选择完整 BLIS/OpenBLAS。
+- **E4 协议**：净价值按 `V(H)=sum_j H_j(t_b,j-t_o,j)-C_c-sum_j C_s,j` 计算，其中 `C_c` 是全局模型拟合成本，`C_s,j` 是 shape j 的候选生成、编译、测量和 tuner 成本；现有日志只支持聚合 `sum_j C_s,j`，不事后虚构逐 shape 分摊。只有 `LCB95(V(H))>0` 才判定搜索值得；严格区分 tuning-task、deployment-cycle 和 model-inference horizon。
+- **E4 结果**：i7 f64 的 `POST_HOC_DESCRIPTIVE_UPPER_BOUND` 场景中，`C_c=58.239 ms`，聚合 `sum C_s,j=531895.625 ms`；每 deployment cycle 节省 3.207 ms，95% CI [0.717,4.067]，点估计 break-even 为 165,865 cycles，LCB95 break-even 为 741,587 cycles。这里一个 deployment cycle 是对 19 个事后 winning shape 各调用一次的等频合成单位，不是模型 inference，也不是实测部署频率。i9/K230 冻结 Qwen exact-shape trace 每 inference 的生成路径净节省分别为 -275.16 ms 和 -5527.75 ms，即使把搜索成本设为 0 也没有有限 break-even，应选择完整 BLIS/OpenBLAS。
 - **旧指标解释**：D0/D1 的 2293.6/2339.0 是含编译成本后需要服务的后续调优 workload 数，不是单矩阵调用次数或模型推理次数。
 - **结论边界**：可主张 Contract 提供可诊断的安全门并显著提高 callable density；不可主张硬空间天然更快找到最优、OpenBLAS 已完全接入同一核心 generator，或生成路径普遍优于完整库。
 - **结果路径**：`jlq/thesis/experiments/chapter6_contract_space_validation/processed/summary.json`；`jlq/thesis/experiments/chapter6_contract_space_validation/processed/e1_mutation_results.csv`；`jlq/thesis/experiments/chapter6_contract_space_validation/processed/e2_space_classification.csv`；`jlq/thesis/experiments/chapter6_contract_space_validation/processed/e3_reuse_audit.csv`；`jlq/thesis/experiments/chapter6_contract_space_validation/processed/e4_break_even_summary.csv`；`jlq/thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md`；`jlq/thesis/experiments/chapter6_contract_space_validation/provenance/manifest.json`。

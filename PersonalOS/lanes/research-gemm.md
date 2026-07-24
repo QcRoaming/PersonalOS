@@ -4,11 +4,11 @@ title: Kernel-aware GEMM Expert Schedule Space
 role: main
 priority: P0
 status: active
-version: 31
+version: 32
 updated_at: 2026-07-24
 keywords: GEMM|BLIS|OpenBLAS|libxsmm|MLIR|Transform Dialect|BaCO|microkernel|packing|tiling|vectorization|search space|compatibility checker
 imports: infra.tooling#Current Blockers|thesis.writing#Current Chapter
-last_activity_at: 2026-07-24T01:48:46Z
+last_activity_at: 2026-07-24T03:03:24Z
 ---
 
 # Goal
@@ -25,7 +25,7 @@ last_activity_at: 2026-07-24T01:48:46Z
 
 # Current Checkpoint
 
-完成 Contract/空间/package/经济性 E1-E4 与 22 项实验文档审计
+完成 E2 vectorize 规范化、E3 schema 复用量化与 E4 经济性口径补强
 
 # Verified Milestones
 
@@ -73,17 +73,17 @@ last_activity_at: 2026-07-24T01:48:46Z
 - K230 external-validation 在物理板上完成 429/429 条正确测量，覆盖 10 个 workload、133 个可执行候选和 10 个完整 OpenBLAS 基线；pool oracle 选出 8 direct、2 adapt。生成 adapter 相对完整 OpenBLAS 的 workload 几何性能为 0.6730，bootstrap 95% CI [0.6193,0.7253]，10 个 workload 无一获胜；8 个精确 Qwen shape 为 0.6653。
 - 143 个板端测量组的中位 trial CV 为 0.158%，仅一个非最优候选超过 5%；最佳 adapter 最大 CV 为 0.300%，OpenBLAS 最大 CV 为 0.280%，最大投影误差 5.99e-6。Qwen trace-weighted 分析覆盖 decode/prefill 两场景；library guard 恢复到完整库基线，但因为 adapter 不产生运行收益，调优成本没有正的 break-even。
 - Contract 独立负例实验覆盖 BLIS f32、BLIS f64 和 OpenBLAS RVV 三个 package 的 30 个案例；24 个危险变异全部被拒绝或安全降级，false accept/false reject 均为 0，路径、拒绝阶段和诊断字段准确率均为 100%。
-- 对 36 个 workload 的 2600 点空间完成 93,600 次静态分类。G0/G1/C 平均保留 2600.0/1056.2/208.7 个候选，缩减 0/59.4%/92.0%；但 C 的 time-to-90%-pool-best 为 11.5 次，不优于 G1 的 10.5 次，证实合法密度与性能收敛必须分开报告。
-- Package 复用审计确认三个 Contract 共享 31 个 schema 叶字段、共享核心中 package-ID 特判为 0；BLIS f64 复用核心生成器，而 OpenBLAS RVV 仍使用 package-local 生成路径，因此只支持“共享 Contract 语义与 checker”，不支持“通用生成器已完全复用”。
-- 搜索经济性实验按部署调用 horizon 计算净收益。i7 的后验 winning-shape 上搜索存在正 break-even，但仅是描述性上界；i9 Qwen exact shapes 和 K230 exact shapes 的生成路径均慢于完整库，任意正校准成本下都不存在有限 break-even，应直接选择 BLIS/OpenBLAS。
+- 对 36 个 workload 的 2600 点空间完成 93,600 次静态分类，并将 direct/adapt 微内核路径不活跃的 `vectorize` 规范为 false。G0/G1/C 平均唯一候选为 2600.0/951.9/104.4，C 的规范化 IR 重复率由 0.500 降至 0；既有 D90 与 time-to-90% 明确保留为规范化前历史测量。
+- Package 复用审计确认三个 Contract 的 schema 交集/并集为 31/34、IoU 为 0.912，共享核心中 package-ID 特判为 0；BLIS f64 复用核心生成器，而 OpenBLAS RVV 仍使用 package-local 生成路径，因此只支持“共享 Contract 语义与 checker”，不支持“通用生成器已完全复用”。
+- 搜索经济性实验将 i7 成本拆为 `C_c=58.239 ms` 与聚合 `sum C_s,j=531895.625 ms`。事后 winning-shape 上点估计/LCB95 break-even 为 165865/741587 个等频合成 deployment cycles，只是描述性上界；i9 和 K230 exact traces 相对完整库均无有限 break-even。
 
 # Doing
 
-- 按 Contract soundness、硬兼容迁移、校准边界和搜索经济性整理第四至六章
+- 按修正后的唯一空间、部分复用和 LCB95 break-even 口径整理第四至六章
 
 # Next
 
-1. 依据 E1-E4 报告和 22 项实验总说明重写论文第四至六章及结论
+1. 使用规范化后 C=104.4、schema IoU=0.912 与 E4 成本分解更新论文正文
 
 # Current Blockers
 
@@ -123,7 +123,7 @@ last_activity_at: 2026-07-24T01:48:46Z
 | BLIS packing | applied | A/B micro-panel、K padding、M/N 临时 C 与 scatter 已通过动态 7-shape 测试 | 评估 packing/fringe 开销并扩展任意 stride |
 | microkernel contract | verified | f32 6x16 and f64 6x8 direct/adapt predictions match runtime across i7-10750H and i9-14900; K230 compatibility evidence is physically measured | extend to arbitrary stride and additional backends |
 | Contract mutation robustness | verified | 3 packages, 30 independent cases, 24/24 dangerous mutations rejected or safely downgraded; no false accepts or rejects | add runtime memory-safety instrumentation for descriptor-consistent buffer corruption |
-| search economics | verified | i7 posthoc positive break-even is an upper bound; i9 and K230 exact-shape generated paths have no finite positive-cost break-even against complete libraries | validate only when a future generated path first beats the complete-library baseline |
+| search economics | verified | i7 posthoc point/LCB95 break-even is 165865/741587 synthetic equal-frequency cycles with explicit Cc/sum-Cs decomposition; i9 and K230 exact-shape generated paths have no finite positive-cost break-even | validate only when a future generated path first beats the complete-library baseline |
 | BaCO 参数接口 | applied | 固定 BaCO 3.0 已完成 B1-B4、消融和探索壳共 680 次五种子离线重放，17,000/17,000 回调有效 | 校准软先验并评估重复分类点与 GPy 数值稳定性 |
 | RVV 后端 | applied | K230 物理板完成既有560条后端测量、45条MLIR闭环和429条完整候选池测量；10-shape adapter/OpenBLAS为0.6730 [0.6193,0.7253] | 增加第二个 RVV 目标或硬件计数器分析以扩大外部有效性 |
 | performance prior calibration | verified | i7 的低预算校准收益未在 i9 显著复制；当前专家软性能特征相对 Data-only 无显著增量 | 正文报告环境依赖与停止条件，扩展前先证明校准可摊销 |
@@ -138,13 +138,13 @@ last_activity_at: 2026-07-24T01:48:46Z
 
 # Recent Evidence
 
+- 2026-07-24T03:03:24Z — E2 C mean 208.7 to 104.4 and IR duplicates 0.500 to 0; E3 schema 31 intersection/34 union; E4 Cc=58.239 ms, sum Cs=531895.625 ms, LCB95 break-even=741587 cycles
+- 2026-07-24T03:03:24Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
 - 2026-07-24T01:48:46Z — E1: 24/24 dangerous mutations handled with zero false accepts/rejects; E2: 93600 static classifications; E3: partial package reuse boundary; E4: no finite break-even on i9/K230 exact shapes
 - 2026-07-24T01:48:46Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
 - 2026-07-24T01:46:35Z — E1 independent oracle PASS：3 packages、30 cases、24/24 dangerous mutations handled，false accept/false reject 为 0
-- 2026-07-24T01:46:35Z — E2 完成 93,600 次静态分类；G0/G1/C 平均候选 2600.0/1056.2/208.7，C 合法密度 1.0 但 time-to-90%-pool-best 不优于 G1
+- 2026-07-24T01:46:35Z — E2 修复前口径完成 93,600 次静态分类；G0/G1/C 平均候选 2600.0/1056.2/208.7，后由 version 32 checkpoint 的 vectorize 规范化结果取代
 - 2026-07-24T01:46:35Z — E3 复用审计：共享 31 个 schema 叶字段、核心 package-ID 特判 0；BLIS f64 复用核心生成器，OpenBLAS RVV 仍为 package-local 生成路径
 - 2026-07-24T01:46:35Z — E4 搜索经济性：i7 仅有后验描述性正 break-even；i9/K230 exact shapes 相对完整库无有限正成本 break-even
 - 2026-07-24T01:46:35Z — artifact: /buddy-mlir/jlq@0a373a0c8:thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md
 - 2026-07-23T08:35:42Z — i9-14900 exact-shape 严格导入 PASS：870 条正确结果；生成池/完整 BLIS 0.5448，95% CI [0.4833,0.6104]，0/10 workload 获胜
-- 2026-07-23T08:35:42Z — K230 external pool 429/429 正确；adapter/OpenBLAS 0.6730，95% CI [0.6193,0.7253]；MLIR wrapper closure 45/45 正确
-- 2026-07-23T08:35:42Z — 严格同池审计、唯一预算、无泄漏和公共 oracle 均 PASS；B4/B2 在 i7 显著获益而 i9 区间跨 1，因此预注册两环境 acceptance 为 FAIL

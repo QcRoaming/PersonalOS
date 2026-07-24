@@ -47,7 +47,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_mlir_aot_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -137,7 +137,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_cpu_benchmark.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -241,7 +241,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_qemu_correctness.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -347,7 +347,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_rvv_toolchain_check.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -435,7 +435,7 @@
         "producer": "jlq/thesis/experiments/scripts/run_transform_demo.sh"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -517,7 +517,7 @@
         "producer": null
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -610,7 +610,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -725,7 +725,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -818,7 +818,7 @@
         "producer": "jlq/thesis/experiments/chapter3_rules/scripts/run_chapter3.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1012,7 +1012,7 @@
         "producer": "jlq/thesis/experiments/chapter4_space/scripts/run_chapter4.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1107,7 +1107,7 @@
         "producer": "jlq/thesis/experiments/chapter5_blis_adapter/scripts/run_chapter5_full.py"
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1272,7 +1272,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1427,17 +1427,17 @@
           "Chapter 6 extensibility and economic analysis",
           "Chapter 7 conclusions and limitations"
         ],
-        "decision": "Primary audit evidence for Contract mutation safety, intrinsic schedule-space statistics, package reuse boundaries and horizon-aware search economics. Use the positive safety/density results together with the residual inactive-parameter, partial cross-library reuse and complete-library no-break-even boundaries.",
+        "decision": "Primary audit evidence for Contract mutation safety, canonicalized intrinsic schedule-space statistics, quantified schema reuse boundaries and horizon-aware search economics. Use the positive safety/density results together with the pre-normalization performance-metric boundary, partial cross-library generator reuse and complete-library no-break-even results.",
         "usable_claims": [
           "Across three independently frozen package manifests, all 24 dangerous single-field mutations were rejected or safely downgraded, with zero false accepts and zero false rejects over 30 gold cases.",
-          "Across 36 workloads and 2600 raw candidates per workload, hard Contract filtering reduced the mean retained set to 208.7 candidates and raised callable density from 0.080 to 1.000.",
-          "The Contract-only space still contained about 50% normalized-IR duplicates because vectorize is inactive on the microkernel path, so legality filtering does not replace parameter canonicalization.",
-          "The second BLIS dtype reused the frozen core generator, but the OpenBLAS RVV package currently uses a package-local generation path; universal zero-core-change onboarding is not established.",
-          "A finite positive break-even exists only for a post-hoc i7 winning-shape upper-bound scenario; the frozen i9 and K230 Qwen exact-shape traces have negative savings denominators against complete BLIS/OpenBLAS."
+          "Across 36 workloads and 2600 raw candidates per workload, canonicalizing inactive vectorize on direct/adapt microkernel paths reduced the mean Contract-only set from 208.7 to 104.4 unique schedules, with callable density 1.000 and zero residual normalized-IR duplication in C.",
+          "The post-canonicalization candidate, path, density, IR-hash and first-callable metrics are offline recomputations; D90 and time-to-90% remain pre-normalization historical measurements because the tuner was not rerun.",
+          "The three package schemas have 31 intersection and 34 union leaf paths (IoU 0.912), but the OpenBLAS RVV package currently uses a package-local generation path; universal zero-core-change onboarding is not established.",
+          "A finite positive break-even exists only for an explicitly post-hoc i7 upper-bound scenario: point and LCB95 break-even are 165865 and 741587 synthetic deployment cycles; the frozen i9 and K230 exact traces have negative savings denominators against complete BLIS/OpenBLAS."
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1446,61 +1446,61 @@
             "exists": true
           }
         ],
-        "file_count": 22,
-        "size_bytes": 247991,
-        "last_modified_utc": "2026-07-24T01:35:34Z",
-        "tree_fingerprint_sha256": "cec680b685ecfdd2629d7b56ab14d3126d25a46421661300b2d0253b40e36b07",
+        "file_count": 23,
+        "size_bytes": 310921,
+        "last_modified_utc": "2026-07-24T03:02:14Z",
+        "tree_fingerprint_sha256": "fa9024bb217b1513774ad50ea0846358e2ef98d4ce8777c128eb6a7339090c11",
         "tracked_files": {
           "jlq/thesis/experiments/chapter6_contract_space_validation/README.md": {
             "exists": true,
-            "size_bytes": 3363,
-            "modified_at_utc": "2026-07-23T12:52:14Z",
-            "sha256": "1d5306572de7093b7fb9c873fcbaf7f8caca0c83c8602e274b62cdbc5e2f1220"
+            "size_bytes": 4069,
+            "modified_at_utc": "2026-07-24T03:01:50Z",
+            "sha256": "f1d4e5b17d9181b01a92f33b480c13b2fdc6e9153418c771a9ca9b2291cf7593"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/processed/e1_mutation_results.csv": {
             "exists": true,
             "size_bytes": 6271,
-            "modified_at_utc": "2026-07-24T01:35:28Z",
+            "modified_at_utc": "2026-07-24T03:02:07Z",
             "sha256": "57cd27ac24bf75d67ad4c5123156d6be7cb910ac9d75f896b286119dc2de8a3c"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/processed/e2_space_classification.csv": {
             "exists": true,
-            "size_bytes": 14384,
-            "modified_at_utc": "2026-07-24T01:35:33Z",
-            "sha256": "e15e5a10dbc055c2a4fffc9b953a196bc034e0256acefb521bbae97f3cd72c36"
+            "size_bytes": 20893,
+            "modified_at_utc": "2026-07-24T03:02:13Z",
+            "sha256": "079c96bdad43ac429d29245c55f2db2e13a687edddca21f4e1331f3a24c4a9c7"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/processed/e3_reuse_audit.csv": {
             "exists": true,
-            "size_bytes": 759,
-            "modified_at_utc": "2026-07-24T01:35:33Z",
-            "sha256": "89a72ae40e537b9885ab39697ac7936c12e28f04447686a4f0d04ab4a5d30cc3"
+            "size_bytes": 986,
+            "modified_at_utc": "2026-07-24T03:02:13Z",
+            "sha256": "48f21724a329970a49e919df0f63a1f9e9757a421b6be97b304c6d00b72bc5b0"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/processed/e4_break_even_summary.csv": {
             "exists": true,
-            "size_bytes": 1018,
-            "modified_at_utc": "2026-07-24T01:35:34Z",
-            "sha256": "6f8571aaed06135a3d83ead5776d2f0a45791e37ebbc3baca2c44fefbc874cc9"
+            "size_bytes": 1862,
+            "modified_at_utc": "2026-07-24T03:02:14Z",
+            "sha256": "302d48c8f87bf650473c1a71f0ad219d315ccfe908ef5b96cba7b940652bd378"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/processed/summary.json": {
             "exists": true,
-            "size_bytes": 6902,
-            "modified_at_utc": "2026-07-24T01:35:34Z",
-            "sha256": "7a1b46f3693741ed02af404583bf70c2d9c6928555630a37dc0169c5c91ebe5a"
+            "size_bytes": 11896,
+            "modified_at_utc": "2026-07-24T03:02:14Z",
+            "sha256": "799dedad48211b7d79ca97c706dea6943308ae2cad587a53fcfc1ce4a37988d4"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/provenance/manifest.json": {
             "exists": true,
-            "size_bytes": 2555,
-            "modified_at_utc": "2026-07-24T01:35:34Z",
-            "sha256": "012f2bb5005ba1a4536b0a46390d06c33e1bd7954d96f1652643eb7d02f17326"
+            "size_bytes": 2696,
+            "modified_at_utc": "2026-07-24T03:02:14Z",
+            "sha256": "d01ba3d1c5fcbf1cf370d0cb5efa9b8d00c8dc7d0050b5448cf1468a9917436b"
           },
           "jlq/thesis/experiments/chapter6_contract_space_validation/reports/contract_space_validation_results.md": {
             "exists": true,
-            "size_bytes": 3471,
-            "modified_at_utc": "2026-07-24T01:35:34Z",
-            "sha256": "42a54962332813ae33fa40d69f16811e675c590b4a024065ede6bcc8e414fa1e"
+            "size_bytes": 4392,
+            "modified_at_utc": "2026-07-24T03:02:14Z",
+            "sha256": "7205fd0cda037254e6bf08729cdbb0b27769562858494ef1bfa44344d601f7d4"
           }
         },
-        "last_successful_run_utc": "2026-07-24T01:41:34Z"
+        "last_successful_run_utc": "2026-07-24T03:02:55Z"
       }
     },
     {
@@ -1552,7 +1552,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1732,7 +1732,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -1940,7 +1940,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2059,7 +2059,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2184,7 +2184,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2307,7 +2307,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2402,7 +2402,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2507,7 +2507,7 @@
         ]
       },
       "observed": {
-        "refreshed_at_utc": "2026-07-24T01:41:34Z",
+        "refreshed_at_utc": "2026-07-24T03:02:55Z",
         "all_paths_exist": true,
         "path_status": [
           {
@@ -2572,5 +2572,5 @@
       }
     }
   ],
-  "last_refreshed_at_utc": "2026-07-24T01:41:34Z"
+  "last_refreshed_at_utc": "2026-07-24T03:02:55Z"
 }
