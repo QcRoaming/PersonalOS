@@ -4,10 +4,11 @@ title: Development and Experiment Infrastructure
 role: supporting
 priority: P1
 status: active
-version: 1
-updated_at: 2026-07-10
+version: 2
+updated_at: 2026-10-03
 keywords: Docker|WSL|Conda|CUDA|torch|torchvision|container|容器|artifact|依赖|环境|QEMU|网络|代理|只读
 imports: none
+last_activity_at: 2026-10-02T16:20:47Z
 ---
 
 # Goal
@@ -16,7 +17,7 @@ imports: none
 
 # Current Checkpoint
 
-需要把 Transform Dialect artifact、Qwen/vLLM 环境和 Skill/MCP 环境分别固化，避免继续在不明确的 base/conda/pip 状态上叠加依赖。
+2026-10-03 BuddyGraph 本机构建验证完成：复用 LLVM/MLIR 21，14/14 回归通过，ONNX 导入验证通过，CPU runner 输出 16。
 
 # Verified Milestones
 
@@ -62,3 +63,7 @@ imports: none
 | Qwen environment | torch/torchvision/transformers 曾不匹配 | confirmed historical blocker |
 | nature-skills | venv requirements 已部分安装；CDP 未验证 | confirmed historical state |
 
+# Recent Evidence
+
+- 2026-10-02T16:20:47Z — 源码 /home/jlq/project/buddygraph @ a2de7ff9a533b658b45c78846ab1c2a8ced27459；构建 /home/jlq/.cache/buddygraph/build；MLIR/LLVM CMake 使用既有 llvm-cmake-relocated；Python 3.10.19 独立 venv，numpy 1.26.4、onnx 1.17.0；在 BuddyGraph .deps 中建立 MLIR Python 链接映射，解决旧 /buddy-mlir 路径及 Python 3.12 ABI 不匹配，未修改共享 LLVM；source tmp/env.sh 后可运行；git status 干净。
+- 2026-10-02T16:20:47Z — artifact: /home/jlq/project/buddygraph/tmp/env.sh
