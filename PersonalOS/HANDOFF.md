@@ -7,7 +7,7 @@
 - Canonical repository: `QcRoaming/PersonalOS`
 - Repository subdirectory: `PersonalOS`
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-10-04T17:31:22Z
+- State watermark: 2026-10-04T17:59:38Z
 - Latest successful registered experiment: `thesis.chapter6_contract_space_validation`
 - Experiment completed at: `2026-07-24T06:03:58Z`
 
@@ -15,7 +15,7 @@
 
 | Lane | Last activity | Checkpoint | Doing | Next |
 |---|---|---|---|---|
-| `infra.tooling` | 2026-10-04T17:31:22Z | 2026-10-05 BuddyGraph README 已按 AI 辅助背景调整：补充个人能力自测、项目与 MLIR 复用边界、分层简历模板、源码规模审计及精简方案；保留演示并扩展至 44 个问题。本轮只修改文档，未实施功能重构。 | 重新确认当前 Docker 容器、镜像和实验 artifact 的有效状态。 | 为 Transform Dialect 实验建立一条可重复执行的环境检查命令和版本清单。 |
+| `infra.tooling` | 2026-10-04T17:59:38Z | 2026-10-05 BuddyGraph README 已按确认的目标重排：先拟现有功能对应的目标简历 R1–R4，再倒推源码学习、开发练习和能力验收；补齐 conversion 逐函数训练、七阶段学习路线、T1/T2 加 T3 或 T4 的实践与进度模板。 | 重新确认当前 Docker 容器、镜像和实验 artifact 的有效状态。 | 为 Transform Dialect 实验建立一条可重复执行的环境检查命令和版本清单。 |
 | `research.kernel_aware_gemm` | 2026-07-27T07:49:46Z | 补齐论文第1至4章五幅流程图并完成96页全文排版QA | 按最终实验口径继续论文定稿与送审前核验 | 执行最终送审版全篇一致性检查并冻结交付PDF |
 | `skills.mcp` | 2026-07-18T16:41:09Z | 完成 PersonalOS 仓库迁移对齐：GitHub 已将项目从 QcRoaming/PersonalOS-v1 重命名为 QcRoaming/PersonalOS，origin、ROUTES、README、START_HERE、AGENTS 与便携 Skill 均已更新到新权威地址。 | 在真实文本窗口和语音窗口验证导入触发、会话选择、触发点截断与覆盖级别。 | 重启 Codex CLI 或 VS Code Codex 扩展，并在真实文本/语音窗口、第二账号和第二设备完成端到端验收。 |
 | `thesis.writing` | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 | 按最终证据目录重写第四至第六章，并统一摘要、绪论和结论边界。 | 先重写第四章搜索空间、BaCO 与 Transform Dialect 链路；外部板端和跨主机结果返回后再补相应结论。 |

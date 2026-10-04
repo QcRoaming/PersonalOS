@@ -4,11 +4,11 @@ title: Development and Experiment Infrastructure
 role: supporting
 priority: P1
 status: active
-version: 4
+version: 5
 updated_at: 2026-10-05
 keywords: Docker|WSL|Conda|CUDA|torch|torchvision|container|容器|artifact|依赖|环境|QEMU|网络|代理|只读
 imports: none
-last_activity_at: 2026-10-04T17:31:22Z
+last_activity_at: 2026-10-04T17:59:38Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-10-04T17:31:22Z
 
 # Current Checkpoint
 
-2026-10-05 BuddyGraph README 已按 AI 辅助背景调整：补充个人能力自测、项目与 MLIR 复用边界、分层简历模板、源码规模审计及精简方案；保留演示并扩展至 44 个问题。本轮只修改文档，未实施功能重构。
+2026-10-05 BuddyGraph README 已按确认的目标重排：先拟现有功能对应的目标简历 R1–R4，再倒推源码学习、开发练习和能力验收；补齐 conversion 逐函数训练、七阶段学习路线、T1/T2 加 T3 或 T4 的实践与进度模板。
 
 # Verified Milestones
 
@@ -65,6 +65,8 @@ last_activity_at: 2026-10-04T17:31:22Z
 
 # Recent Evidence
 
+- 2026-10-04T17:59:38Z — 用户明确全部代码均在 AI 辅助下完成，希望先形成简历目标，再通过学习和实践内化。README 当前包含 4 条目标简历、44 个问答、4 项练习；18 段 Bash 与 HEAD 一致，54 个本地链接/锚点有效，git diff --check 通过。经源码只读复核修正 D0→D1→D7 前置顺序、技术边界措辞及多用户 BN 反例需保留可观察用途。仅编辑根 README，未实施练习功能、未重跑运行时测试、未认定用户已掌握；用户新增 docs/副本.md 未修改。
+- 2026-10-04T17:59:38Z — artifact: /home/jlq/project/buddygraph/README.md
 - 2026-10-04T17:31:22Z — 源码基线 2dee429；核心 16 文件 2324 物理行，代码/测试/配置/示例合计 49 文件 4034 行；git diff --check 通过，18 段 Bash 与基线一致，44 题连续，49 个本地链接/锚点有效。建议共享 Conv shape 与 Relu/Clamp scalar helper，广播 verifier 与 refinement 不能机械合并。本轮未重跑运行时测试，既有 14/14 与 GDB 结果属于此前助手验证；用户实际模块分工与独立掌握程度尚未核实。
 - 2026-10-04T17:31:22Z — artifact: /home/jlq/project/buddygraph/README.md
 - 2026-10-04T16:38:40Z — 项目源码基线 a2de7ff9a533b658b45c78846ab1c2a8ced27459，仅 README 为本次跟踪文件修改；40 个问答、48 个链接核验通过。复用 MLIR 21 与 Python 3.10.19；/home/jlq/.cache/buddygraph/build-debug 为 RelWithDebInfo、-O1 -g；gdb 停在 FoldBatchNormPattern::matchAndRewrite。主模型=7，Clamp=0.5 且 NaN 保留，signed-zero 为正零，LLVM IR 导出成功；generic/alloc 7→4、静态 alloc bytes 88→40。结果只证明环境与命令有效，不代表用户知识掌握程度。命令日志 /home/jlq/project/buddygraph/tmp/interview/readme-commands.log。
