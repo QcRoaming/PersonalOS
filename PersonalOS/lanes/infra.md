@@ -4,11 +4,11 @@ title: Development and Experiment Infrastructure
 role: supporting
 priority: P1
 status: active
-version: 3
+version: 4
 updated_at: 2026-10-05
 keywords: Docker|WSL|Conda|CUDA|torch|torchvision|container|容器|artifact|依赖|环境|QEMU|网络|代理|只读
 imports: none
-last_activity_at: 2026-10-04T16:38:40Z
+last_activity_at: 2026-10-04T17:31:22Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-10-04T16:38:40Z
 
 # Current Checkpoint
 
-2026-10-05 BuddyGraph 演示环境验收：README 按四条简历描述重写，18 组 Bash 命令全部执行，14/14 回归通过；新增独立调试 build，GDB 命中 BN folding。
+2026-10-05 BuddyGraph README 已按 AI 辅助背景调整：补充个人能力自测、项目与 MLIR 复用边界、分层简历模板、源码规模审计及精简方案；保留演示并扩展至 44 个问题。本轮只修改文档，未实施功能重构。
 
 # Verified Milestones
 
@@ -65,6 +65,8 @@ last_activity_at: 2026-10-04T16:38:40Z
 
 # Recent Evidence
 
+- 2026-10-04T17:31:22Z — 源码基线 2dee429；核心 16 文件 2324 物理行，代码/测试/配置/示例合计 49 文件 4034 行；git diff --check 通过，18 段 Bash 与基线一致，44 题连续，49 个本地链接/锚点有效。建议共享 Conv shape 与 Relu/Clamp scalar helper，广播 verifier 与 refinement 不能机械合并。本轮未重跑运行时测试，既有 14/14 与 GDB 结果属于此前助手验证；用户实际模块分工与独立掌握程度尚未核实。
+- 2026-10-04T17:31:22Z — artifact: /home/jlq/project/buddygraph/README.md
 - 2026-10-04T16:38:40Z — 项目源码基线 a2de7ff9a533b658b45c78846ab1c2a8ced27459，仅 README 为本次跟踪文件修改；40 个问答、48 个链接核验通过。复用 MLIR 21 与 Python 3.10.19；/home/jlq/.cache/buddygraph/build-debug 为 RelWithDebInfo、-O1 -g；gdb 停在 FoldBatchNormPattern::matchAndRewrite。主模型=7，Clamp=0.5 且 NaN 保留，signed-zero 为正零，LLVM IR 导出成功；generic/alloc 7→4、静态 alloc bytes 88→40。结果只证明环境与命令有效，不代表用户知识掌握程度。命令日志 /home/jlq/project/buddygraph/tmp/interview/readme-commands.log。
 - 2026-10-04T16:38:40Z — artifact: /home/jlq/project/buddygraph/README.md
 - 2026-10-02T16:20:47Z — 源码 /home/jlq/project/buddygraph @ a2de7ff9a533b658b45c78846ab1c2a8ced27459；构建 /home/jlq/.cache/buddygraph/build；MLIR/LLVM CMake 使用既有 llvm-cmake-relocated；Python 3.10.19 独立 venv，numpy 1.26.4、onnx 1.17.0；在 BuddyGraph .deps 中建立 MLIR Python 链接映射，解决旧 /buddy-mlir 路径及 Python 3.12 ABI 不匹配，未修改共享 LLVM；source tmp/env.sh 后可运行；git status 干净。
