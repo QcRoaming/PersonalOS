@@ -4,11 +4,11 @@ title: Development and Experiment Infrastructure
 role: supporting
 priority: P1
 status: active
-version: 6
-updated_at: 2026-10-05
+version: 7
+updated_at: 2026-10-17
 keywords: Docker|WSL|Conda|CUDA|torch|torchvision|container|容器|artifact|依赖|环境|QEMU|网络|代理|只读
 imports: none
-last_activity_at: 2026-10-05T07:41:55Z
+last_activity_at: 2026-10-17T15:40:06Z
 ---
 
 # Goal
@@ -17,7 +17,7 @@ last_activity_at: 2026-10-05T07:41:55Z
 
 # Current Checkpoint
 
-2026-10-05 按用户选择继续细化 BuddyGraph README：新增 2.5 广播 Add 逐函数数据追踪与可运行示例、2.6 换条件练习及六个核心文件精读动作；为 22 个核心问答补充例子、机制、取舍或第二层追问。
+2026-10-17 为 BuddyGraph 线下无电脑面试新增一页 A4 横向项目整体框架图，交付 PDF、300 dpi PNG、矢量 SVG、可重生成脚本及一分钟讲解稿，并在 README 加入入口。
 
 # Verified Milestones
 
@@ -65,13 +65,13 @@ last_activity_at: 2026-10-05T07:41:55Z
 
 # Recent Evidence
 
+- 2026-10-17T15:40:06Z — 对照 importer、Pass 定义、BN folding、elementwise fusion、FullConversion、driver 和 E2E 源码核实五阶段流程，区分项目规则与框架复用，标明可选 shape refinement 和独立 runner。PDF 单页 A4 横向、字体嵌入、中文可检索、无越页文本；PNG 3508 像素宽；SVG XML、本地文档链接和 git diff --check 通过，并完成渲染目检。仅增加面试材料与绘图脚本、补充 README 链接，未修改编译器功能、未重跑回归、未评定个人掌握程度。
+- 2026-10-17T15:40:06Z — artifact: /home/jlq/project/buddygraph/docs/interview/buddygraph-architecture.pdf
+- 2026-10-17T15:40:06Z — artifact: /home/jlq/project/buddygraph/docs/interview/architecture.md
+- 2026-10-17T15:40:06Z — artifact: /home/jlq/project/buddygraph/scripts/render_project_architecture.py
 - 2026-10-05T07:41:55Z — 仅编辑根 README，功能源码及用户 docs/副本.md 未改。新广播示例 CPU 输出 23；换值输出 33、rank-1 广播输出 23、错误结果 shape 被 verifier 拒绝、动态结果直接 conversion 失败但 infer-shapes 后输出 23，均已执行。修正两张表是组织方式而非硬性要求、shape Pass 无通用单调细化/函数签名更新、use 与 user 区别、runner 参数及 benchmark 仅 off/all 有结构计数等细节。文档共 44 题、T1–T4、54 个有效本地链接；19 段 Bash 中原 18 段逐字保留；git diff --check 通过。本轮未重跑完整 14 项回归，也未评定用户个人学习进度。
 - 2026-10-05T07:41:55Z — artifact: /home/jlq/project/buddygraph/README.md
 - 2026-10-05T07:41:55Z — artifact: /home/jlq/project/buddygraph/tmp/interview/readme-broadcast-study.log
 - 2026-10-05T07:41:55Z — artifact: /home/jlq/project/buddygraph/tmp/interview/readme-broadcast-variants.log
 - 2026-10-04T17:59:38Z — 用户明确全部代码均在 AI 辅助下完成，希望先形成简历目标，再通过学习和实践内化。README 当前包含 4 条目标简历、44 个问答、4 项练习；18 段 Bash 与 HEAD 一致，54 个本地链接/锚点有效，git diff --check 通过。经源码只读复核修正 D0→D1→D7 前置顺序、技术边界措辞及多用户 BN 反例需保留可观察用途。仅编辑根 README，未实施练习功能、未重跑运行时测试、未认定用户已掌握；用户新增 docs/副本.md 未修改。
 - 2026-10-04T17:59:38Z — artifact: /home/jlq/project/buddygraph/README.md
-- 2026-10-04T17:31:22Z — 源码基线 2dee429；核心 16 文件 2324 物理行，代码/测试/配置/示例合计 49 文件 4034 行；git diff --check 通过，18 段 Bash 与基线一致，44 题连续，49 个本地链接/锚点有效。建议共享 Conv shape 与 Relu/Clamp scalar helper，广播 verifier 与 refinement 不能机械合并。本轮未重跑运行时测试，既有 14/14 与 GDB 结果属于此前助手验证；用户实际模块分工与独立掌握程度尚未核实。
-- 2026-10-04T17:31:22Z — artifact: /home/jlq/project/buddygraph/README.md
-- 2026-10-04T16:38:40Z — 项目源码基线 a2de7ff9a533b658b45c78846ab1c2a8ced27459，仅 README 为本次跟踪文件修改；40 个问答、48 个链接核验通过。复用 MLIR 21 与 Python 3.10.19；/home/jlq/.cache/buddygraph/build-debug 为 RelWithDebInfo、-O1 -g；gdb 停在 FoldBatchNormPattern::matchAndRewrite。主模型=7，Clamp=0.5 且 NaN 保留，signed-zero 为正零，LLVM IR 导出成功；generic/alloc 7→4、静态 alloc bytes 88→40。结果只证明环境与命令有效，不代表用户知识掌握程度。命令日志 /home/jlq/project/buddygraph/tmp/interview/readme-commands.log。
-- 2026-10-04T16:38:40Z — artifact: /home/jlq/project/buddygraph/README.md
