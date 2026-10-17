@@ -4,11 +4,11 @@ title: Thesis Writing
 role: branch
 priority: P1
 status: active
-version: 4
+version: 5
 updated_at: 2026-10-17
 keywords: 论文写作|摘要|绪论|章节|第三章|第四章|XeLaTeX|参考文献|GB/T 7714|西北工业大学
 imports: research.kernel_aware_gemm#Decisions|research.kernel_aware_gemm#Verified Milestones
-last_activity_at: 2026-10-17T06:02:14Z
+last_activity_at: 2026-10-17T11:16:15Z
 ---
 
 # Goal
@@ -17,10 +17,11 @@ last_activity_at: 2026-10-17T06:02:14Z
 
 # Current Chapter
 
-当前完整稿为六章：第三章 Contract 建模，第四章空间生成与系统实现，第五章实验评估，第六章总结。已生成 96 页无空白隔页阅读版和保留奇数页起排的 108 页印刷版。2026-10-17 新增 AI 编译器面试用 16:9 整体架构图（PNG/PDF/SVG）、约三分钟讲解稿、动态边界例子与源码入口。
+当前完整稿为六章：第三章 Contract 建模，第四章空间生成与系统实现，第五章实验评估，第六章总结。已生成 96 页无空白隔页阅读版和保留奇数页起排的 108 页印刷版。2026-10-17 面试主图已按用户反馈改为 tensor matmul 到 CPU 运行的完整编译链，提供 4K PNG/PDF/SVG、配套讲稿、动态边界例子与源码入口；原四模块总览保留为补充图。
 
 # Verified Milestones
 
+- 2026-10-17 编译链版面试图与集成入口、packing pass、Transform 绑定和 ABI adapter 核对一致；明确 Transform 为调度控制、尾块临时 C 由生成代码处理。79 项文字检查、PDF 页面与字体、SVG、图像尺寸、25 个本地链接及目视复核通过。
 - 2026-10-17 已对论文整体架构与当前源码、冻结证据核对，生成 4K 16:9 面试图、嵌入字体 PDF、轮廓 SVG 和讲解稿；文字尺寸、字形、页面边界、本地链接与目视检查通过。
 - 论文分页调整已完成：原 108 页中的 12 个无内容隔页移除，阅读版 96 页，另保留 108 页印刷版；硕士可行性评估与具体送审待办已落盘。
 
@@ -35,11 +36,11 @@ last_activity_at: 2026-10-17T06:02:14Z
 
 # Doing
 
-- 准备 AI 编译器面试的论文讲解，按架构图解释 Contract、空间生成、Transform/packing/ABI 与验证边界。
+- 准备 AI 编译器面试，沿实际 matmul 编译执行链解释研究贡献，重点讲 packing/fringe pass、Transform 控制和 ABI adapter。
 
 # Next
 
-1. 沿架构图演练三分钟介绍和一个动态 fringe 案例；论文定稿时统一 checker 耗时来源并补齐提交信息。
+1. 使用新图演练三分钟主链和动态尾块案例；面试追问时沿集成入口展示 input、transformed、llvm 与 kernel.ll 的变化。
 
 # Blockers
 
@@ -49,6 +50,7 @@ last_activity_at: 2026-10-17T06:02:14Z
 
 # Decisions
 
+- 面试讲解以一段 matmul MLIR 的端到端编译执行链为主轴，在对应步骤标注调用建模、候选生成、微内核接入和验证贡献；Transform 调度独立画为控制箭头。
 - 论文具体内容默认给出 XeLaTeX 可编译片段。
 - 采用正式简体中文和顺序编码制引用。
 - 核心贡献表述围绕专家事实抽取、contract 兼容性和搜索空间生成，而不是“使用 Transform Dialect 优化 GEMM”。
@@ -66,10 +68,13 @@ last_activity_at: 2026-10-17T06:02:14Z
 
 # Current Checkpoint
 
-2026-10-17 完成 AI 编译器面试用论文整体架构图（4K PNG、PDF、SVG）与三分钟讲解稿；同步六章成稿、96/108 页双版本及已确认送审待办。
+2026-10-17 按用户反馈将面试主图改为 tensor matmul→bufferization→packing/绑定→LLVM dialect/IR→编译链接→CPU 执行的完整链路；标注 A/B/C/D 研究落点，更新讲稿并完成源码与布局核对。
 
 # Recent Evidence
 
+- 2026-10-17T11:16:15Z — /home/jlq/project/thesis/documents/interview/architecture_layout_qa.json
+- 2026-10-17T11:16:15Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture.pdf
+- 2026-10-17T11:16:15Z — artifact: /home/jlq/project/thesis/documents/interview/talk_track.md
 - 2026-10-17T06:02:14Z — /home/jlq/project/thesis/documents/interview/architecture_layout_qa.json
 - 2026-10-17T06:02:14Z — /home/jlq/project/thesis/documents/reviews/masters_feasibility_2026-10-03.md
 - 2026-10-17T06:02:14Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture.pdf
