@@ -7,7 +7,7 @@
 - Canonical repository: `QcRoaming/PersonalOS`
 - Repository subdirectory: `PersonalOS`
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-10-17T16:04:57Z
+- State watermark: 2026-10-17T16:15:07Z
 - Latest successful registered experiment: `thesis.chapter6_contract_space_validation`
 - Experiment completed at: `2026-07-24T06:03:58Z`
 
@@ -15,7 +15,7 @@
 
 | Lane | Last activity | Checkpoint | Doing | Next |
 |---|---|---|---|---|
-| `infra.tooling` | 2026-10-17T16:04:57Z | 2026-10-18 按用户限定九个文件（优先八个加 InferShapes.cpp）整理 BuddyGraph 可直接打印包，九份源码全文加框架图与目录组成 45 页 PDF，并提供十份分项 PDF、打印说明和来源清单。 | 重新确认当前 Docker 容器、镜像和实验 artifact 的有效状态。 | 为 Transform Dialect 实验建立一条可重复执行的环境检查命令和版本清单。 |
+| `infra.tooling` | 2026-10-17T16:15:07Z | 2026-10-18 按用户纠正恢复最初打印范围：BGraphOps.cpp、import_onnx.py、BGraphToLinalg.cpp 仅关键节选，其余六个文件全文；覆盖原 45 页包，现为 30 页。 | 重新确认当前 Docker 容器、镜像和实验 artifact 的有效状态。 | 为 Transform Dialect 实验建立一条可重复执行的环境检查命令和版本清单。 |
 | `thesis.writing` | 2026-10-17T11:30:08Z | 2026-10-17 新增可直接面向面试官展示的编译链流程图，精简文字并突出微内核接入，提供独立 4K PNG/PDF/SVG 与绘图脚本；原图全部保留且哈希未变。 | 使用精简展示版准备 AI 编译器面试，以完整编译链原图和讲稿作为技术备讲材料。 | 用展示版演练三分钟讲解，重点展开微内核接入与 ABI adapter；追问时切换完整原图、动态尾块案例及真实源码。 |
 | `research.kernel_aware_gemm` | 2026-07-27T07:49:46Z | 补齐论文第1至4章五幅流程图并完成96页全文排版QA | 按最终实验口径继续论文定稿与送审前核验 | 执行最终送审版全篇一致性检查并冻结交付PDF |
 | `skills.mcp` | 2026-07-18T16:41:09Z | 完成 PersonalOS 仓库迁移对齐：GitHub 已将项目从 QcRoaming/PersonalOS-v1 重命名为 QcRoaming/PersonalOS，origin、ROUTES、README、START_HERE、AGENTS 与便携 Skill 均已更新到新权威地址。 | 在真实文本窗口和语音窗口验证导入触发、会话选择、触发点截断与覆盖级别。 | 重启 Codex CLI 或 VS Code Codex 扩展，并在真实文本/语音窗口、第二账号和第二设备完成端到端验收。 |
