@@ -4,11 +4,11 @@ title: Thesis Writing
 role: branch
 priority: P1
 status: active
-version: 3
-updated_at: 2026-07-16
+version: 4
+updated_at: 2026-10-17
 keywords: 论文写作|摘要|绪论|章节|第三章|第四章|XeLaTeX|参考文献|GB/T 7714|西北工业大学
 imports: research.kernel_aware_gemm#Decisions|research.kernel_aware_gemm#Verified Milestones
-last_activity_at: 2026-07-16T03:29:04Z
+last_activity_at: 2026-10-17T06:02:14Z
 ---
 
 # Goal
@@ -17,9 +17,12 @@ last_activity_at: 2026-07-16T03:29:04Z
 
 # Current Chapter
 
-第三章已依据真实实验与实现重写完成，当前主线转入第四至第六章正文。第三章中心论点为：后端专属兼容性知识形成硬 Contract，来源标记的性能知识作为可由目标测量校准的软先验。
+当前完整稿为六章：第三章 Contract 建模，第四章空间生成与系统实现，第五章实验评估，第六章总结。已生成 96 页无空白隔页阅读版和保留奇数页起排的 108 页印刷版。2026-10-17 新增 AI 编译器面试用 16:9 整体架构图（PNG/PDF/SVG）、约三分钟讲解稿、动态边界例子与源码入口。
 
 # Verified Milestones
+
+- 2026-10-17 已对论文整体架构与当前源码、冻结证据核对，生成 4K 16:9 面试图、嵌入字体 PDF、轮廓 SVG 和讲解稿；文字尺寸、字形、页面边界、本地链接与目视检查通过。
+- 论文分页调整已完成：原 108 页中的 12 个无内容隔页移除，阅读版 96 页，另保留 108 页印刷版；硕士可行性评估与具体送审待办已落盘。
 
 - 已明确论文题目、研究问题、贡献边界和总体章节结构。
 - 已多轮生成并修改中文摘要、绪论、研究背景及意义、贡献描述与实验定位。
@@ -32,16 +35,17 @@ last_activity_at: 2026-07-16T03:29:04Z
 
 # Doing
 
-- 按最终证据目录重写第四至第六章，并统一摘要、绪论和结论边界。
+- 准备 AI 编译器面试的论文讲解，按架构图解释 Contract、空间生成、Transform/packing/ABI 与验证边界。
 
 # Next
 
-1. 先重写第四章搜索空间、BaCO 与 Transform Dialect 链路；外部板端和跨主机结果返回后再补相应结论。
+1. 沿架构图演练三分钟介绍和一个动态 fringe 案例；论文定稿时统一 checker 耗时来源并补齐提交信息。
 
 # Blockers
 
-- K230 目前只有 ELF/反汇编证据，14900K/KF 只有可运行包；跨架构和跨主机性能结论等待外部实测。
-- 第四至第六章旧稿尚未按最终证据目录重写，不能直接视为定稿。
+- 送审信息仍未齐全：学号、作者、导师、实际提交日期，以及对应阶段的委员会、科研情况和签名需要真实资料。
+- 第五章 checker 耗时 1.257/8.69 微秒与现存 E2 汇总 1.183/6.112 微秒不一致，需确定冻结来源并统一。
+- 附录的 artifact 归档获取方式仍待落实。既有 i9 与物理 K230 结果已完成，不再列为待运行硬件实验。
 
 # Decisions
 
@@ -62,9 +66,13 @@ last_activity_at: 2026-07-16T03:29:04Z
 
 # Current Checkpoint
 
-第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。
+2026-10-17 完成 AI 编译器面试用论文整体架构图（4K PNG、PDF、SVG）与三分钟讲解稿；同步六章成稿、96/108 页双版本及已确认送审待办。
 
 # Recent Evidence
 
+- 2026-10-17T06:02:14Z — /home/jlq/project/thesis/documents/interview/architecture_layout_qa.json
+- 2026-10-17T06:02:14Z — /home/jlq/project/thesis/documents/reviews/masters_feasibility_2026-10-03.md
+- 2026-10-17T06:02:14Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture.pdf
+- 2026-10-17T06:02:14Z — artifact: /home/jlq/project/thesis/documents/interview/talk_track.md
 - 2026-07-16T03:29:04Z — /buddy-mlir/jlq/thesis/nwputhesis/content/thesis/graduate/chapter3.tex
 - 2026-07-16T03:29:04Z — artifact: /buddy-mlir/jlq/thesis/nwputhesis/build/graduate.pdf

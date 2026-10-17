@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-10-05T07:41:55Z
+- State watermark: 2026-10-17T06:02:14Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS`
 
@@ -15,7 +15,7 @@
 |---|---|---:|---|---|---|
 | `research.kernel_aware_gemm` | main | P0 | active | 2026-07-27T07:49:46Z | 补齐论文第1至4章五幅流程图并完成96页全文排版QA |
 | `infra.tooling` | supporting | P1 | active | 2026-10-05T07:41:55Z | 2026-10-05 按用户选择继续细化 BuddyGraph README：新增 2.5 广播 Add 逐函数数据追踪与可运行示例、2.6 换条件练习及六个核心文件精读动作；为 22 个核心问答补充例子、机制、取舍或第二层追问。 |
-| `thesis.writing` | branch | P1 | active | 2026-07-16T03:29:04Z | 第三章已依据真实实验重写完成，R 图形流水线、29 项测试和整篇论文编译均通过。 |
+| `thesis.writing` | branch | P1 | active | 2026-10-17T06:02:14Z | 2026-10-17 完成 AI 编译器面试用论文整体架构图（4K PNG、PDF、SVG）与三分钟讲解稿；同步六章成稿、96/108 页双版本及已确认送审待办。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
 | `skills.mcp` | supporting | P2 | active | 2026-07-18T16:41:09Z | 完成 PersonalOS 仓库迁移对齐：GitHub 已将项目从 QcRoaming/PersonalOS-v1 重命名为 QcRoaming/PersonalOS，origin、ROUTES、README、START_HERE、AGENTS 与便携 Skill 均已更新到新权威地址。 |
 | `markets.ai_infrastructure` | independent | P3 | paused | 2026-07-10 | 已完成 AI → 存储 → 半导体 → 光模块/CPO → 电力与基础设施的初步讨论；当前没有明确持续任务，支线暂停。 |
