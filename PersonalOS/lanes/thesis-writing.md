@@ -4,11 +4,11 @@ title: Thesis Writing
 role: branch
 priority: P1
 status: active
-version: 5
+version: 6
 updated_at: 2026-10-17
 keywords: 论文写作|摘要|绪论|章节|第三章|第四章|XeLaTeX|参考文献|GB/T 7714|西北工业大学
 imports: research.kernel_aware_gemm#Decisions|research.kernel_aware_gemm#Verified Milestones
-last_activity_at: 2026-10-17T11:16:15Z
+last_activity_at: 2026-10-17T11:30:08Z
 ---
 
 # Goal
@@ -17,10 +17,11 @@ last_activity_at: 2026-10-17T11:16:15Z
 
 # Current Chapter
 
-当前完整稿为六章：第三章 Contract 建模，第四章空间生成与系统实现，第五章实验评估，第六章总结。已生成 96 页无空白隔页阅读版和保留奇数页起排的 108 页印刷版。2026-10-17 面试主图已按用户反馈改为 tensor matmul 到 CPU 运行的完整编译链，提供 4K PNG/PDF/SVG、配套讲稿、动态边界例子与源码入口；原四模块总览保留为补充图。
+当前完整稿为六章：第三章 Contract 建模，第四章空间生成与系统实现，第五章实验评估，第六章总结。已生成 96 页无空白隔页阅读版和保留奇数页起排的 108 页印刷版。2026-10-17 面试主图以 tensor matmul 到 CPU 运行的完整编译链展开，已有独立展示版（thesis_architecture_present，4K PNG/PDF/SVG）与完整备讲版，配套讲稿、动态边界例子及源码入口；原四模块总览与完整编译链原图均保留。
 
 # Verified Milestones
 
+- 2026-10-17 新增精简投屏展示版，独立绘图脚本与 PNG/PDF/SVG 已落盘；64 项文字、30 个本地链接、字体/尺寸与目视检查通过，10 个原图及源码/检查文件的哈希确认未变。
 - 2026-10-17 编译链版面试图与集成入口、packing pass、Transform 绑定和 ABI adapter 核对一致；明确 Transform 为调度控制、尾块临时 C 由生成代码处理。79 项文字检查、PDF 页面与字体、SVG、图像尺寸、25 个本地链接及目视复核通过。
 - 2026-10-17 已对论文整体架构与当前源码、冻结证据核对，生成 4K 16:9 面试图、嵌入字体 PDF、轮廓 SVG 和讲解稿；文字尺寸、字形、页面边界、本地链接与目视检查通过。
 - 论文分页调整已完成：原 108 页中的 12 个无内容隔页移除，阅读版 96 页，另保留 108 页印刷版；硕士可行性评估与具体送审待办已落盘。
@@ -36,11 +37,11 @@ last_activity_at: 2026-10-17T11:16:15Z
 
 # Doing
 
-- 准备 AI 编译器面试，沿实际 matmul 编译执行链解释研究贡献，重点讲 packing/fringe pass、Transform 控制和 ABI adapter。
+- 使用精简展示版准备 AI 编译器面试，以完整编译链原图和讲稿作为技术备讲材料。
 
 # Next
 
-1. 使用新图演练三分钟主链和动态尾块案例；面试追问时沿集成入口展示 input、transformed、llvm 与 kernel.ll 的变化。
+1. 用展示版演练三分钟讲解，重点展开微内核接入与 ABI adapter；追问时切换完整原图、动态尾块案例及真实源码。
 
 # Blockers
 
@@ -50,6 +51,7 @@ last_activity_at: 2026-10-17T11:16:15Z
 
 # Decisions
 
+- 面试投屏使用精简展示版，保留六步主链与 A/B/C/D 贡献标记；完整原图保留用于备讲与技术追问，不被展示版覆盖。
 - 面试讲解以一段 matmul MLIR 的端到端编译执行链为主轴，在对应步骤标注调用建模、候选生成、微内核接入和验证贡献；Transform 调度独立画为控制箭头。
 - 论文具体内容默认给出 XeLaTeX 可编译片段。
 - 采用正式简体中文和顺序编码制引用。
@@ -68,10 +70,13 @@ last_activity_at: 2026-10-17T11:16:15Z
 
 # Current Checkpoint
 
-2026-10-17 按用户反馈将面试主图改为 tensor matmul→bufferization→packing/绑定→LLVM dialect/IR→编译链接→CPU 执行的完整链路；标注 A/B/C/D 研究落点，更新讲稿并完成源码与布局核对。
+2026-10-17 新增可直接面向面试官展示的编译链流程图，精简文字并突出微内核接入，提供独立 4K PNG/PDF/SVG 与绘图脚本；原图全部保留且哈希未变。
 
 # Recent Evidence
 
+- 2026-10-17T11:30:08Z — /home/jlq/project/thesis/documents/interview/architecture_present_qa.json
+- 2026-10-17T11:30:08Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture_present.pdf
+- 2026-10-17T11:30:08Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture_present.png
 - 2026-10-17T11:16:15Z — /home/jlq/project/thesis/documents/interview/architecture_layout_qa.json
 - 2026-10-17T11:16:15Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture.pdf
 - 2026-10-17T11:16:15Z — artifact: /home/jlq/project/thesis/documents/interview/talk_track.md
@@ -79,5 +84,3 @@ last_activity_at: 2026-10-17T11:16:15Z
 - 2026-10-17T06:02:14Z — /home/jlq/project/thesis/documents/reviews/masters_feasibility_2026-10-03.md
 - 2026-10-17T06:02:14Z — artifact: /home/jlq/project/thesis/documents/interview/thesis_architecture.pdf
 - 2026-10-17T06:02:14Z — artifact: /home/jlq/project/thesis/documents/interview/talk_track.md
-- 2026-07-16T03:29:04Z — /buddy-mlir/jlq/thesis/nwputhesis/content/thesis/graduate/chapter3.tex
-- 2026-07-16T03:29:04Z — artifact: /buddy-mlir/jlq/thesis/nwputhesis/build/graduate.pdf

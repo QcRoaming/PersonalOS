@@ -5,7 +5,7 @@
 ## Global
 
 - Main lane: `research.kernel_aware_gemm`
-- State watermark: 2026-10-17T11:16:15Z
+- State watermark: 2026-10-17T11:30:08Z
 - Canonical store: `private_git`
 - Remote repository: `QcRoaming/PersonalOS`
 
@@ -15,7 +15,7 @@
 |---|---|---:|---|---|---|
 | `research.kernel_aware_gemm` | main | P0 | active | 2026-07-27T07:49:46Z | 补齐论文第1至4章五幅流程图并完成96页全文排版QA |
 | `infra.tooling` | supporting | P1 | active | 2026-10-05T07:41:55Z | 2026-10-05 按用户选择继续细化 BuddyGraph README：新增 2.5 广播 Add 逐函数数据追踪与可运行示例、2.6 换条件练习及六个核心文件精读动作；为 22 个核心问答补充例子、机制、取舍或第二层追问。 |
-| `thesis.writing` | branch | P1 | active | 2026-10-17T11:16:15Z | 2026-10-17 按用户反馈将面试主图改为 tensor matmul→bufferization→packing/绑定→LLVM dialect/IR→编译链接→CPU 执行的完整链路；标注 A/B/C/D 研究落点，更新讲稿并完成源码与布局核对。 |
+| `thesis.writing` | branch | P1 | active | 2026-10-17T11:30:08Z | 2026-10-17 新增可直接面向面试官展示的编译链流程图，精简文字并突出微内核接入，提供独立 4K PNG/PDF/SVG 与绘图脚本；原图全部保留且哈希未变。 |
 | `learning.inference` | independent | P2 | active | 2026-07-10 | 从 Transformers baseline 进入 vLLM 源码调试；框架学习尚未形成已验证的端到端修改实验。 |
 | `skills.mcp` | supporting | P2 | active | 2026-07-18T16:41:09Z | 完成 PersonalOS 仓库迁移对齐：GitHub 已将项目从 QcRoaming/PersonalOS-v1 重命名为 QcRoaming/PersonalOS，origin、ROUTES、README、START_HERE、AGENTS 与便携 Skill 均已更新到新权威地址。 |
 | `markets.ai_infrastructure` | independent | P3 | paused | 2026-07-10 | 已完成 AI → 存储 → 半导体 → 光模块/CPO → 电力与基础设施的初步讨论；当前没有明确持续任务，支线暂停。 |
